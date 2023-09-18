@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "scheme": "fe-safetrakr",
+    "web": {
+      "bundler": "metro"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "name": "fe-safetrakr",
+    "slug": "fe-safetrakr"
+  }
+}
