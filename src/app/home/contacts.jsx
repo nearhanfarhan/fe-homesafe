@@ -1,11 +1,18 @@
-import { Text } from "react-native";
 import { Redirect } from "expo-router";
+import { View, Text } from "react-native";
 import { auth } from "../../firebase";
+import AddContact from "../../components/contacts/AddContact"
+import ContactList from "../../components/contacts/ContactList";
 
 export default function ContactsPage() {
   if (!auth.currentUser) {
     return <Redirect href="/login" />;
   }
 
-  return <Text>Contacts Page</Text>;
+  return (
+    <View>
+      <ContactList />
+      <AddContact />
+    </View>
+  );
 }

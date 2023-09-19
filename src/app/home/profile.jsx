@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Redirect, router } from "expo-router";
 import { auth } from "../../firebase";
 
-export default function HomePage() {
+export default function Profile() {
   if (!auth.currentUser) {
     return <Redirect href="/login" />;
   }
@@ -23,7 +23,10 @@ export default function HomePage() {
       {
         auth.currentUser ? (
           <View>
-            <Text>Home Page</Text>
+            <Text>Logged in as: {auth.currentUser?.email}</Text>
+            <TouchableOpacity onPress={handleLogOut} style={styles.button}>
+              <Text style={styles.buttonText}> Sign Out</Text>
+            </TouchableOpacity>
           </View>
         ) : ( <></> )
       }
