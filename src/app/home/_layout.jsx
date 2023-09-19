@@ -4,46 +4,52 @@
 
 import { Slot, Tabs } from 'expo-router';
 import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { auth } from '../../firebase';
 
 export default function AppLayout() {
     return (
-        <Tabs  screenOptions={{ headerShown: false }}>
-          <Tabs.Screen
-            name="index"
-            options={{
-              href: "/home",
-              tabBarLabel: "Home",
-              tabBarIcon: ({ color }) => (
-                <FontAwesome
-                  size={28}
-                  style={{ marginBottom: -3 }}
-                  name="home"
-                  color={color}
-                />
-              )
-            }}
-          />
-          <Tabs.Screen
-            name="contacts"
-            options={{
-              href: "/home/contacts",
-              tabBarLabel: "Contacts",
-              tabBarIcon: ({ color }) => (
-                <FontAwesome
-                  size={28}
-                  style={{ marginBottom: -3 }}
-                  name="users"
-                  color={color}
-                />
-              )
-            }}
-          />
-          <Tabs.Screen
-            name="profile"
-            options={{
-              href: null
-            }}
-          />
-        </Tabs>
+        <>
+          <Tabs screenOptions={{ headerShown: true }}>
+            <Tabs.Screen
+              name="index"
+              options={{
+                href: "/home",
+                tabBarLabel: "Home",
+                headerTitle: `Welcome ${auth.currentUser?.displayName ?? ""}`,
+                tabBarIcon: ({ color }) => (
+                  <FontAwesome
+                    size={28}
+                    style={{ marginBottom: -3 }}
+                    name="home"
+                    color={color}
+                  />
+                )
+              }}
+            />
+            <Tabs.Screen
+              name="contacts"
+              options={{
+                href: "/home/contacts",
+                tabBarLabel: "Contacts",
+                headerTitle: "Contacts",
+                tabBarIcon: ({ color }) => (
+                  <FontAwesome
+                    size={28}
+                    style={{ marginBottom: -3 }}
+                    name="users"
+                    color={color}
+                  />
+                )
+              }}
+            />
+            <Tabs.Screen
+              name="profile"
+              options={{
+                href: null,
+                headerTitle: `Profile`
+              }}
+            />
+          </Tabs>
+        </>
       );
 }

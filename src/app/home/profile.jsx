@@ -1,4 +1,5 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, StyleSheet, TouchableOpacity } from "react-native";
+import { Text } from "@rneui/base";
 import { Redirect, router } from "expo-router";
 import { auth } from "../../firebase";
 
@@ -19,22 +20,28 @@ export default function Profile() {
   };
 
   return (
-    <View style={styles.container}>
-      {
-        auth.currentUser ? (
-          <View>
-            <Text>Logged in as: {auth.currentUser?.email}</Text>
-            <TouchableOpacity onPress={handleLogOut} style={styles.button}>
-              <Text style={styles.buttonText}> Sign Out</Text>
-            </TouchableOpacity>
-          </View>
-        ) : ( <></> )
-      }
-    </View>
+    <>
+      <View style={styles.container}>
+        
+        {
+          auth.currentUser ? (
+            <View>
+              <Text>Logged in as: {auth.currentUser?.email}</Text>
+              <TouchableOpacity onPress={handleLogOut} style={styles.button}>
+                <Text style={styles.buttonText}> Sign Out</Text>
+              </TouchableOpacity>
+            </View>
+          ) : ( <></> )
+        }
+      </View>
+    </>
   );
 }
 
 const styles = StyleSheet.create({
+  heading: {
+    justifyContent: "center"
+  },
   container: {
     flex: 1,
     justifyContent: "center",
