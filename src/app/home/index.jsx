@@ -1,8 +1,13 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Redirect, router } from "expo-router";
 import { auth } from "../../firebase";
+import { useContext } from "react";
+import { UserContext } from "../../services/userContext";
 
 export default function HomePage() {
+
+  const user = useContext(UserContext)
+
   if (!auth.currentUser) {
     return <Redirect href="/login" />;
   }
@@ -24,6 +29,7 @@ export default function HomePage() {
         auth.currentUser ? (
           <View>
             <Text>Logged in as: {auth.currentUser?.email}</Text>
+            <Text>Current context: {user?.email}</Text>
             <TouchableOpacity onPress={handleLogOut} style={styles.button}>
               <Text style={styles.buttonText}> Sign Out</Text>
             </TouchableOpacity>

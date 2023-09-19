@@ -7,10 +7,11 @@ import * as firebase from "firebase/compat";
 const firebaseConfig = {
   apiKey: "AIzaSyAXpehquwvY48W232N-6pWnB9rHCrioAYc",
   authDomain: "safetrakr.firebaseapp.com",
+  databaseURL: "https://safetrakr-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "safetrakr",
   storageBucket: "safetrakr.appspot.com",
   messagingSenderId: "121636285468",
-  appId: "1:121636285468:web:f0c099fc48a77e989703d9",
+  appId: "1:121636285468:web:f0c099fc48a77e989703d9"
 };
 
 // Initialize Firebase
@@ -23,4 +24,8 @@ if (firebase.apps.length === 0) {
 
 const auth = firebase.auth();
 
-export { auth };
+
+
+const database = firebase.database();
+
+export { auth, database };

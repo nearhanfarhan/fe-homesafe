@@ -3,11 +3,14 @@
 // https://docs.expo.dev/router/advanced/root-layout/
 
 import { Slot } from 'expo-router';
+import { UserProvider } from '../services/userContext';
 
 export default function RootLayout() {
   return (
     <>
+    <UserProvider>
         <Slot />
+    </UserProvider>
     </>
   );
 }

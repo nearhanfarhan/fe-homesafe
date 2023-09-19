@@ -7,7 +7,7 @@ import {
   View,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { auth } from "../firebase";
+import { auth, database } from "../firebase";
 import { router } from 'expo-router';
 
 const RegisterScreen = () => {
@@ -26,9 +26,13 @@ const RegisterScreen = () => {
   const handleRegister = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then((userCredentials) => {
-        const user = userCredentials.user;
-        console.log(user.email);
+      .then((userCredential) => {
+        const user = userCredential.user;
+        const uid = user.uid
+        const userRef = database.ref(`users/${uid}`)
+        return userRef.set({email: user.email}) })
+        .then(() => {
+        console.log(`user added to the database`);
         setEmail("");
         setPassword("");
       })
