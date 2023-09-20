@@ -7,13 +7,17 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
-import { router, Link } from 'expo-router';
+import { router, Link } from "expo-router";
+
+import { getUserById } from "../services/api";
+import { UserContext } from "../services/userContext";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -27,12 +31,20 @@ const LoginScreen = () => {
   const handleLogin = () => {
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(async (userCredentials) => {
+      .then(async (userCredential) => {
+        setUser(userCredential);
         // id token can be fetched like this
-        const jwtToken = await userCredentials.user?.getIdToken();
-        console.log(jwtToken);
-        const user = userCredentials.user;
-        console.log("Logged in as", user.email);
+        const jwtToken = await userCredential.user?.getIdToken();
+        // console.log(jwtToken);
+        // console.log("Logged in as", userCredential.user.uid);
+        return getUserById(userCredential);
+      })
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log("in snapshot", snapshot.val().email);
+        } else {
+          console.log("no data available");
+        }
         setEmail("");
         setPassword("");
       })

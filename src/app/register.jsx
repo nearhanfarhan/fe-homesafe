@@ -6,14 +6,18 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import React, { useEffect, useState } from "react";
-import { auth, database } from "../firebase";
+import React, { useContext, useEffect, useState } from "react";
+import { auth} from "../firebase";
 import { router } from 'expo-router';
+
+import { postUserOnRegistration } from "../services/api";
+import { UserContext } from "../services/userContext";
+
 
 const RegisterScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const {user, setUser} = useContext(UserContext)
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
@@ -27,10 +31,10 @@ const RegisterScreen = () => {
     auth
       .createUserWithEmailAndPassword(email, password)
       .then((userCredential) => {
-        const user = userCredential.user;
-        const uid = user.uid
-        const userRef = database.ref(`users/${uid}`)
-        return userRef.set({email: user.email}) })
+        setUser(userCredential)
+        return postUserOnRegistration(userCredential)})
+        // const userRef = database.ref(`users/${uid}`)
+        // return userRef.set({email: user.email}) })
         .then(() => {
         console.log(`user added to the database`);
         setEmail("");

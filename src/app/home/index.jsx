@@ -3,10 +3,12 @@ import { Redirect, router } from "expo-router";
 import { auth } from "../../firebase";
 import { useContext } from "react";
 import { UserContext } from "../../services/userContext";
+import { addContact } from "../../services/api";
 
 export default function HomePage() {
 
-  const user = useContext(UserContext)
+  const {user} = useContext(UserContext)
+  console.log(user?.user.email)
 
   if (!auth.currentUser) {
     return <Redirect href="/login" />;
@@ -23,13 +25,20 @@ export default function HomePage() {
       });
   };
 
+  const handleAddContact = () => {
+    addContact(user).then(() => console.log("contact added successfully")).catch((err) => console.log("error occurred adding contact", err))
+  }
+
   return (
     <View style={styles.container}>
       {
         auth.currentUser ? (
           <View>
             <Text>Logged in as: {auth.currentUser?.email}</Text>
-            <Text>Current context: {user?.email}</Text>
+            <Text>Current context: {user?.user.email}</Text>
+            <TouchableOpacity onPress={handleAddContact} style={styles.button}>
+            <Text style={styles.buttonText}> Click to add contact to db</Text>
+            </TouchableOpacity>
             <TouchableOpacity onPress={handleLogOut} style={styles.button}>
               <Text style={styles.buttonText}> Sign Out</Text>
             </TouchableOpacity>
