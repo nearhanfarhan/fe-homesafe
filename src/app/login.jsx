@@ -2,18 +2,30 @@ import {
   KeyboardAvoidingView,
   Pressable,
   StyleSheet,
-  Text,
-  TextInput,
-  TouchableOpacity,
   View,
+  Text
 } from "react-native";
-import { useEffect, useState } from "react";
+import { Button, Input } from "@rneui/base";
+import { useEffect } from "react";
 import { auth } from "../firebase";
 import { router, Link } from 'expo-router';
+import { Formik } from 'formik';
+import * as yup from 'yup'
+
+const loginValidationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .required('Email Address is Required'),
+  password: yup
+    .string()
+    .required('Password is required'),
+})
 
 const LoginScreen = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const initialValues = {
+    email: '',
+    password: ''
+  };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -24,17 +36,19 @@ const LoginScreen = () => {
     return unsubscribe;
   }, []);
 
-  const handleLogin = () => {
+  const goToRegisterPage = () => {
+    router.push("/register");
+  }
+
+  const handleLogin = (values) => {
     auth
-      .signInWithEmailAndPassword(email, password)
+      .signInWithEmailAndPassword(values.email, values.password)
       .then(async (userCredentials) => {
         // id token can be fetched like this
         const jwtToken = await userCredentials.user?.getIdToken();
         console.log(jwtToken);
         const user = userCredentials.user;
         console.log("Logged in as", user.email);
-        setEmail("");
-        setPassword("");
       })
       .catch((err) => {
         alert(err.message);
@@ -44,31 +58,57 @@ const LoginScreen = () => {
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Email"
-          value={email}
-          onChangeText={(text) => setEmail(text)}
-          style={styles.input}
-        />
-        <TextInput
-          placeholder="Password"
-          value={password}
-          onChangeText={(text) => setPassword(text)}
-          style={styles.input}
-          secureTextEntry
-        />
-      </View>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity onPress={handleLogin} style={styles.buttonText}>
-          <Text style={styles.buttonText}>Login</Text>
-        </TouchableOpacity>
-      </View>
-      <View>
-        <Link style={styles.buttonContainer} href="/register" asChild>
-          <Pressable>
-            <Text style={styles.buttonText}>Register</Text>
-          </Pressable>
-        </Link>
+      <Formik
+            validationSchema={loginValidationSchema}
+            initialValues={initialValues}
+            onSubmit={handleLogin}
+          >
+            {({
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              values,
+              errors,
+              touched,
+              isValid,
+            }) => (
+              <View>
+                <Input
+                  placeholder="Email Address"
+                  value={values.email}
+                  onChangeText={handleChange('email')}
+                  onBlur={handleBlur('email')}
+                  name="email"
+                  errorStyle={errors.email && touched.email ? { color: 'red' } : {}}
+                  errorMessage={errors.email && touched.email ? errors.email : ''}
+                />
+                <Input
+                  placeholder="Password"
+                  value={values.password}
+                  onChangeText={handleChange('password')}
+                  onBlur={handleBlur('password')}
+                  name="password"
+                  errorStyle={errors.password && touched.password ? { color: 'red' } : {}}
+                  errorMessage={errors.password && touched.password ? errors.password : ''}
+                  secureTextEntry
+                />
+
+                <Button
+                  onPress={handleSubmit}
+                  title="Login"
+                  disabled={!isValid || values.email === ''}
+                  containerStyle={styles.button}
+                />
+
+                <Button 
+                  onPress={goToRegisterPage} 
+                  title="Register"
+                  containerStyle={styles.button}
+                />
+              </View>
+            )}
+          </Formik>
+          
       </View>
     </KeyboardAvoidingView>
   );
@@ -78,44 +118,15 @@ export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    marginTop: 50,
     justifyContent: "center",
     alignItems: "center",
   },
   inputContainer: {
-    width: "80%",
-  },
-  input: {
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginTop: 5,
-  },
-  buttonContainer: {
-    width: "60%",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 40,
+    width: "100%",
+    padding: 30
   },
   button: {
-    backgroundColor: "blue",
-    width: "100%",
-    padding: 15,
-  },
-  // buttonOutline: {
-  //   backgroundColor: "white",
-  //   marginTop: 5,
-  //   borderColor: "blue",
-  //   borderWidth: 2,
-  // },
-  // buttonText: {
-  //   color: "white",
-  //   fontWeight: 700,
-  //   fontSize: 16,
-  // },
-  // buttonOutlineText: {
-  //   color: "blue",
-  //   fontWeight: 700,
-  //   fontSize: 16,
-  // },
+    margin: 10
+  }
 });
