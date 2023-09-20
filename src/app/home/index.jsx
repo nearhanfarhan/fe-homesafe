@@ -1,6 +1,15 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, ScrollView, TextInput, Button, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Redirect, router } from "expo-router";
 import { auth } from "../../firebase";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'expo-router';
+// import axios from 'axios';
+import { Picker } from '@react-native-picker/picker';
+import styles from "../../styles/Homepage.styles";
+import HomepageButtons from "../../components/homepage/HomepageButtons";
+import MapHP from "../../components/homepage/MapHP";
+import PickerHP from "../../components/homepage/PickerHP";
+import CurrentLocation from "../../components/homepage/CurrentLocation";
 
 export default function HomePage() {
   if (!auth.currentUser) {
@@ -18,50 +27,17 @@ export default function HomePage() {
       });
   };
 
-  return (
-    <View style={styles.container}>
-    </View>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  inputContainer: {
-    width: "80%",
-  },
-  input: {
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginTop: 5,
-  },
-  buttonContainer: {
-    width: "60%",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 40,
-  },
-  button: {
-    backgroundColor: "blue",
-    width: "100%",
-    padding: 15,
-  },
-  buttonOutline: {
-    backgroundColor: "white",
-    marginTop: 5,
-    borderColor: "blue",
-    borderWidth: 2,
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 16,
-  },
-  buttonOutlineText: {
-    color: "blue",
-    fontSize: 16,
-  },
-});
+      const router = useRouter();
+      if (!auth.currentUser) {
+          return <Redirect href="/login" />;
+        }
+  
+        return (
+        <ScrollView style={styles.container}>
+      <PickerHP />
+       <MapHP />
+       <HomepageButtons />
+        <View style={styles.extraSpace}></View>
+      </ScrollView>
+  )}
+      

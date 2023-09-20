@@ -54,6 +54,13 @@ export default function AppLayout() {
                 headerTitle: `Profile`
               }}
             />
+            <Tabs.Screen
+              name="SavedLocations"
+              options={{
+                href: '/home/SavedLocations',
+                tabBarLabel: 'Saved'
+              }}
+            />
           </Tabs>
         </>
       );
