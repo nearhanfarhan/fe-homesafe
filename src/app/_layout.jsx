@@ -5,6 +5,7 @@
 import { Slot, View } from 'expo-router';
 import { ThemeProvider, createTheme } from '@rneui/themed';
 import Header from '../components/Header';
+import { UserProvider } from '../services/userContext';
 
 const theme = createTheme({
   lightColors: {
@@ -18,9 +19,11 @@ const theme = createTheme({
 
 export default function RootLayout() {
   return (
+    <UserProvider>
     <ThemeProvider theme={theme}>
       <Header />
       <Slot />
     </ThemeProvider>
+    </UserProvider>
   );
 }

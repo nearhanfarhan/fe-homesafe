@@ -7,13 +7,15 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
-import { router, Link } from 'expo-router';
+import { router, Link } from "expo-router";
+import { UserContext } from "../services/userContext";
 
 const LoginScreen = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { currentUser, setCurrentUser } = useContext(UserContext);
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -25,16 +27,17 @@ const LoginScreen = () => {
   }, []);
 
   const handleLogin = () => {
+    let user;
     auth
       .signInWithEmailAndPassword(email, password)
       .then(async (userCredentials) => {
         // id token can be fetched like this
-        const jwtToken = await userCredentials.user?.getIdToken();
-        console.log(jwtToken);
-        const user = userCredentials.user;
-        console.log("Logged in as", user.email);
-        setEmail("");
-        setPassword("");
+        user = userCredentials.user;
+        const jwtToken = await userCredentials.user?.getIdToken().then(() => {
+          setCurrentUser(user);
+          setEmail("");
+          setPassword("");
+        });
       })
       .catch((err) => {
         alert(err.message);
