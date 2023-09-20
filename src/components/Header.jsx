@@ -2,7 +2,10 @@ import { StyleSheet, View } from "react-native";
 import { Header as HeaderRNE, Icon } from '@rneui/themed';
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { router } from 'expo-router';
-import { auth } from "../firebase";
+
+const goToProfile = () => {
+    router.replace('/home/profile');
+}
 
 const Header = () => {
     return (
@@ -16,7 +19,7 @@ const Header = () => {
             }
             rightComponent={
                 <View style={styles.headerRight}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={goToProfile}>
                         <Icon type="material" name="account-circle" color="white" size={32} />
                     </TouchableOpacity>
                 </View>

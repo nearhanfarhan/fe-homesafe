@@ -20,13 +20,6 @@ export default function HomePage() {
 
   return (
     <View style={styles.container}>
-      {
-        auth.currentUser ? (
-          <View>
-            <Text>Home Page</Text>
-          </View>
-        ) : ( <></> )
-      }
     </View>
   );
 }
