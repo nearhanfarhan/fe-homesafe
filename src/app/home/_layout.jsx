@@ -5,8 +5,13 @@
 import { Slot, Tabs } from 'expo-router';
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { auth } from '../../firebase';
+import { UserContext } from '../../services/userContext';
+import { useContext } from 'react';
 
 export default function AppLayout() {
+
+  const {currentUser} = useContext(UserContext)
+
     return (
         <>
           <Tabs screenOptions={{ headerShown: true }}>
@@ -15,7 +20,7 @@ export default function AppLayout() {
               options={{
                 href: "/home",
                 tabBarLabel: "Home",
-                headerTitle: `Welcome ${auth.currentUser?.displayName ?? ""}`,
+                headerTitle: `Welcome ${currentUser?.displayName}`,
                 tabBarIcon: ({ color }) => (
                   <FontAwesome
                     size={28}

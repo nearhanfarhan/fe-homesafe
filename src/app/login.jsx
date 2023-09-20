@@ -5,12 +5,19 @@ import {
   View,
   Text
 } from "react-native";
-import { Button, Input } from "@rneui/base";
-import { useEffect } from "react";
+
+import { useContext, useEffect, useState } from "react";
 import { auth } from "../firebase";
-import { router, Link } from 'expo-router';
+import { router, Link } from "expo-router";
+import { UserContext } from "../services/userContext";
+import { Button, Input } from "@rneui/base";
 import { Formik } from 'formik';
 import * as yup from 'yup'
+
+const LoginScreen = () => {
+
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
 
 const loginValidationSchema = yup.object().shape({
   email: yup
@@ -21,11 +28,11 @@ const loginValidationSchema = yup.object().shape({
     .required('Password is required'),
 })
 
-const LoginScreen = () => {
   const initialValues = {
     email: '',
     password: ''
   };
+
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -36,19 +43,26 @@ const LoginScreen = () => {
     return unsubscribe;
   }, []);
 
+
   const goToRegisterPage = () => {
     router.push("/register");
   }
 
   const handleLogin = (values) => {
+
+     let user;
     auth
       .signInWithEmailAndPassword(values.email, values.password)
       .then(async (userCredentials) => {
         // id token can be fetched like this
-        const jwtToken = await userCredentials.user?.getIdToken();
-        console.log(jwtToken);
-        const user = userCredentials.user;
-        console.log("Logged in as", user.email);
+
+        user = userCredentials.user;
+        const jwtToken = await userCredentials.user?.getIdToken().then(() => {
+          setCurrentUser(user);
+          setEmail("");
+          setPassword("");
+        });
+
       })
       .catch((err) => {
         alert(err.message);
