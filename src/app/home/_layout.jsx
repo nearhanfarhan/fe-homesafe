@@ -44,6 +44,13 @@ export default function AppLayout() {
               href: null
             }}
           />
+          <Tabs.Screen
+            name="SavedLocations"
+            options={{
+              href: '/home/SavedLocations',
+              tabBarLabel: 'Saved'
+            }}
+          />
         </Tabs>
       );
 }
