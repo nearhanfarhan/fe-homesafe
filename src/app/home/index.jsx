@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { Redirect, router } from "expo-router";
 import { auth } from "../../firebase";
-import { TrackMyJourney } from "../../utils/TrackMyJounrey";
+import { TrackMyJourney } from "../../components/TrackMyJourney";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useState, useEffect } from 'react';
 
@@ -30,9 +30,6 @@ export default function HomePage() {
         auth.currentUser ? (
           <View>
             <Text>Home Page</Text>
-            {/* <TouchableOpacity onPress={handleTracking}>
-              <Text>Start Tracking</Text>
-              </TouchableOpacity> */}
               <TrackMyJourney contactInfo={contactInfo} destCoords={destCoords}/>
           </View>
         ) : ( <></> )

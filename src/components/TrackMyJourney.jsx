@@ -20,8 +20,8 @@ TaskManager.defineTask(GEOFENCING_TASK, ({ data: { eventType }, error }) => {
 
 export const TrackMyJourney = ({contactInfo, destCoords}) => {
   const [hasArrived, setHasArrived] = useState(false);
+  const [startPolling, setStartPolling] = useState(false)
 
-  // const mobileNumber = contactMobile;
   const user = 'David';
   const destination = destCoords.identifier;
   const smsBody = `${user} has reached their destination - ${destination}`;
@@ -40,6 +40,7 @@ export const TrackMyJourney = ({contactInfo, destCoords}) => {
   const handleTracking = () => {
     Location.requestForegroundPermissionsAsync()
     .then(({ status }) => {
+      console.log('foreground')
       if (status !== 'granted') {
         console.log('Foreground permission denied');
         return;
@@ -47,31 +48,39 @@ export const TrackMyJourney = ({contactInfo, destCoords}) => {
       return Location.requestBackgroundPermissionsAsync();
     })
     .then(({ status }) => {
+      console.log('location')
       if (status !== 'granted') {
         console.log('Background permission denied');
         return;
       }
       return Location.startGeofencingAsync(GEOFENCING_TASK, [
         destCoords
-      ]);
+      ])
+      .then(() => {
+        setStartPolling(true)
+      })
     })
     .catch((error) => {
       console.error('Error:', error);
     });
   };
 
-  const checkData = () => {
-    AsyncStorage.getItem('asyncHasArrived')
-    .then((data)=>{
-      console.log(1);
-      if (data === 'true'){
-        console.log(2)
-        setHasArrived(true)
-      }
-    })
-  }  
-
-  checkData();
+  useEffect(() => {
+    if(startPolling) {
+    const interval = setInterval(() => {
+      AsyncStorage.getItem('asyncHasArrived')
+        .then((data) => {
+          console.log(1)
+          if (data === 'true') {
+            setHasArrived(true);
+          }
+        })
+        .catch((error) => console.error('Error:', error));
+    }, 5000)
+    return () => clearInterval(interval);
+    }
+    
+  }, [startPolling]);
 
   useEffect(() => {
     if (hasArrived) {
@@ -85,7 +94,6 @@ export const TrackMyJourney = ({contactInfo, destCoords}) => {
     }
   }, [hasArrived]);
 
-  // return hasArrived;
   return (
     <>
     <TouchableOpacity onPress={handleTracking}>
