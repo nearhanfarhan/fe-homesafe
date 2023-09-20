@@ -1,20 +1,33 @@
 import { useState, useEffect } from 'react';
-import { Alert } from 'react-native';
+import { Alert, TouchableOpacity, Text } from 'react-native';
 import { GeofencingEventType } from 'expo-location';
 import * as Location from 'expo-location';
 import * as TaskManager from 'expo-task-manager';
 import * as SMS from 'expo-sms';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const TrackMyJourney = () => {
+const GEOFENCING_TASK = 'GeofencingTask';
+
+TaskManager.defineTask(GEOFENCING_TASK, ({ data: { eventType }, error }) => {
+  if (error) {
+    console.error('Geofencing error:', error);
+    return;
+  }
+  if (eventType === GeofencingEventType.Enter) {
+    AsyncStorage.setItem('asyncHasArrived', 'true');
+  }
+});
+
+export const TrackMyJourney = ({contactInfo, destCoords}) => {
   const [hasArrived, setHasArrived] = useState(false);
 
-  const mobileNumber = '55555555555';
+  // const mobileNumber = contactMobile;
   const user = 'David';
-  const destination = 'Home';
+  const destination = destCoords.identifier;
   const smsBody = `${user} has reached their destination - ${destination}`;
 
   const sendSMS = () => {
-    SMS.sendSMSAsync([mobileNumber], smsBody)
+    SMS.sendSMSAsync([contactInfo], smsBody)
     .then(({ result }) => {
       if (result === 'cancelled') {
         Alert.alert('SMS not sent');
@@ -24,17 +37,7 @@ export const TrackMyJourney = () => {
     });
   };
 
-  TaskManager.defineTask(GEOFENCING_TASK, ({ data: { eventType }, error }) => {
-    if (error) {
-      console.error('Geofencing error:', error);
-      return;
-    }
-    if (eventType === GeofencingEventType.Enter) {
-      setHasArrived(true);
-    }
-  });
-
-  useEffect(() => {
+  const handleTracking = () => {
     Location.requestForegroundPermissionsAsync()
     .then(({ status }) => {
       if (status !== 'granted') {
@@ -49,20 +52,46 @@ export const TrackMyJourney = () => {
         return;
       }
       return Location.startGeofencingAsync(GEOFENCING_TASK, [
-        { identifier: 'home', latitude: 51.468100, longitude: -0.187800, radius: 5000 }
+        destCoords
       ]);
     })
     .catch((error) => {
       console.error('Error:', error);
     });
-  }, []);
+  };
+
+  const checkData = () => {
+    AsyncStorage.getItem('asyncHasArrived')
+    .then((data)=>{
+      console.log(1);
+      if (data === 'true'){
+        console.log(2)
+        setHasArrived(true)
+      }
+    })
+  }  
+
+  checkData();
 
   useEffect(() => {
     if (hasArrived) {
+      console.log(3)
       sendSMS();
-      setHasArrived(false);
+      AsyncStorage.setItem('asyncHasArrived', 'false')
+      .then(()=>{
+        console.log(4);
+        setHasArrived(false);
+      })
     }
   }, [hasArrived]);
 
-  return hasArrived;
+  // return hasArrived;
+  return (
+    <>
+    <TouchableOpacity onPress={handleTracking}>
+      <Text>Start Tracking</Text>
+    </TouchableOpacity>
+    </>
+  )
 };
+
