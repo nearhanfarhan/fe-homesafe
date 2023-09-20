@@ -1,14 +1,16 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Redirect } from "expo-router";
 import { ScrollView } from "react-native";
 import { auth } from "../../firebase";
 import AddContact from "../../components/contacts/AddContact"
 import ContactList from "../../components/contacts/ContactList";
+import { UserContext } from "../../services/userContext";
 
 export default function ContactsPage() {
   if (!auth.currentUser) {
     return <Redirect href="/login" />;
   }
+  const {currentUser} = useContext(UserContext)
 
   const [contacts, setContacts] = useState([]);
 

@@ -59,8 +59,6 @@ const loginValidationSchema = yup.object().shape({
         user = userCredentials.user;
         const jwtToken = await userCredentials.user?.getIdToken().then(() => {
           setCurrentUser(user);
-          setEmail("");
-          setPassword("");
         });
 
       })

@@ -5,6 +5,7 @@ import {
   get,
   child,
   update,
+  push,
   remove,
 } from "firebase/database";
 
@@ -22,11 +23,7 @@ export const getUserById = (userCredential) => {
   return get(child(ref(database), `users/${user.uid}`));
 };
 
-export const addContact = (userCredential) => {
-  const user = userCredential.user;
+export const addContactToUser = (user, contact) => {
   const uid = user.uid;
-  return update(ref(database, `users/${uid}/contacts`), {
-    name: "mum",
-    number: "07805443654",
-  });
+  return set(push(ref(database, `users/${uid}/contacts`)), {name: contact.name, telNo: contact.telNo});
 };
