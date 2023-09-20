@@ -12,11 +12,17 @@ import {
 const database = getDatabase();
 
 export const postUserOnRegistration = (user) => {
-  set(ref(database, `users/${user.uid}`), {
+    const uid = user.uid
+  set(ref(database, `users/${uid}`), {
     email: user.email,
     name: user.displayName,
   })
 };
+
+export const getUserContacts = (user) => {
+    const uid = user.uid
+    return get(child(ref(database), `users/${uid}/contacts`))
+}
 
 export const getUserById = (userCredential) => {
   const user = userCredential.user;
