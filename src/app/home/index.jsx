@@ -8,8 +8,9 @@ import { Picker } from '@react-native-picker/picker';
 import styles from "../../styles/Homepage.styles";
 import HomepageButtons from "../../components/homepage/HomepageButtons";
 import MapHP from "../../components/homepage/MapHP";
-import PickerHP from "../../components/homepage/PickerHP";
-import CurrentLocation from "../../components/homepage/CurrentLocation";
+import DestinationPicker from "../../components/homepage/DestinationPicker";
+import ContactsPicker from "../../components/homepage/ContactsPicker";
+
 
 export default function HomePage() {
   if (!auth.currentUser) {
@@ -33,11 +34,12 @@ export default function HomePage() {
         }
   
         return (
-        <ScrollView style={styles.container}>
-      <PickerHP />
+        <View style={styles.container}>
+        <ContactsPicker />
+      <DestinationPicker />
        <MapHP />
        <HomepageButtons />
         <View style={styles.extraSpace}></View>
-      </ScrollView>
+      </View>
   )}
       

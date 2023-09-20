@@ -14,8 +14,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 1,
         borderRadius: 10,
-        marginTop: 40,
-        marginBottom: -20,
+        marginTop: 10,
+        marginBottom: 10,
         paddingLeft: 10,
         paddingVertical: 20,
         alignSelf: 'center',
@@ -31,8 +31,18 @@ const styles = StyleSheet.create({
         textAlign: "center",
         borderRadius: 5,
       },
-      picker: {
-        marginTop: -40
+      suggestion: {
+        minWidth: 300,
+        alignSelf: 'center',
+        padding: 10,
+        fontSize: 16,
+        borderBottomWidth: 1,
+        borderColor: "#ccc",
+        borderWidth: 1,
+        borderRadius: 7
+      },
+      dropdown: {
+        maxHeight: 100,
       },
       buttonText: {
         color: 'white',
