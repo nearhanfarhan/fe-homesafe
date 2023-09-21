@@ -52,7 +52,10 @@ const LoginScreen = () => {
       .signInWithEmailAndPassword(values.email, values.password)
       .then(async (userCredentials) => {
         user = userCredentials.user;
-        setCurrentUser(user);
+        const jwtToken = await userCredentials.user?.getIdToken().then(() => {
+          setCurrentUser(user);
+        });
+
       })
       .catch((err) => {
         alert(err.message);

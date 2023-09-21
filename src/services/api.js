@@ -5,31 +5,53 @@ import {
   get,
   child,
   update,
+  push,
   remove,
 } from "firebase/database";
 
 const database = getDatabase();
 
 export const postUserOnRegistration = (user) => {
-  set(ref(database, `users/${user.uid}`), {
+  const uid = user.uid;
+  set(ref(database, `users/${uid}`), {
     email: user.email,
     name: user.displayName,
   });
 };
 
-export const getUserById = (userCredential) => {
-  const user = userCredential.user;
-  return get(child(ref(database), `users/${user.uid}`));
+export const getUserContacts = (user) => {
+  const uid = user.uid;
+  return get(child(ref(database), `users/${uid}/contacts`));
 };
 
-export const addContact = (userCredential) => {
-  const user = userCredential.user;
+export const addContactToUser = (user, contact) => {
   const uid = user.uid;
-  return update(ref(database, `users/${uid}/contacts`), {
-    name: "mum",
-    number: "07805443654",
+  return set(push(ref(database, `users/${uid}/contacts`)), {
+    name: contact.name,
+    telNo: contact.telNo,
   });
 };
+
+export const removeContactFromUser = (user, contact_id) => {
+  const uid = user.uid;
+  return remove(ref(database, `users/${uid}/contacts/${contact_id}`));
+};
+
+export const returnUpdatedContactList = (user, setContacts) => {
+  return getUserContacts(user).then((snapshot) => {
+    if (snapshot.exists()) {
+      const contactsData = snapshot.val();
+      const valuesArray = Object.keys(contactsData).map((key) => ({
+        id: key,
+        ...contactsData[key],
+      }));
+      setContacts(valuesArray);
+    } else {
+      setContacts([]);
+    }
+  });
+};
+
 
 export const searchLocations = (query) => {
   // need api to search location
@@ -69,3 +91,11 @@ export const searchLocations = (query) => {
     location.identifier.includes(query.toLowerCase())
   );
 };
+
+/* not currently being used
+export const getUserById = (userCredential) => {
+  const user = userCredential.user;
+  return get(child(ref(database), `users/${user.uid}`));
+};
+*/
+

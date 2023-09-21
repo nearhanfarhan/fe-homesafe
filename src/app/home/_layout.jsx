@@ -20,7 +20,8 @@ export default function AppLayout() {
               options={{
                 href: "/home",
                 tabBarLabel: "Home",
-                headerTitle: `Welcome ${currentUser?.displayName ?? ""}`,
+                headerTitle: `Welcome ${currentUser? (currentUser.displayName): ("!")}`,
+
                 tabBarIcon: ({ color }) => (
                   <FontAwesome
                     size={28}
