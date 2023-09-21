@@ -4,18 +4,15 @@ import styles from "../../styles/Homepage.styles";
 import { Redirect, router } from "expo-router";
 import { Button } from "@rneui/base";
 
-export default function HomepageButtons () {
-
+export default function StartStopTracking ({selectedDestination}) {
     const [isTracking, setIsTracking] = useState(false); 
-
-
-        const handleStart = () => {
-            setIsTracking(!isTracking)
-            // ... logic for tracking
-        }
-
-
-  
+    const handleStart = () => {
+        setIsTracking(!isTracking)
+        // ... logic for tracking
+        // if tracking is started
+        // use selected destination to trigger text when reached
+        console.log(selectedDestination);
+    }
 
 return (
     <View style={styles.buttonContainer}>
@@ -27,5 +24,5 @@ return (
           {isTracking ? 'Stop' : 'Start'}
         </Text>
       </Button>
-        </View>
+    </View>
 )}
