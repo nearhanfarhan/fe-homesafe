@@ -7,6 +7,7 @@ import StartStopTracking from "../../components/homepage/StartStopTracking";
 import MapHP from "../../components/homepage/MapHP";
 import SearchLocation from "../../components/homepage/SearchLocation";
 import SearchContacts  from "../../components/homepage/SearchContacts";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
 
 export default function HomePage() {
   if (!auth.currentUser) {
