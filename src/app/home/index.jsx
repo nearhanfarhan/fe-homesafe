@@ -1,67 +1,34 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Redirect, router } from "expo-router";
+import { useState } from "react";
+import { View, SafeAreaView } from "react-native";
+import { Redirect } from "expo-router";
 import { auth } from "../../firebase";
+import styles from "../../styles/Homepage.styles";
+import StartStopTracking from "../../components/homepage/StartStopTracking";
+import MapHP from "../../components/homepage/MapHP";
+import SearchLocation from "../../components/homepage/SearchLocation";
+import CurrentLocation from "../../components/homepage/CurrentLocation";
 
 export default function HomePage() {
   if (!auth.currentUser) {
     return <Redirect href="/login" />;
   }
-
-  const handleLogOut = () => {
-    auth
-      .signOut()
-      .then(() => {
-        router.replace("/login");
-      })
-      .catch((err) => {
-        alert(err.message);
-      });
-  };
+  const [selectedDestination, setSelectedDestination] = useState(null);
+  const [query, setQuery] = useState('');
+  const [locations, setLocations] = useState([]);
 
   return (
-    <View style={styles.container}>
-    </View>
-  );
+    <SafeAreaView style={styles.container}>
+      <SearchLocation 
+        selectedDestination={selectedDestination} 
+        setSelectedDestination={setSelectedDestination}
+        query={query}
+        setQuery={setQuery}
+        locations={locations}
+        setLocations={setLocations} />
+      <MapHP />
+      <StartStopTracking selectedDestination={selectedDestination} />
+      <View style={styles.extraSpace}></View>
+    </SafeAreaView>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  inputContainer: {
-    width: "80%",
-  },
-  input: {
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 10,
-    marginTop: 5,
-  },
-  buttonContainer: {
-    width: "60%",
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 40,
-  },
-  button: {
-    backgroundColor: "blue",
-    width: "100%",
-    padding: 15,
-  },
-  buttonOutline: {
-    backgroundColor: "white",
-    marginTop: 5,
-    borderColor: "blue",
-    borderWidth: 2,
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 16,
-  },
-  buttonOutlineText: {
-    color: "blue",
-    fontSize: 16,
-  },
-});
+      

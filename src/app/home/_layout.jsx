@@ -21,6 +21,7 @@ export default function AppLayout() {
                 href: "/home",
                 tabBarLabel: "Home",
                 headerTitle: `Welcome ${currentUser? (currentUser.displayName): ("!")}`,
+
                 tabBarIcon: ({ color }) => (
                   <FontAwesome
                     size={28}
@@ -51,7 +52,23 @@ export default function AppLayout() {
               name="profile"
               options={{
                 href: null,
-                headerTitle: `Profile`
+                headerTitle: 'Profile'
+              }}
+            />
+            <Tabs.Screen
+              name="destinations"
+              options={{
+                href: '/home/destinations',
+                tabBarLabel: 'Destinations',
+                headerTitle: 'Destinations',
+                tabBarIcon: ({ color }) => (
+                  <FontAwesome
+                    size={28}
+                    style={{ marginBottom: -3 }}
+                    name="location-arrow"
+                    color={color}
+                  />
+                )
               }}
             />
           </Tabs>
