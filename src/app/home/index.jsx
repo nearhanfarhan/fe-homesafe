@@ -6,7 +6,7 @@ import styles from "../../styles/Homepage.styles";
 import StartStopTracking from "../../components/homepage/StartStopTracking";
 import MapHP from "../../components/homepage/MapHP";
 import SearchLocation from "../../components/homepage/SearchLocation";
-import CurrentLocation from "../../components/homepage/CurrentLocation";
+import SearchContacts  from "../../components/homepage/SearchContacts";
 
 export default function HomePage() {
   if (!auth.currentUser) {
@@ -18,6 +18,7 @@ export default function HomePage() {
 
   return (
     <SafeAreaView style={styles.container}>
+    <SearchContacts />
       <SearchLocation 
         selectedDestination={selectedDestination} 
         setSelectedDestination={setSelectedDestination}
