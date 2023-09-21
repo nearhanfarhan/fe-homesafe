@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Redirect } from "expo-router";
-import { ScrollView } from "react-native";
+import { ScrollView, Text } from "react-native";
 import { auth } from "../../firebase";
 import AddContact from "../../components/contacts/AddContact";
 import ContactList from "../../components/contacts/ContactList";
@@ -14,23 +14,33 @@ export default function ContactsPage() {
   const { currentUser } = useContext(UserContext);
 
   const [contacts, setContacts] = useState([]);
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    return getUserContacts(currentUser)
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        const contactsData = snapshot.val();
-        const valuesArray = Object.keys(contactsData).map((key) => ({
-          id: key,
-          ...contactsData[key],
-        }));
-        console.log(valuesArray);
-        setContacts(valuesArray);
-      } else {
-        setContacts([]);
+    const fetchData = async () => {
+      setLoading(true)
+      try {
+        const snapshot = await getUserContacts(currentUser);
+        if (snapshot.exists()) {
+          const contactsData = snapshot.val();
+          const valuesArray = Object.keys(contactsData).map((key) => ({
+            id: key,
+            ...contactsData[key],
+          }));
+          setContacts(valuesArray);
+        } else {
+          setContacts([]);
+        }
+        setLoading(false)
+      } catch (error) {
+        setLoading(false)
+        console.error("Error fetching contacts: ", error);
       }
-    });
+    };
+    fetchData();
   }, []);
+
+  if (loading) return <Text>Loading...</Text>
 
   return (
     <ScrollView>

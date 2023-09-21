@@ -4,7 +4,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useContext } from "react";
 import { UserContext } from "../../services/userContext";
-import { addContactToUser } from "../../services/api";
+import { addContactToUser, returnUpdatedContactList } from "../../services/api";
 
 const validationSchema = yup.object().shape({
   name: yup.string().required("Name is Required"),
@@ -23,9 +23,7 @@ const AddContact = ({ contacts, setContacts }) => {
       telNo: values.contactNumber,
     };
     return addContactToUser(currentUser, newContact)
-      .then(() => {
-        console.log("added contact to the database");
-        setContacts([newContact, ...contacts]);
+      .then(() => {return returnUpdatedContactList(currentUser, setContacts)}).then(() =>{
         resetForm();
         Keyboard.dismiss();
       })
