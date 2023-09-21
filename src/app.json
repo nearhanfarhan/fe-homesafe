@@ -5,9 +5,23 @@
       "bundler": "metro"
     },
     "plugins": [
-      "expo-router"
+      "expo-router",
+      [
+        "expo-location",
+        {
+          "isAndroidBackgroundLocationEnabled": true
+        }
+      ]
     ],
     "name": "fe-safetrakr",
-    "slug": "fe-safetrakr"
+    "slug": "fe-safetrakr",
+    "ios": {
+      "infoPlist": {
+        "locationAlwaysAndWhenInUsePermission": "This app needs access to location when open.",
+        "locationAlwaysPermission": "This app needs access to location when in the background.",
+        "locationWhenInUsePermission": "This app needs access to your location.",
+        "isIosBackgroundLocationEnabled": true
+      }
+    }
   }
 }
