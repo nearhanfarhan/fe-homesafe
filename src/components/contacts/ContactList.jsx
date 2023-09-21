@@ -7,7 +7,7 @@ import { UserContext } from "../../services/userContext";
 const ContactList = ({ contacts, setContacts }) => {
   const { currentUser } = useContext(UserContext);
 
-  const handleRemove = (id) => {
+  const handleDelete = (id) => {
     if (id) {
       // need to update firebase here
       return removeContactFromUser(currentUser, id)
@@ -27,7 +27,7 @@ const ContactList = ({ contacts, setContacts }) => {
           <ContactCard
             key={contact.id}
             contact={contact}
-            handleRemove={handleRemove}
+            handleDelete={handleDelete}
           />
         );
       })}

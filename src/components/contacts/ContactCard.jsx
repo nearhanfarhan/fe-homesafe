@@ -2,7 +2,7 @@ import { StyleSheet, View, Text } from "react-native";
 import { Button } from "@rneui/base";
 import { Avatar } from '@rneui/themed';
 
-const ContactCard = ({contact, handleRemove}) => {
+const ContactCard = ({contact, handleDelete}) => {
     return (
         <View style={styles.contactCard}>
             <Avatar size={64} rounded source={contact.avatarUrl ? { uri: contact.avatarUrl } : require("../../assets/default-avatar.png")} />
@@ -10,7 +10,7 @@ const ContactCard = ({contact, handleRemove}) => {
                 <Text>{contact.name}</Text>
                 <Text>{contact.telNo}</Text>
             </View>
-            <Button title="remove" onPress={() => handleRemove(contact.id) } />
+            <Button title="remove" onPress={() => handleDelete(contact.id) } />
         </View>
     );
 };
