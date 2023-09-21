@@ -5,6 +5,7 @@ import * as Location from 'expo-location';
 import * as TaskManager from 'expo-task-manager';
 import * as SMS from 'expo-sms';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as Notifications from 'expo-notifications';
 
 const GEOFENCING_TASK = 'GeofencingTask';
 
@@ -15,12 +16,20 @@ TaskManager.defineTask(GEOFENCING_TASK, ({ data: { eventType }, error }) => {
   }
   if (eventType === GeofencingEventType.Enter) {
     AsyncStorage.setItem('asyncHasArrived', 'true');
+    Notifications.scheduleNotificationAsync({
+      content: {
+        title: "You've reached you're destination!",
+        body: 'Tap to open the app.',
+      },
+      trigger: null,
+    });
   }
 });
 
 export const TrackMyJourney = ({contactInfo, destCoords}) => {
   const [hasArrived, setHasArrived] = useState(false);
   const [startPolling, setStartPolling] = useState(false)
+  const [isTracking, setIsTracking] = useState(false)
 
   const user = 'David';
   const destination = destCoords.identifier;
@@ -38,6 +47,7 @@ export const TrackMyJourney = ({contactInfo, destCoords}) => {
   };
 
   const handleTracking = () => {
+    setIsTracking(true)
     Location.requestForegroundPermissionsAsync()
     .then(({ status }) => {
       console.log('foreground')
@@ -68,6 +78,7 @@ export const TrackMyJourney = ({contactInfo, destCoords}) => {
 
   const handleStopTracking = () => {
     if (startPolling){
+      setIsTracking(false)
       setStartPolling(false);
      Location.stopGeofencingAsync(GEOFENCING_TASK);
       Alert.alert('Tracking stopped.')
@@ -100,20 +111,17 @@ export const TrackMyJourney = ({contactInfo, destCoords}) => {
       AsyncStorage.setItem('asyncHasArrived', 'false')
       .then(()=>{
         console.log(4);
-        setHasArrived(false);
+        setHasArrived(false)
+        setIsTracking(false);
       })
     }
   }, [hasArrived]);
 
   return (
     <>
-    <TouchableOpacity onPress={handleTracking}>
-      <Text>Start Tracking</Text>
-    </TouchableOpacity>
-    <TouchableOpacity onPress={handleStopTracking}>
-      <Text>Stop Tracking</Text>
-    </TouchableOpacity>
+      <TouchableOpacity onPress={!isTracking ? handleTracking : handleStopTracking}>
+        <Text>{!isTracking ? `Start Tracking` : `Stop Tracking`} </Text>
+      </TouchableOpacity>
     </>
   )
 };
-
