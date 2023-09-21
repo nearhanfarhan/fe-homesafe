@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react';
 
 export default function HomePage() {
   const [contactInfo, setcontactInfo] = useState('07301234567')
-  const [destCoords, setDestCoords] = useState({ identifier: 'home', latitude: 51.468100, longitude: -0.187800, radius: 5000 })
+  const [destCoords, setDestCoords] = useState({ identifier: 'home', latitude: 51.468100, longitude: -0.187800, radius: 5000, })
 
   if (!auth.currentUser) {
     return <Redirect href="/login" />;

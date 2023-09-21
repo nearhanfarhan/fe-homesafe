@@ -57,13 +57,22 @@ export const TrackMyJourney = ({contactInfo, destCoords}) => {
         destCoords
       ])
       .then(() => {
-        setStartPolling(true)
+        setStartPolling(true);
+        Alert.alert('Tracking started.')
       })
     })
     .catch((error) => {
       console.error('Error:', error);
     });
   };
+
+  const handleStopTracking = () => {
+    if (startPolling){
+      setStartPolling(false);
+     Location.stopGeofencingAsync(GEOFENCING_TASK);
+      Alert.alert('Tracking stopped.')
+    }
+  }
 
   useEffect(() => {
     if(startPolling) {
@@ -73,6 +82,7 @@ export const TrackMyJourney = ({contactInfo, destCoords}) => {
           console.log(1)
           if (data === 'true') {
             setHasArrived(true);
+            setStartPolling(false)
           }
         })
         .catch((error) => console.error('Error:', error));
@@ -84,6 +94,7 @@ export const TrackMyJourney = ({contactInfo, destCoords}) => {
 
   useEffect(() => {
     if (hasArrived) {
+      Location.stopGeofencingAsync(GEOFENCING_TASK)
       console.log(3)
       sendSMS();
       AsyncStorage.setItem('asyncHasArrived', 'false')
@@ -98,6 +109,9 @@ export const TrackMyJourney = ({contactInfo, destCoords}) => {
     <>
     <TouchableOpacity onPress={handleTracking}>
       <Text>Start Tracking</Text>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={handleStopTracking}>
+      <Text>Stop Tracking</Text>
     </TouchableOpacity>
     </>
   )
