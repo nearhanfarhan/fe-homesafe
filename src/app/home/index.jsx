@@ -27,9 +27,8 @@ export default function HomePage() {
         setQuery={setQuery}
         locations={locations}
         setLocations={setLocations} />
-      <MapHP />
+      <MapHP selectedDestination={selectedDestination} setSelectedDestination={setSelectedDestination} />
       <StartStopTracking selectedDestination={selectedDestination} />
-      <View style={styles.extraSpace}></View>
     </SafeAreaView>
   )
 }
