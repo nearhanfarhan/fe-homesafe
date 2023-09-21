@@ -12,11 +12,19 @@ export default function HomePage() {
   if (!auth.currentUser) {
     return <Redirect href="/login" />;
   }
-  const [selectedDestination, setSelectedDestination] = useState('');
-  
+  const [selectedDestination, setSelectedDestination] = useState(null);
+  const [query, setQuery] = useState('');
+  const [locations, setLocations] = useState([]);
+
   return (
     <SafeAreaView style={styles.container}>
-      <SearchLocation selectedDestination={selectedDestination} setSelectedDestination={setSelectedDestination} />
+      <SearchLocation 
+        selectedDestination={selectedDestination} 
+        setSelectedDestination={setSelectedDestination}
+        query={query}
+        setQuery={setQuery}
+        locations={locations}
+        setLocations={setLocations} />
       <MapHP />
       <StartStopTracking selectedDestination={selectedDestination} />
       <View style={styles.extraSpace}></View>

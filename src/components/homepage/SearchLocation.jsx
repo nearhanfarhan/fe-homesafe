@@ -4,9 +4,7 @@ import { View, Text, Keyboard, TouchableOpacity } from "react-native";
 import { searchLocations } from '../../services/api';
 import styles from "../../styles/Homepage.styles";
 
-export default function SearchLocation({ selectedDestination, setSelectedDestination }) {
-    const [locations, setLocations] = useState([]);
-    const [query, setQuery] = useState('');
+export default function SearchLocation({ query, setQuery, locations, setLocations, selectedDestination, setSelectedDestination }) {
     const placeholder = 'Search for a location';
 
     const findLocation = (searchText) => {
@@ -47,16 +45,5 @@ export default function SearchLocation({ selectedDestination, setSelectedDestina
           {selectedDestination ? ( <Text>Selected Destination: {selectedDestination.identifier}</Text> ) : ( <></> ) }
         </View>        
       </View>
-      //  <View >
-      //   <Picker style={styles.picker}
-      //   selectedDestination={selectedDestination}
-      //   selectedValue={selectedDestination}
-      //   onValueChange={(itemValue, itemIndex) => setSelectedDestination(itemValue)} >
-      //     <Picker.Item label="Home" value="home" />
-      //     <Picker.Item label="Work" value="work" />
-      //     <Picker.Item label="School" value="school" />
-      //   </Picker>
-      //   <Text style={styles.selectedDest}>Selected Destination: {selectedDestination}</Text> 
-      // </View>
     )
 }

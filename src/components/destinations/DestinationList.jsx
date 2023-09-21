@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
-import { Keyboard, View, ScrollView, TouchableOpacity, TextInput } from 'react-native';
+import { View } from 'react-native';
 import { Redirect } from 'expo-router';
 import styles from '../../styles/Destinations.styles';
-import { Avatar } from '@rneui/themed';
-import { Button } from "@rneui/base";
-import { Input, Text } from '@rneui/base';
+import { Avatar, ListItem } from '@rneui/themed';
+import { Text } from '@rneui/base';
 
 export default function DestinationList({ destinations, setDestinations }) {
   const handleDelete = (id) => {
-    const updatedDestinations = destinations.filter((item) => item.id !== id);
+    const updatedDestinations = destinations.filter((item) => item.identifier !== id);
     setDestinations(updatedDestinations);
   }
 
@@ -16,16 +14,24 @@ export default function DestinationList({ destinations, setDestinations }) {
       <View>
         {destinations.length > 0 ? (
           destinations.map((item) => (
-            <View key={item.identifier} style={styles.detailsContainer}>
-              <Avatar style={styles.avatar} size={64} rounded source={require("../../assets/location.png")} />
-              <View style={styles.address}>
-                  <Text style={styles.label}>{item.label}</Text>
-                <Text style={styles.location}>{item.identifier}</Text>
-                </View>
-              <Button style={styles.remove} onPress={() => handleDelete(item.id)}>
-                <Text style={styles.removeText}>Remove</Text>
-              </Button>
-            </View>
+            <ListItem key={item.identifier} bottomDivider>
+              <Avatar size={64} rounded source={require("../../assets/location.png")} />
+              <ListItem.Content>
+                <ListItem.Title>{item.label}</ListItem.Title>
+                <ListItem.Subtitle>{item.identifier}</ListItem.Subtitle>
+              </ListItem.Content>
+              <ListItem.ButtonGroup
+                buttons={['Remove']}
+                onPress={(value) => {
+                  switch(value) {
+                    case 0:
+                      handleDelete(item.identifier);
+                      break;
+                  }
+                }}
+                containerStyle={{ marginBottom: 20 }}
+              />
+            </ListItem>
           ))
         ) : (
           <View style={styles.noDestinations}>
@@ -35,4 +41,3 @@ export default function DestinationList({ destinations, setDestinations }) {
     </View>
   );
 }
-
