@@ -26,8 +26,8 @@ module.exports = coordinatesToAddress;
 
 // .then() and .catch() chain to be edited in function call
 
-const latitude = 51.4422662;
-const longitude = -0.0371897; 
+const latitude = 53.4657087;
+const longitude = -2.232734319907597; 
 
 coordinatesToAddress(latitude, longitude)
   .then((address) => {

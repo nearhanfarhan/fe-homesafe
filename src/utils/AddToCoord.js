@@ -26,7 +26,7 @@ module.exports = addressToCoordinates
 
 // .then() and .catch() chain to be edited in function call
 
-const address = '185 Stanstead Road, London';
+const address = 'McDonalds, Oxford Street, UK';
 
 addressToCoordinates(address)
   .then((coordinates) => {
