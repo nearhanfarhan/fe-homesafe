@@ -1,4 +1,4 @@
-import { getUserContacts } from "../../services/api";
+import { getUserContacts, returnUpdatedContactList } from "../../services/api";
 import React, { useState, useEffect, useContext } from "react";
 import { Text, View, TextInput, TouchableOpacity, FlatList } from 'react-native'
 import { UserContext } from "../../services/userContext";
@@ -35,7 +35,7 @@ export default function SearchContacts() {
           }
         };
         fetchData();
-      }, [currentUser]);
+      }, []);
 
       if (loading) return <Text>Loading...</Text>
 
@@ -78,6 +78,7 @@ export default function SearchContacts() {
             if (inputValue !== "") {
               setInputValue("");
             }
+            return returnUpdatedContactList(currentUser, setContacts)
           }}
         />
         {selectedContacts.map((contact) => (
