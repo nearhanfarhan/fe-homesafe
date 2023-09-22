@@ -34,7 +34,7 @@ export default function SearchLocation({
       }}
       onFail={(error) => console.error(error)}
       query={{
-        key: 'APIKEY',
+        key: 'AIzaSyDvVmqahHXDsFvalXZLkcfh5PL5F4Id8zo',
         language: 'en',
       }}
       styles={{

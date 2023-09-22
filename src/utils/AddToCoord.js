@@ -1,40 +1,54 @@
-const axios = require('axios');
+import axios from 'axios'
+const googleMapsApiKey = 'AIzaSyDvVmqahHXDsFvalXZLkcfh5PL5F4Id8zo';
 
-const googleMapsApiKey = 'AIzaSyAQfQIC-Fy3-cQhPkkgH-aIwPxAumcpScw';
 
-function addressToCoordinates(address) {
-  return new Promise((resolve, reject) => {
-    const encodedAddress = encodeURIComponent(address);
-    const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${googleMapsApiKey}`;
+// export function addressToCoordinates(address) {
+  
+//   return new Promise((resolve, reject) => {
+//     const encodedAddress = encodeURIComponent(address);
+//     console.log("address", address)
+//     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${googleMapsApiKey}`;
+//     console.log("url", url)
 
-    axios.get(url)
-      .then((response) => {
-        if (response.data.status === 'OK' && response.data.results.length > 0) {
-          const { lat, lng } = response.data.results[0].geometry.location;
-          resolve({ latitude: lat, longitude: lng });
-        } else {
-          console.log('Geocoding failed for the given address.');
-          resolve(null);
-        }
-      })
-      .catch((error) => {
-        console.error(`Error during geocoding: ${error.message}`);
-        reject(error);
-      });
-  });
-}
 
-// Usage example
-const address = "McDonald's Oxford Circus, Oxford Street, London, UK";
+//     return axios.get(url)
+//       .then((response) => {
+//         if (response.data.status === 'OK' && response.data.results.length > 0) {
+//           const { lat, lng } = response.data.results[0].geometry.location;
+//           resolve({ latitude: lat, longitude: lng });
+//         } else {
+//           console.log('Geocoding failed for the given address.');
+//           resolve(null);
+//         }
+//       })
+//       .catch((error) => {
+//         console.error(`Error during geocoding: ${error.message}`);
+//         reject(error);
+//       });
+//   });
+// }
 
-addressToCoordinates(address)
-  .then((coordinates) => {
-    if (coordinates) {
-      console.log(`Latitude: ${coordinates.latitude}, Longitude: ${coordinates.longitude}`);
+
+
+export const autocompleteToCoordinates = (autocompleteObj) => {
+  const address = autocompleteObj.description;
+  const encodedAddress = encodeURIComponent(address);
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${googleMapsApiKey}`;
+  return axios.get(url)
+  .then((response) => {
+    if (response.data.status === 'OK' && response.data.results.length > 0) {
+      const { lat, lng } = response.data.results[0].geometry.location;
+      const addressObj = ({address: address, latitude: lat, longitude: lng });
+      console.log(addressObj)
+      return addressObj
     } else {
       console.log('Geocoding failed for the given address.');
+      resolve(null);
     }
   })
   .catch((error) => {
-    console.error(`Error: ${error.message}`);
+    console.error(`Error during geocoding: ${error.message}`);
+    reject(error);
   });
+
+};

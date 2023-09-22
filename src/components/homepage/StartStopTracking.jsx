@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import styles from "../../styles/Homepage.styles";
 import { Redirect, router } from "expo-router";
 import { Button } from "@rneui/base";
+import { autocompleteToCoordinates } from "../../utils/AddToCoord";
 
 export default function StartStopTracking ({selectedDestination}) {
     const [isTracking, setIsTracking] = useState(false); 
@@ -11,7 +12,7 @@ export default function StartStopTracking ({selectedDestination}) {
         // ... logic for tracking
         // if tracking is started
         // use selected destination to trigger text when reached
-        console.log(selectedDestination);
+        autocompleteToCoordinates(selectedDestination).catch((error) => console.error(error))
     }
 
 return (
