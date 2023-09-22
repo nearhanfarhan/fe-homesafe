@@ -19,6 +19,7 @@ export default function HomePage() {
   
   return (
     <SafeAreaView style={styles.container}>
+    <SearchContacts />
       <SearchLocation 
         placeholder="Where are you going?"
         selectedDestination={selectedDestination} 
