@@ -5,6 +5,7 @@ import { auth } from "../../firebase";
 import styles from "../../styles/Homepage.styles";
 import MapHP from "../../components/homepage/MapHP";
 import SearchLocation from "../../components/homepage/SearchLocation";
+import CurrentLocation from "../../components/homepage/CurrentLocation";
 import { TrackMyJourney } from "../../components/homepage/TrackMyJourney";
 
 export default function HomePage() {

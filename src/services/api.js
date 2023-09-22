@@ -52,6 +52,39 @@ export const returnUpdatedContactList = (user, setContacts) => {
   });
 };
 
+export const returnUpdatedDestinationList = (user, setDestinations) => {
+  return getUserDestinations(user).then((snapshot) => {
+    if (snapshot.exists()) {
+      const destinationsData = snapshot.val();
+      const valuesArray = Object.keys(destinationsData).map((key) => ({
+        id: key,
+        ...destinationsData[key],
+      }
+      ));
+      setDestinations(valuesArray);
+    } else {
+      setDestinations([]);
+    }
+  });
+};
+
+export const addDestinationToUser = (user, destination) => {
+  const uid = user.uid;
+  return set(push(ref(database, `users/${uid}/destinations`)), {
+    location: destination.identifier,
+    label: destination.label,
+  });
+};
+
+export const getUserDestinations = (user) => {
+  const uid = user.uid;
+  return get(child(ref(database), `users/${uid}/destinations`));
+};
+
+export const removeDestinationFromUser = (user, destination_id) => {
+  const uid = user.uid;
+  return remove(ref(database, `users/${uid}/destinations/${destination_id}`));
+};
 
 export const searchLocations = (query) => {
   // need api to search location
@@ -98,4 +131,3 @@ export const getUserById = (userCredential) => {
   return get(child(ref(database), `users/${user.uid}`));
 };
 */
-
