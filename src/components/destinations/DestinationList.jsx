@@ -36,7 +36,7 @@ export default function DestinationList({ destinations, setDestinations }) {
             />
             <ListItem.Content>
               <ListItem.Title>{item.label}</ListItem.Title>
-              <ListItem.Subtitle>{item.location}</ListItem.Subtitle>
+              <ListItem.Subtitle>{item.address}</ListItem.Subtitle>
             </ListItem.Content>
             <ListItem.ButtonGroup
               buttons={["Remove"]}

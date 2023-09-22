@@ -8,6 +8,7 @@ import {
   push,
   remove,
 } from "firebase/database";
+import { addressToCoordinates } from "../utils/AddToCoord";
 
 const database = getDatabase();
 
@@ -59,21 +60,21 @@ export const returnUpdatedDestinationList = (user, setDestinations) => {
       const valuesArray = Object.keys(destinationsData).map((key) => ({
         id: key,
         ...destinationsData[key],
-      }
-      ));
+      }));
       setDestinations(valuesArray);
     } else {
       setDestinations([]);
-    }
+    } 
   });
+ 
 };
 
-export const addDestinationToUser = (user, destination) => {
+export const addDestinationToUser = (user, address) => {
   const uid = user.uid;
-  return set(push(ref(database, `users/${uid}/destinations`)), {
-    location: destination.identifier,
-    label: destination.label,
-  });
+  console.log("addressInAPI", address)
+    return set(push(ref(database, `users/${uid}/destinations`)), {
+  ...address
+    });;
 };
 
 export const getUserDestinations = (user) => {
