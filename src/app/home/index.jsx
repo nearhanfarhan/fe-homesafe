@@ -30,7 +30,8 @@ export default function HomePage() {
         locations={locations}
         setLocations={setLocations} />
       <MapHP selectedDestination={selectedDestination} setSelectedDestination={setSelectedDestination} />
-      <TrackMyJourney selectedDestination={selectedDestination} selectedContact={selectedContact} />
+      <TrackMyJourney selectedContact={selectedContact} selectedDestination={selectedDestination}/>
+
     </SafeAreaView>
   )
 }
