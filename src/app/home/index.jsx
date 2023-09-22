@@ -7,6 +7,7 @@ import MapHP from "../../components/homepage/MapHP";
 import SearchLocation from "../../components/homepage/SearchLocation";
 import CurrentLocation from "../../components/homepage/CurrentLocation";
 import { TrackMyJourney } from "../../components/homepage/TrackMyJourney";
+import SearchContacts from "../../components/homepage/SearchContacts";
 
 export default function HomePage() {
   if (!auth.currentUser) {
@@ -19,6 +20,7 @@ export default function HomePage() {
 
   return (
     <SafeAreaView style={styles.container}>
+    <SearchContacts />
       <SearchLocation 
         selectedDestination={selectedDestination} 
         setSelectedDestination={setSelectedDestination}
