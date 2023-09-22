@@ -1,12 +1,12 @@
 import Autocomplete from 'react-native-autocomplete-input';
 import { useState } from "react";
-import { View, Text, Keyboard, TouchableOpacity,TextInput, FlatList } from "react-native";
+import { View, Text, Keyboard, TouchableOpacity } from "react-native";
 import { searchLocations } from '../../services/api';
-import { FontAwesome } from "@expo/vector-icons"; 
-import styles from '../../styles/Searchbar.styles';
+import styles from "../../styles/Homepage.styles";
 
 export default function SearchLocation({ query, setQuery, locations, setLocations, selectedDestination, setSelectedDestination }) {
-  
+    const placeholder = 'Search for a location';
+
     const findLocation = (searchText) => {
       setQuery(searchText);
       if(searchText) {
@@ -16,54 +16,34 @@ export default function SearchLocation({ query, setQuery, locations, setLocation
       }
     };
 
-
     return (
-      <View>
-        <View style={styles.inputContainer}>
-          <View style={styles.inputWithIcon}>
-            <TextInput
-              style={styles.input}
-              placeholder="Choose Destination..."
-              placeholderTextColor={"grey"}
-              value={query}
-              onChangeText={(text) => findLocation(text)}
-              onFocus={() => {
-                if (query !== "") {
-                  setQuery("");
-                  setSelectedDestination(null);
-                }
-              }}
-            />
-            {selectedDestination && (
-              <View style={styles.iconContainer}>
-                <FontAwesome
-                  name="map-marker"
-                  size={24}
-                  color="grey"
-                />
-              </View>
-            )}
-          </View>
-        </View>
-        {locations.length > 0 && (
-          <FlatList
+      <View style={styles.searchContainer}>
+        <View style={styles.autocompleteContainer}>
+          <Autocomplete
+            autoCorrect={false}
             data={locations}
-            keyExtractor={(item) => item.identifier}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => {
-                  setSelectedDestination(item);
-                  setLocations([]);
-                  setQuery(item.identifier);
-                }}
-                style={styles.suggestion}
-              >
-                <Text style={styles.selectedContactText}>{item.identifier}</Text>
-              </TouchableOpacity>
-            )}
-            style={styles.dropdown}
+            value={query}
+            onChangeText={(text) => findLocation(text)}
+            placeholder={placeholder}
+            flatListProps={{
+              keyboardShouldPersistTaps: 'always',
+              keyExtractor: (destination) => destination.identifier,
+              renderItem: ({ item }) => (
+                <TouchableOpacity onPress={() => { 
+                    setSelectedDestination(item);
+                    setLocations([]);
+                    setQuery(item.identifier);
+                    Keyboard.dismiss();
+                  }}>
+                  <Text>
+                    {item.identifier}
+                  </Text>
+                </TouchableOpacity>
+              ),
+            }}
           />
-        )}
+          {selectedDestination ? ( <Text>Selected Destination: {selectedDestination.identifier}</Text> ) : ( <></> ) }
+        </View>        
       </View>
-    );
-  }
+    )
+}

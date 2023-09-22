@@ -6,10 +6,6 @@ import styles from "../../styles/Homepage.styles";
 import StartStopTracking from "../../components/homepage/StartStopTracking";
 import MapHP from "../../components/homepage/MapHP";
 import SearchLocation from "../../components/homepage/SearchLocation";
-
-import SearchContacts  from "../../components/homepage/SearchContacts";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
-
 import CurrentLocation from "../../components/homepage/CurrentLocation";
 import { TrackMyJourney } from "../../components/homepage/TrackMyJourney";
 
@@ -24,7 +20,6 @@ export default function HomePage() {
 
   return (
     <SafeAreaView style={styles.container}>
-    <SearchContacts />
       <SearchLocation 
         selectedDestination={selectedDestination} 
         setSelectedDestination={setSelectedDestination}
