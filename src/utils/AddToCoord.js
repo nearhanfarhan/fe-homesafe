@@ -1,19 +1,20 @@
-const axios = require('axios');
+import axios from "axios";
 
-const googleMapsApiKey = 'AIzaSyAQfQIC-Fy3-cQhPkkgH-aIwPxAumcpScw';
+const googleMapsApiKey = "AIzaSyAQfQIC-Fy3-cQhPkkgH-aIwPxAumcpScw";
 
-function addressToCoordinates(address) {
+export function AddressToCoordinates(address) {
   return new Promise((resolve, reject) => {
     const encodedAddress = encodeURIComponent(address);
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${googleMapsApiKey}`;
 
-    axios.get(url)
+    axios
+      .get(url)
       .then((response) => {
-        if (response.data.status === 'OK' && response.data.results.length > 0) {
+        if (response.data.status === "OK" && response.data.results.length > 0) {
           const { lat, lng } = response.data.results[0].geometry.location;
           resolve({ latitude: lat, longitude: lng });
         } else {
-          console.log('Geocoding failed for the given address.');
+          console.log("Geocoding failed for the given address.");
           resolve(null);
         }
       })
@@ -24,17 +25,17 @@ function addressToCoordinates(address) {
   });
 }
 
-// Usage example
-const address = "McDonald's Oxford Circus, Oxford Street, London, UK";
+// // Usage example
+// const address = "McDonald's Oxford Circus, Oxford Street, London, UK";
 
-addressToCoordinates(address)
-  .then((coordinates) => {
-    if (coordinates) {
-      console.log(`Latitude: ${coordinates.latitude}, Longitude: ${coordinates.longitude}`);
-    } else {
-      console.log('Geocoding failed for the given address.');
-    }
-  })
-  .catch((error) => {
-    console.error(`Error: ${error.message}`);
-  });
+// addressToCoordinates(address)
+//   .then((coordinates) => {
+//     if (coordinates) {
+//       console.log(`Latitude: ${coordinates.latitude}, Longitude: ${coordinates.longitude}`);
+//     } else {
+//       console.log('Geocoding failed for the given address.');
+//     }
+//   })
+//   .catch((error) => {
+//     console.error(`Error: ${error.message}`);
+//   });
