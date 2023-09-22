@@ -6,14 +6,19 @@ import styles from "../../styles/Homepage.styles";
 import StartStopTracking from "../../components/homepage/StartStopTracking";
 import MapHP from "../../components/homepage/MapHP";
 import SearchLocation from "../../components/homepage/SearchLocation";
+
 import SearchContacts  from "../../components/homepage/SearchContacts";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
+
+import CurrentLocation from "../../components/homepage/CurrentLocation";
+import { TrackMyJourney } from "../../components/homepage/TrackMyJourney";
 
 export default function HomePage() {
   if (!auth.currentUser) {
     return <Redirect href="/login" />;
   }
-  const [selectedDestination, setSelectedDestination] = useState(null);
+  const [selectedDestination, setSelectedDestination] = useState({ identifier: 'home', latitude: 51.468100, longitude: -0.187800, radius: 5000, });
+  const [selectedContact, setSelectedContact] = useState('07301234567')
   const [query, setQuery] = useState('');
   const [locations, setLocations] = useState([]);
 
@@ -27,9 +32,10 @@ export default function HomePage() {
         setQuery={setQuery}
         locations={locations}
         setLocations={setLocations} />
-      <MapHP />
-      <StartStopTracking selectedDestination={selectedDestination} />
-      <View style={styles.extraSpace}></View>
+
+      <MapHP selectedDestination={selectedDestination} setSelectedDestination={setSelectedDestination} />
+      <TrackMyJourney selectedContact={selectedContact} selectedDestination={selectedDestination}/>
+
     </SafeAreaView>
   )
 }
