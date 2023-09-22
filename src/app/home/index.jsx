@@ -20,6 +20,7 @@ export default function HomePage() {
 
   return (
     <SafeAreaView style={styles.container}>
+    <SearchContacts />
       <SearchLocation 
         selectedDestination={selectedDestination} 
         setSelectedDestination={setSelectedDestination}

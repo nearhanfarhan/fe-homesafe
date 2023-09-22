@@ -22,10 +22,6 @@ export default function SearchLocation({
     // console.log("selectedDestination", selectedDestination)
   };
 
-  useEffect(() => {
-    // You can use the `locations` state to update the autocomplete predictions
-    // based on the user's input. You can pass it as the `predefinedPlaces` prop.
-  }, [locations]);
 
   return (
     <View style={styles.searchContainer}>
