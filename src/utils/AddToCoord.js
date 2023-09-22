@@ -24,18 +24,3 @@ export function AddressToCoordinates(address) {
       });
   });
 }
-
-// // Usage example
-// const address = "McDonald's Oxford Circus, Oxford Street, London, UK";
-
-// addressToCoordinates(address)
-//   .then((coordinates) => {
-//     if (coordinates) {
-//       console.log(`Latitude: ${coordinates.latitude}, Longitude: ${coordinates.longitude}`);
-//     } else {
-//       console.log('Geocoding failed for the given address.');
-//     }
-//   })
-//   .catch((error) => {
-//     console.error(`Error: ${error.message}`);
-//   });
