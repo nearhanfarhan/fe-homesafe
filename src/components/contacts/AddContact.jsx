@@ -23,7 +23,10 @@ const AddContact = ({ contacts, setContacts }) => {
       telNo: values.contactNumber,
     };
     return addContactToUser(currentUser, newContact)
-      .then(() => {return returnUpdatedContactList(currentUser, setContacts)}).then(() =>{
+      .then(() => {
+        return returnUpdatedContactList(currentUser, setContacts);
+      })
+      .then(() => {
         resetForm();
         Keyboard.dismiss();
       })
