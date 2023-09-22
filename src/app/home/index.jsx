@@ -1,13 +1,10 @@
 import { useState } from "react";
-import { View, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 import { Redirect } from "expo-router";
 import { auth } from "../../firebase";
 import styles from "../../styles/Homepage.styles";
-import StartStopTracking from "../../components/homepage/StartStopTracking";
 import MapHP from "../../components/homepage/MapHP";
 import SearchLocation from "../../components/homepage/SearchLocation";
-import SearchContacts  from "../../components/homepage/SearchContacts";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
 import { TrackMyJourney } from "../../components/homepage/TrackMyJourney";
 
 export default function HomePage() {
