@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     width: 100,
     backgroundColor: "#397af8",
     textAlign: "center",
-    borderRadius: 5,
+    borderRadius: 25,
   },
   picker: {
     marginTop: -40,
@@ -51,21 +51,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginVertical: 16,
     zIndex: -1,
-  },
-  searchContainer: {
-    position: "relative",
-    flex: 1,
-    paddingTop: 50,
-    paddingBottom: 20,
-  },
-  autocompleteContainer: {
-    flex: 1,
-    left: 0,
-    position: "absolute",
-    right: 0,
-    top: 0,
-    zIndex: 1,
-    padding: 5,
   },
 });
 
