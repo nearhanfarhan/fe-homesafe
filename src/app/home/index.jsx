@@ -29,7 +29,7 @@ export default function HomePage() {
         setLocations={setLocations} />
 
       <MapHP selectedDestination={selectedDestination} setSelectedDestination={setSelectedDestination} />
-      <StartStopTracking selectedDestination={selectedDestination} />
+      <TrackMyJourney selectedContact={selectedContact} selectedDestination={selectedDestination}/>
 
     </SafeAreaView>
   )
