@@ -9,6 +9,7 @@ import * as Notifications from 'expo-notifications';
 import { UserContext } from "../../services/userContext";
 import styles from "../../styles/Homepage.styles";
 import { Button } from '@rneui/base';
+import * as Permissions from 'expo-permissions';
 
 const GEOFENCING_TASK = 'GeofencingTask';
 
@@ -51,9 +52,23 @@ export const TrackMyJourney = ({selectedContact, selectedDestination}) => {
     });
   };
 
+  const requestNotificationPermission = async () => {
+    const { status } = await Notifications.requestPermissionsAsync();
+    if (status !== 'granted') {
+      console.log('Notification permission denied');
+      return false;
+    }
+    return true;
+  };
+
   const handleTracking = () => {
     setIsTracking(true)
-    Location.requestForegroundPermissionsAsync()
+    requestNotificationPermission()
+    .then((data)=>{
+      if (!data){
+        console.log('notificaton permissions denied.')
+      } else {
+        Location.requestForegroundPermissionsAsync()
     .then(({ status }) => {
       console.log('foreground')
       if (status !== 'granted') {
@@ -79,6 +94,8 @@ export const TrackMyJourney = ({selectedContact, selectedDestination}) => {
     .catch((error) => {
       console.error('Error:', error);
     });
+      }
+    })
   };
 
   const handleStopTracking = () => {
