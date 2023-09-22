@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     width: 100,
     backgroundColor: "#397af8",
     textAlign: "center",
-    borderRadius: 5,
+    borderRadius: 25,
   },
   picker: {
     marginTop: -40,
