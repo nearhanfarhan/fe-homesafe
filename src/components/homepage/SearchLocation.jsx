@@ -1,49 +1,84 @@
-import Autocomplete from 'react-native-autocomplete-input';
-import { useState } from "react";
-import { View, Text, Keyboard, TouchableOpacity } from "react-native";
-import { searchLocations } from '../../services/api';
-import styles from "../../styles/Homepage.styles";
+import React, { useEffect } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
+import { AddressToCoordinates } from '../../utils/AddToCoord';
 
-export default function SearchLocation({ query, setQuery, locations, setLocations, selectedDestination, setSelectedDestination }) {
-    const placeholder = 'Search for a location';
+export default function SearchLocation({
+  query,
+  setQuery,
+  locations,
+  setLocations,
+  selectedDestination,
+  setSelectedDestination,
+}) {
+  const handlePlaceSelected = (place) => {
+    AddressToCoordinates(place.description).then((coords) => {
+      console.log(coords);
+      setSelectedDestination({ ...selectedDestination, ...coords })
+    });
+    setSelectedDestination(place);
+    setQuery(place.description);
+    setLocations([]);
+  };
 
-    const findLocation = (searchText) => {
-      setQuery(searchText);
-      if(searchText) {
-        setLocations(searchLocations(searchText));
-      } else {
-        setLocations([]);
-      }
-    };
+  useEffect(() => {
+    // You can use the `locations` state to update the autocomplete predictions
+    // based on the user's input. You can pass it as the `predefinedPlaces` prop.
+  }, [locations]);
 
-    return (
-      <View style={styles.searchContainer}>
+  return (
+    <View style={styles.searchContainer}>
         <View style={styles.autocompleteContainer}>
-          <Autocomplete
-            autoCorrect={false}
-            data={locations}
-            value={query}
-            onChangeText={(text) => findLocation(text)}
-            placeholder={placeholder}
-            flatListProps={{
-              keyboardShouldPersistTaps: 'always',
-              keyExtractor: (destination) => destination.identifier,
-              renderItem: ({ item }) => (
-                <TouchableOpacity onPress={() => { 
-                    setSelectedDestination(item);
-                    setLocations([]);
-                    setQuery(item.identifier);
-                    Keyboard.dismiss();
-                  }}>
-                  <Text>
-                    {item.identifier}
-                  </Text>
-                </TouchableOpacity>
-              ),
+          <GooglePlacesAutocomplete
+            placeholder="Search for a location"
+            minLength={2} 
+            autoFocus={false}
+            returnKeyType={'search'}
+            listViewDisplayed="auto"
+            fetchDetails={true}
+            renderDescription={(row) => row.description}
+            onPress={(data, details = null) => {
+              handlePlaceSelected(data);
             }}
+            onFail={(error) => console.error(error)}
+            query={{
+              key: 'AIzaSyAQfQIC-Fy3-cQhPkkgH-aIwPxAumcpScw',
+              language: 'en',
+            }}
+            enablePoweredByContainer={false}
+            styles={{
+              textInputContainer: {
+                width: '100%'
+              },
+              description: {
+                fontWeight: 'bold',
+              },
+              predefinedPlacesDescription: {
+                color: '#1faadb',
+              },
+            }}
+            // Pass your predefinedPlaces (locations) here to update autocomplete predictions
+            predefinedPlaces={locations}
           />
-          {selectedDestination ? ( <Text>Selected Destination: {selectedDestination.identifier}</Text> ) : ( <></> ) }
-        </View>        
+        </View>
       </View>
-    )
+  );
 }
+
+const styles = StyleSheet.create({
+  searchContainer: {
+    position: "relative",
+    flex: 1,
+    paddingTop: 50,
+    paddingBottom: 20,
+  },
+  autocompleteContainer: {
+    flex: 1,
+    left: 0,
+    position: "absolute",
+    right: 0,
+    top: 0,
+    zIndex: 1,
+    padding: 5,
+  }
+});

@@ -52,21 +52,6 @@ const styles = StyleSheet.create({
     marginVertical: 16,
     zIndex: -1,
   },
-  searchContainer: {
-    position: "relative",
-    flex: 1,
-    paddingTop: 50,
-    paddingBottom: 20,
-  },
-  autocompleteContainer: {
-    flex: 1,
-    left: 0,
-    position: "absolute",
-    right: 0,
-    top: 0,
-    zIndex: 1,
-    padding: 5,
-  },
 });
 
 export default styles;

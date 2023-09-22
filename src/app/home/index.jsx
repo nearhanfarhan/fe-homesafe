@@ -1,9 +1,8 @@
 import { useState } from "react";
-import { View, SafeAreaView } from "react-native";
+import { SafeAreaView } from "react-native";
 import { Redirect } from "expo-router";
 import { auth } from "../../firebase";
 import styles from "../../styles/Homepage.styles";
-import StartStopTracking from "../../components/homepage/StartStopTracking";
 import MapHP from "../../components/homepage/MapHP";
 import SearchLocation from "../../components/homepage/SearchLocation";
 import CurrentLocation from "../../components/homepage/CurrentLocation";
@@ -27,7 +26,6 @@ export default function HomePage() {
         setQuery={setQuery}
         locations={locations}
         setLocations={setLocations} />
-
       <MapHP selectedDestination={selectedDestination} setSelectedDestination={setSelectedDestination} />
       <TrackMyJourney selectedContact={selectedContact} selectedDestination={selectedDestination}/>
 
