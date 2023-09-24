@@ -11,7 +11,7 @@ export function UserProvider(props) {
             setCurrentUser(firebaseUser)
         })
 
-        return () => unsubscribe();
+        return unsubscribe();
     }, [])    
 
 

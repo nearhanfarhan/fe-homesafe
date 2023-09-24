@@ -12,7 +12,7 @@ export function addressToCoordinates(address) {
       .then((response) => {
         if (response.data.status === "OK" && response.data.results.length > 0) {
           const { lat, lng } = response.data.results[0].geometry.location;
-          resolve({ latitude: lat, longitude: lng , address});
+          resolve({ latitude: lat, longitude: lng, address });
         } else {
           console.log("Geocoding failed for the given address.");
           resolve(null);
