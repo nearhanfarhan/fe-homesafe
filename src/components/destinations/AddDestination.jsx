@@ -25,7 +25,6 @@ export default function AddDestination({ destinations, setDestinations }) {
   const [query, setQuery] = useState("");
 
   const handleAddDestination = (values, { resetForm }) => {
-    console.log("values", values)
     if (!selectedDestination && !query) {
       setValidationMessage("Please select a destination to add");
       return;
