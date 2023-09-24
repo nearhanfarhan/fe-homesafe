@@ -46,11 +46,11 @@ export default function destinations() {
 
   return (
     <SafeAreaView>
-      <DestinationList
+      <AddDestination
         destinations={destinations}
         setDestinations={setDestinations}
       />
-      <AddDestination
+      <DestinationList
         destinations={destinations}
         setDestinations={setDestinations}
       />

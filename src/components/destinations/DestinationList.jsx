@@ -11,7 +11,8 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 
 export default function DestinationList({ destinations, setDestinations }) {
-  const {currentUser} = useContext(UserContext)
+  const {currentUser} = useContext(UserContext);
+  
   const handleDelete = (id) => {
     return removeDestinationFromUser(currentUser, id)
       .then(() => {
@@ -21,6 +22,7 @@ export default function DestinationList({ destinations, setDestinations }) {
         console.error("error deleting destination", error);
       });
   };
+
   return (
     <View>
       {destinations.length > 0 ? (

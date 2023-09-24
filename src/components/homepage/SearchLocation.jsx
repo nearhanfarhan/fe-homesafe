@@ -5,7 +5,6 @@ import { AddressToCoordinates } from '../../utils/AddToCoord';
 
 export default function SearchLocation({
   placeholder,
-  query,
   setQuery,
   locations,
   setLocations,
@@ -14,7 +13,6 @@ export default function SearchLocation({
 }) {
   const handlePlaceSelected = (place) => {
     AddressToCoordinates(place.description).then((coords) => {
-      console.log(coords);
       setSelectedDestination({ ...selectedDestination, ...coords })
     });
     setSelectedDestination(place);
