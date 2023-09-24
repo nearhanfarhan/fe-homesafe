@@ -11,11 +11,8 @@ import { useContext } from "react";
 import { UserContext } from "../../services/userContext";
 
 export default function DestinationList({ destinations, setDestinations }) {
-
   const {currentUser} = useContext(UserContext)
-
   const handleDelete = (id) => {
-    console.log(id)
     return removeDestinationFromUser(currentUser, id)
       .then(() => {
         return returnUpdatedDestinationList(currentUser, setDestinations);
