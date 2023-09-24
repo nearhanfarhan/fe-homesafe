@@ -8,6 +8,7 @@ import {
   push,
   remove,
 } from "firebase/database";
+import { addressToCoordinates } from "../utils/AddToCoord";
 
 const database = getDatabase();
 
@@ -59,21 +60,20 @@ export const returnUpdatedDestinationList = (user, setDestinations) => {
       const valuesArray = Object.keys(destinationsData).map((key) => ({
         id: key,
         ...destinationsData[key],
-      }
-      ));
+      }));
       setDestinations(valuesArray);
     } else {
       setDestinations([]);
-    }
+    } 
   });
+ 
 };
 
-export const addDestinationToUser = (user, destination) => {
+export const addDestinationToUser = (user, address) => {
   const uid = user.uid;
-  return set(push(ref(database, `users/${uid}/destinations`)), {
-    location: destination.identifier,
-    label: destination.label,
-  });
+    return set(push(ref(database, `users/${uid}/destinations`)), {
+  ...address
+    });;
 };
 
 export const getUserDestinations = (user) => {
@@ -85,49 +85,3 @@ export const removeDestinationFromUser = (user, destination_id) => {
   const uid = user.uid;
   return remove(ref(database, `users/${uid}/destinations/${destination_id}`));
 };
-
-export const searchLocations = (query) => {
-  // need api to search location
-  const locations = [
-    {
-      identifier: "home",
-      latitude: 51.4681,
-      longitude: -0.1878,
-      radius: 5000,
-    },
-    {
-      identifier: "manchester",
-      latitude: 53.4722,
-      longitude: -2.2917,
-      radius: 5000,
-    },
-    {
-      identifier: "work",
-      latitude: 51.5681,
-      longitude: -0.1878,
-      radius: 5000,
-    },
-    {
-      identifier: "school",
-      latitude: 51.4781,
-      longitude: -0.1878,
-      radius: 5000,
-    },
-    {
-      identifier: "birmingham",
-      latitude: 52.4845,
-      longitude: -1.8792,
-      radius: 5000,
-    },
-  ];
-  return locations.filter((location) =>
-    location.identifier.includes(query.toLowerCase())
-  );
-};
-
-/* not currently being used
-export const getUserById = (userCredential) => {
-  const user = userCredential.user;
-  return get(child(ref(database), `users/${user.uid}`));
-};
-*/

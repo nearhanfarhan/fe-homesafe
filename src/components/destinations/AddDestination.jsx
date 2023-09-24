@@ -41,7 +41,9 @@ export default function AddDestination({ destinations, setDestinations }) {
     if (
       destinations.some(
         (destination) =>
-          destination.identifier === selectedDestination.identifier
+       {
+          destination.label === selectedDestination.label
+        }
       )
     ) {
       console.log("conflict");
@@ -52,12 +54,13 @@ export default function AddDestination({ destinations, setDestinations }) {
     setValidationMessage("");
     const newDestination = { ...selectedDestination, ...label };
     setDestinations([...destinations, newDestination]);
-    return addDestinationToUser(currentUser, newDestination)
+    return addDestinationToUser(currentUser, newDestination, values.label)
       .then(() => {
         return returnUpdatedDestinationList(currentUser, setDestinations);
       })
       .then(() => {
-        console.log("destination added to database");
+        console.log("destination added to database")
+
         setSelectedDestination(null);
         setQuery("");
         resetForm();

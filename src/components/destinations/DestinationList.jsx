@@ -11,11 +11,8 @@ import { useContext } from "react";
 import { UserContext } from "../../services/userContext";
 
 export default function DestinationList({ destinations, setDestinations }) {
-
   const {currentUser} = useContext(UserContext)
-
   const handleDelete = (id) => {
-    console.log(id)
     return removeDestinationFromUser(currentUser, id)
       .then(() => {
         return returnUpdatedDestinationList(currentUser, setDestinations);
@@ -36,7 +33,7 @@ export default function DestinationList({ destinations, setDestinations }) {
             />
             <ListItem.Content>
               <ListItem.Title>{item.label}</ListItem.Title>
-              <ListItem.Subtitle>{item.location}</ListItem.Subtitle>
+              <ListItem.Subtitle>{item.address}</ListItem.Subtitle>
             </ListItem.Content>
             <ListItem.ButtonGroup
               buttons={["Remove"]}
