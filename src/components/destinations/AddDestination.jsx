@@ -25,7 +25,6 @@ export default function AddDestination({ destinations, setDestinations }) {
   const [query, setQuery] = useState("");
 
   const handleAddDestination = (values, { resetForm }) => {
-    console.log("values", values)
     if (!selectedDestination && !query) {
       setValidationMessage("Please select a destination to add");
       return;
@@ -42,8 +41,9 @@ export default function AddDestination({ destinations, setDestinations }) {
     if (
       destinations.some(
         (destination) =>
-       { console.log("destination", selectedDestination)
-          destination.label === selectedDestination.label}
+       {
+          destination.label === selectedDestination.label
+        }
       )
     ) {
       console.log("conflict");

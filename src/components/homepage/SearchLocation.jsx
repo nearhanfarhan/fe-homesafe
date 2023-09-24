@@ -43,7 +43,7 @@ export default function SearchLocation({
             }}
             onFail={(error) => console.error(error)}
             query={{
-              key: 'AIzaSyAQfQIC-Fy3-cQhPkkgH-aIwPxAumcpScw',
+              key: 'AIzaSyDvVmqahHXDsFvalXZLkcfh5PL5F4Id8zo',
               language: 'en',
             }}
             enablePoweredByContainer={false}

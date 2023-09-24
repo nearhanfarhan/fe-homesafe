@@ -28,8 +28,8 @@ export default function destinations() {
             id: key,
             ...destinationsData[key],
           }));
-          console.log(valuesArray)
-          setDestinations(valuesArray);
+          setDestinations(valuesArray);  
+
         } else {
           setDestinations([]);
         }
