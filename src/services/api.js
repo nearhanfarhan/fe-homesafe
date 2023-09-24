@@ -9,7 +9,6 @@ import {
   remove,
 } from "firebase/database";
 import { addressToCoordinates } from "../utils/AddToCoord";
-import { addressToCoordinates } from "../utils/AddToCoord";
 
 const database = getDatabase();
 
