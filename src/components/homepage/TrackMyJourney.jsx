@@ -37,7 +37,7 @@ export const TrackMyJourney = ({selectedContact, selectedDestination}) => {
 
   const { currentUser } = useContext(UserContext);
 
-  const user = currentUser.displayName;
+  const user = currentUser?.displayName || '';
   const destination = selectedDestination.identifier;
   const smsBody = `${user} has reached their destination - ${destination}`;
 
