@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     zIndex: 2,
+    elevation: (Platform.OS === 'android') ? 50 : 0,
     padding: 5,
   }
 });

@@ -24,7 +24,7 @@ export default function DestinationList({ destinations, setDestinations }) {
   };
 
   return (
-    <View>
+    <View style={styles.listContainer}>
       {destinations.length > 0 ? (
         destinations.map((item) => (
           <ListItem key={item.id} bottomDivider>
@@ -51,9 +51,7 @@ export default function DestinationList({ destinations, setDestinations }) {
           </ListItem>
         ))
       ) : (
-        <View style={styles.noDestinations}>
-          <Text style={styles.noDests}>No saved destinations</Text>
-        </View>
+        <Text style={styles.noDests}>No saved destinations</Text>
       )}
     </View>
   );
