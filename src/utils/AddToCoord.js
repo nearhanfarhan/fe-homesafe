@@ -1,7 +1,6 @@
-
 import axios from "axios";
 
-const googleMapsApiKey = "AIzaSyAQfQIC-Fy3-cQhPkkgH-aIwPxAumcpScw";
+const googleMapsApiKey = "AIzaSyDvVmqahHXDsFvalXZLkcfh5PL5F4Id8zo";
 
 export function AddressToCoordinates(address) {
   return new Promise((resolve, reject) => {

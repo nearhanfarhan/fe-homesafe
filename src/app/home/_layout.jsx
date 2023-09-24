@@ -7,6 +7,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { auth } from '../../firebase';
 import { UserContext } from '../../services/userContext';
 import { useContext } from 'react';
+import { StyleSheet } from 'react-native';
 
 export default function AppLayout() {
 
@@ -21,7 +22,8 @@ export default function AppLayout() {
                 href: "/home",
                 tabBarLabel: "Home",
                 headerTitle: `Welcome ${currentUser? (currentUser.displayName): ("!")}`,
-
+                headerStyle: styles.header,
+                headerTitleStyle: styles.headerTitle,
                 tabBarIcon: ({ color }) => (
                   <FontAwesome
                     size={28}
@@ -38,6 +40,8 @@ export default function AppLayout() {
                 href: "/home/contacts",
                 tabBarLabel: "Contacts",
                 headerTitle: "Contacts",
+                headerStyle: styles.header,
+                headerTitleStyle: styles.headerTitle,
                 tabBarIcon: ({ color }) => (
                   <FontAwesome
                     size={28}
@@ -61,6 +65,8 @@ export default function AppLayout() {
                 href: '/home/destinations',
                 tabBarLabel: 'Destinations',
                 headerTitle: 'Destinations',
+                headerStyle: styles.header,
+                headerTitleStyle: styles.headerTitle,
                 tabBarIcon: ({ color }) => (
                   <FontAwesome
                     size={28}
@@ -75,3 +81,12 @@ export default function AppLayout() {
         </>
       );
 }
+
+const styles = StyleSheet.create({
+  header: {
+    height: 65
+  },
+  headerTitle: {
+    height: 45
+  }
+});

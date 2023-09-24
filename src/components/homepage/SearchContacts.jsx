@@ -1,16 +1,15 @@
 import { getUserContacts, returnUpdatedContactList } from "../../services/api";
 import React, { useState, useEffect, useContext } from "react";
-import { Text, View, TextInput, TouchableOpacity, FlatList } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import { UserContext } from "../../services/userContext";
-import styles from "../../styles/Searchbar.styles";
-import { ScrollView } from "react-native-gesture-handler";
+import { MultiSelect } from 'react-native-element-dropdown';
+import AntDesign from '@expo/vector-icons/AntDesign';
 
 export default function SearchContacts() {
     const { currentUser } = useContext(UserContext);
     const [contacts, setContacts] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [inputValue, setInputValue] = useState("");
-    const [suggestions, setSuggestions] = useState([]);
+    const [selectedItems, setSelectedItems] = useState([]);
     const [selectedContacts, setSelectedContacts] = useState([]);
 
     useEffect(() => {
@@ -24,7 +23,7 @@ export default function SearchContacts() {
                 id: key,
                 ...contactsData[key],
               }));
-              setContacts(valuesArray);
+              setContacts(valuesArray.map(contact => { return { ...contact, label: contact.name, value: contact.id } }));
             } else {
               setContacts([]);
             }
@@ -39,71 +38,89 @@ export default function SearchContacts() {
 
       if (loading) return <Text>Loading...</Text>
 
-      const handleInputChange = (text) => {
-        setInputValue(text);
-        if (text === "") {
-          setSuggestions([]);
-          return;
-        }
-     const filteredContacts = contacts.filter((contact) =>
-      contact.name && contact.name.toLowerCase().includes(text.toLowerCase())
-    ).filter((contact) => !selectedContacts.some((c) => c.id === contact.id));
+      const handleChange = (items) => {
+        const updatedContacts = contacts.filter(contact => items.includes(contact.id));
+        console.log(updatedContacts);
+        setSelectedContacts(updatedContacts);
+        setSelectedItems(items);
+      };
 
-      setSuggestions(filteredContacts.slice(0, 3));
-    };
-  
-    const handleSelectContact = (contact) => {
-      // add function later?
-      setInputValue("");
-      setSuggestions([]); 
-  
-    if (!selectedContacts.some((c) => c.id === contact.id)) {
-        setSelectedContacts([...selectedContacts, contact]);
-      }
-    };
-  
-    const handleRemoveContact = (contact) => {
-      setSelectedContacts(selectedContacts.filter((c) => c.id !== contact.id));
-    };
-  
     return (
-      <View>
-        <TextInput
-          style={styles.input}
-          placeholder="Choose Contacts..."
-          placeholderTextColor={'grey'}
-          value={inputValue}
-          onChangeText={handleInputChange}
-          onFocus={() => {
-            if (inputValue !== "") {
-              setInputValue("");
-            }
-            return returnUpdatedContactList(currentUser, setContacts)
-          }}
-        />
-        {selectedContacts.map((contact) => (
-                <TouchableOpacity
-              key={contact.id}
-              onPress={() => handleRemoveContact(contact)}
-              style={styles.selectedOption}
-            >
-              <Text style={styles.selectedContactText}>{contact.name}</Text>
-            </TouchableOpacity>
-            ))}
-        {inputValue !== "" && suggestions.length > 0 && (
-          <FlatList
-            data={suggestions}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <TouchableOpacity onPress={() => handleSelectContact(item)}>
-                <Text style={styles.suggestion}>{item.name}</Text>
-              </TouchableOpacity>
-            )}
+      <>
+      <View style={styles.searchContainer}>
+        <View style={styles.autocompleteContainer}>
+          <MultiSelect
             style={styles.dropdown}
+            placeholderStyle={styles.placeholderStyle}
+            selectedTextStyle={styles.selectedTextStyle}
+            inputSearchStyle={styles.inputSearchStyle}
+            iconStyle={styles.iconStyle}
+            search
+            data={contacts}
+            labelField="label"
+            valueField="value"
+            placeholder="Choose contacts to notify"
+            searchPlaceholder="Search for a contact..."
+            value={selectedItems}
+            onChange={handleChange}
+            visibleSelectedItem={true}
+            selectedStyle={styles.selectedStyle}
+            // renderSelectedItem={(item, unSelect) => (
+            //   <></>
+            // )}
           />
-        )}
+        </View>
       </View>
+      {/* { selectedContacts && selectedContacts.length > 0 ? (
+          <Text>{selectedContacts.map(contact => { return <>{contact.name} </> })} will be notified when you arrive at your destination</Text>
+        ) : (<></>) } */}
+      </>
     );
   }
 
+  const styles = StyleSheet.create({
+    searchContainer: {
+      position: "relative",
+      flex: 1,
+      paddingTop: 50,
+      paddingBottom: 20,
+    },
+    autocompleteContainer: {
+      flex: 1,
+      left: 0,
+      position: "absolute",
+      right: 0,
+      top: 0,
+      zIndex: 1,
+      padding: 5,
+    },
+    dropdown: {
+      height: 50,
+      backgroundColor: 'white',
+      borderBottomColor: 'gray',
+      borderBottomWidth: 0.5,
+      paddingVertical: 5,
+      paddingHorizontal: 10
+    },
+    placeholderStyle: {
+      fontSize: 16,
+    },
+    selectedTextStyle: {
+      fontSize: 14,
+    },
+    iconStyle: {
+      width: 20,
+      height: 20,
+    },
+    inputSearchStyle: {
+      height: 40,
+      fontSize: 16,
+    },
+    icon: {
+      marginRight: 5,
+    },
+    selectedStyle: {
+      borderRadius: 12,
+    },
+  });
 

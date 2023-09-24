@@ -20,7 +20,6 @@ export default function HomePage() {
 
   return (
     <SafeAreaView style={styles.container}>
-    <SearchContacts />
       <SearchLocation 
         selectedDestination={selectedDestination} 
         setSelectedDestination={setSelectedDestination}
@@ -28,6 +27,7 @@ export default function HomePage() {
         setQuery={setQuery}
         locations={locations}
         setLocations={setLocations} />
+      <SearchContacts />
       <MapHP selectedDestination={selectedDestination} setSelectedDestination={setSelectedDestination} />
       <TrackMyJourney selectedContact={selectedContact} selectedDestination={selectedDestination}/>
 
