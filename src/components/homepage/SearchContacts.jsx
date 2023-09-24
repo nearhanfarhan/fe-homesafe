@@ -23,7 +23,7 @@ export default function SearchContacts({ setSelectedContacts }) {
                 id: key,
                 ...contactsData[key],
               }));
-              setContacts(valuesArray);
+              setContacts(valuesArray.map(contact => { return { ...contact, label: contact.name, value: contact.id } }));
             } else {
               setContacts([]);
             }
