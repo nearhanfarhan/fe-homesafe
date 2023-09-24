@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { addressToCoordinates } from '../../utils/AddToCoord';
+import { AddressToCoordinates } from '../../utils/AddToCoord';
 
 export default function SearchLocation({
   placeholder,
@@ -11,14 +11,13 @@ export default function SearchLocation({
   selectedDestination,
   setSelectedDestination,
 }) {
-  const handlePlaceSelected = (place) => {
+  const handleSelectedPlace = (place) => {
     AddressToCoordinates(place.description).then((coords) => {
       setSelectedDestination({ ...selectedDestination, ...coords })
     });
     setSelectedDestination(place);
     setQuery(place.description);
     setLocations([]);
-    // console.log("selectedDestination", selectedDestination)
   };
 
   useEffect(() => {

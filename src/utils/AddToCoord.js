@@ -2,7 +2,7 @@ import axios from "axios";
 
 const googleMapsApiKey = "AIzaSyDvVmqahHXDsFvalXZLkcfh5PL5F4Id8zo";
 
-export function addressToCoordinates(address) {
+export function AddressToCoordinates(address) {
   return new Promise((resolve, reject) => {
     const encodedAddress = encodeURIComponent(address);
     const url = `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}&key=${googleMapsApiKey}`;

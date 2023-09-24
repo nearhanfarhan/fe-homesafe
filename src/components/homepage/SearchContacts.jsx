@@ -40,7 +40,6 @@ export default function SearchContacts({ setSelectedContacts }) {
 
       const handleChange = (items) => {
         const updatedContacts = contacts.filter(contact => items.includes(contact.id));
-        console.log(updatedContacts);
         setSelectedContacts(updatedContacts);
         setSelectedItems(items);
       };
