@@ -1,20 +1,20 @@
 import { getUserContacts, returnUpdatedContactList } from "../../services/api";
 import React, { useState, useEffect, useContext } from "react";
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
-import { UserContext } from "../../services/userContext";
+import { UserContext } from "../../contexts/UserContext";
+import { ContactContext } from "../../contexts/ContactContext";
 import { MultiSelect } from 'react-native-element-dropdown';
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-export default function SearchContacts() {
+export default function SearchContacts({ setSelectedContacts }) {
     const { currentUser } = useContext(UserContext);
-    const [contacts, setContacts] = useState([]);
+    const { contacts, setContacts } = useContext(ContactContext);
     const [loading, setLoading] = useState(false);
     const [selectedItems, setSelectedItems] = useState([]);
-    const [selectedContacts, setSelectedContacts] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
-          setLoading(true)
+          setLoading(true);
           try {
             const snapshot = await getUserContacts(currentUser);
             if (snapshot.exists()) {
@@ -23,7 +23,7 @@ export default function SearchContacts() {
                 id: key,
                 ...contactsData[key],
               }));
-              setContacts(valuesArray.map(contact => { return { ...contact, label: contact.name, value: contact.id } }));
+              setContacts(valuesArray);
             } else {
               setContacts([]);
             }
@@ -44,7 +44,7 @@ export default function SearchContacts() {
         setSelectedContacts(updatedContacts);
         setSelectedItems(items);
       };
-
+    
     return (
       <>
       <View style={styles.searchContainer}>
@@ -57,17 +57,20 @@ export default function SearchContacts() {
             iconStyle={styles.iconStyle}
             search
             data={contacts}
-            labelField="label"
-            valueField="value"
+            labelField="name"
+            valueField="id"
             placeholder="Choose contacts to notify"
             searchPlaceholder="Search for a contact..."
             value={selectedItems}
             onChange={handleChange}
             visibleSelectedItem={true}
             selectedStyle={styles.selectedStyle}
-            // renderSelectedItem={(item, unSelect) => (
-            //   <></>
-            // )}
+            renderSelectedItem={(itemToRender, unSelect) => (
+              <View style={styles.selectedStyle}>
+                <Text style={styles.textSelectedStyle}>{itemToRender.name}</Text>
+                <AntDesign style={styles.iconSelectedStyle} color="black" name="closecircleo" size={17} />
+              </View>
+            )}
           />
         </View>
       </View>
@@ -80,30 +83,22 @@ export default function SearchContacts() {
 
   const styles = StyleSheet.create({
     searchContainer: {
-      position: "relative",
-      flex: 1,
-      paddingTop: 50,
-      paddingBottom: 20,
+      marginBottom: 2
     },
     autocompleteContainer: {
-      flex: 1,
-      left: 0,
-      position: "absolute",
-      right: 0,
-      top: 0,
       zIndex: 1,
       padding: 5,
     },
     dropdown: {
-      height: 50,
       backgroundColor: 'white',
       borderBottomColor: 'gray',
-      borderBottomWidth: 0.5,
       paddingVertical: 5,
-      paddingHorizontal: 10
+      paddingHorizontal: 10,
+      borderRadius: 5
     },
     placeholderStyle: {
       fontSize: 16,
+      color: "#666"
     },
     selectedTextStyle: {
       fontSize: 14,
@@ -120,7 +115,19 @@ export default function SearchContacts() {
       marginRight: 5,
     },
     selectedStyle: {
-      borderRadius: 12,
+      borderRadius: 15,
+      backgroundColor: 'white',
+      flexDirection: 'row',
+      paddingVertical: 5,
+      paddingHorizontal: 10,
+      marginTop: 5,
+      marginRight: 5
     },
+    textSelectedStyle: {
+      
+    },
+    iconSelectedStyle: {
+      marginLeft: 5
+    }
   });
 

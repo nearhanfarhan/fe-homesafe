@@ -4,7 +4,8 @@ import { ScrollView, Text } from "react-native";
 import { auth } from "../../firebase";
 import AddContact from "../../components/contacts/AddContact";
 import ContactList from "../../components/contacts/ContactList";
-import { UserContext } from "../../services/userContext";
+import { UserContext } from "../../contexts/UserContext";
+import { ContactContext } from "../../contexts/ContactContext";
 import { getUserContacts } from "../../services/api";
 
 export default function ContactsPage() {
@@ -12,8 +13,7 @@ export default function ContactsPage() {
     return <Redirect href="/login" />;
   }
   const { currentUser } = useContext(UserContext);
-
-  const [contacts, setContacts] = useState([]);
+  const { contacts, setContacts } = useContext(ContactContext);
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {

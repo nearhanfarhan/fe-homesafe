@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ContactCard from "./ContactCard";
 import { getUserContacts, removeContactFromUser, returnUpdatedContactList } from "../../services/api";
-import { UserContext } from "../../services/userContext";
+import { UserContext } from "../../contexts/UserContext";
 
 const ContactList = ({ contacts, setContacts }) => {
   const { currentUser } = useContext(UserContext);

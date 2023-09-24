@@ -4,6 +4,7 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import { AddressToCoordinates } from '../../utils/AddToCoord';
 
 export default function SearchLocation({
+  placeholder,
   query,
   setQuery,
   locations,
@@ -25,12 +26,12 @@ export default function SearchLocation({
     // You can use the `locations` state to update the autocomplete predictions
     // based on the user's input. You can pass it as the `predefinedPlaces` prop.
   }, [locations]);
-
+  
   return (
     <View style={styles.searchContainer}>
         <View style={styles.autocompleteContainer}>
           <GooglePlacesAutocomplete
-            placeholder="Search for a location"
+            placeholder={placeholder}
             minLength={2} 
             autoFocus={false}
             returnKeyType={'search'}
@@ -67,10 +68,8 @@ export default function SearchLocation({
 
 const styles = StyleSheet.create({
   searchContainer: {
-    position: "relative",
-    flex: 1,
-    paddingTop: 50,
     paddingBottom: 20,
+    height: 60
   },
   autocompleteContainer: {
     flex: 1,

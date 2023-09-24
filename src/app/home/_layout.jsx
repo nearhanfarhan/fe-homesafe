@@ -5,7 +5,7 @@
 import { Slot, Tabs } from 'expo-router';
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { auth } from '../../firebase';
-import { UserContext } from '../../services/userContext';
+import { UserContext } from '../../contexts/UserContext';
 import { useContext } from 'react';
 import { StyleSheet } from 'react-native';
 
@@ -84,9 +84,9 @@ export default function AppLayout() {
 
 const styles = StyleSheet.create({
   header: {
-    height: 65
+    height: 55
   },
   headerTitle: {
-    height: 45
+    height: 50
   }
 });

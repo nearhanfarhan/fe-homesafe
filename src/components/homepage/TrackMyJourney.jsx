@@ -6,7 +6,7 @@ import * as TaskManager from 'expo-task-manager';
 import * as SMS from 'expo-sms';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Notifications from 'expo-notifications';
-import { UserContext } from "../../services/userContext";
+import { UserContext } from "../../contexts/UserContext";
 import styles from "../../styles/Homepage.styles";
 import { Button } from '@rneui/base';
 import * as Permissions from 'expo-permissions';
@@ -30,7 +30,7 @@ TaskManager.defineTask(GEOFENCING_TASK, ({ data: { eventType }, error }) => {
   }
 });
 
-export const TrackMyJourney = ({selectedContact, selectedDestination}) => {
+export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
   const [hasArrived, setHasArrived] = useState(false);
   const [startPolling, setStartPolling] = useState(false)
   const [isTracking, setIsTracking] = useState(false)
@@ -42,7 +42,7 @@ export const TrackMyJourney = ({selectedContact, selectedDestination}) => {
   const smsBody = `${user} has reached their destination - ${destination}`;
 
   const sendSMS = () => {
-    SMS.sendSMSAsync([selectedContact], smsBody)
+    SMS.sendSMSAsync(selectedContacts.map(contact => contact.telNo), smsBody)
     .then(({ result }) => {
       if (result === 'cancelled') {
         Alert.alert('SMS not sent');

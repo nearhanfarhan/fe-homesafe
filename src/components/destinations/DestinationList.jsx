@@ -8,7 +8,7 @@ import {
   returnUpdatedDestinationList,
 } from "../../services/api";
 import { useContext } from "react";
-import { UserContext } from "../../services/userContext";
+import { UserContext } from "../../contexts/UserContext";
 
 export default function DestinationList({ destinations, setDestinations }) {
   const {currentUser} = useContext(UserContext)
