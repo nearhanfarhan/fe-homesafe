@@ -11,7 +11,6 @@ export function addressToCoordinates(address) {
     axios
       .get(url)
       .then((response) => {
-        // console.log ("response", response.data.status)
         if (response.data.status === "OK" && response.data.results.length > 0) {
           const { lat, lng } = response.data.results[0].geometry.location;
           resolve({ latitude: lat, longitude: lng, address });
