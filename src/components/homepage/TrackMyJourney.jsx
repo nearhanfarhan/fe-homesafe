@@ -9,7 +9,7 @@ import * as Notifications from 'expo-notifications';
 import { UserContext } from "../../contexts/UserContext";
 import styles from "../../styles/Homepage.styles";
 import { Button } from '@rneui/base';
-import * as Permissions from 'expo-permissions';
+import { NativeModules } from 'react-native';
 
 const GEOFENCING_TASK = 'GeofencingTask';
 
@@ -36,13 +36,14 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
   const [isTracking, setIsTracking] = useState(false)
 
   const { currentUser } = useContext(UserContext);
+  let DirectSms = NativeModules.DirectSms;
 
   const user = currentUser?.displayName || '';
   const destination = selectedDestination.identifier;
   const smsBody = `${user} has reached their destination - ${destination}`;
 
   const sendSMS = () => {
-    SMS.sendSMSAsync(selectedContacts.map(contact => contact.telNo), smsBody)
+    DirectSms.sendDirectSms(selectedContacts.map(contact => contact.telNo), smsBody)
     .then(({ result }) => {
       if (result === 'cancelled') {
         Alert.alert('SMS not sent');
@@ -85,8 +86,10 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
       }
       return Location.startGeofencingAsync(GEOFENCING_TASK, [
         selectedDestination
+        
       ])
       .then(() => {
+        console.log(selectedDestination)
         setStartPolling(true);
         Alert.alert('Tracking started.')
       })
