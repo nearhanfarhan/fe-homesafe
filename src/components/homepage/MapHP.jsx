@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Text, StyleSheet } from "react-native"
 import MapView, { Marker, Callout } from 'react-native-maps';
 
@@ -26,7 +27,7 @@ export default function MapHP({selectedDestination, setSelectedDestination}) {
                         latitude: selectedDestination.latitude
                     }}
                     onDragEnd={(e) => { 
-                        console.log("drag: " + e.nativeEvent.coordinate);
+                        // console.log("drag: " + e.nativeEvent.coordinate);
                         setSelectedDestination({ ...selectedDestination, ...e.nativeEvent.coordinate });
                     }}
                 >
