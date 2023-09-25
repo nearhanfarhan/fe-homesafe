@@ -9,7 +9,7 @@ import {
 import { useContext, useEffect } from "react";
 import { auth } from "../firebase";
 import { router } from "expo-router";
-import { UserContext } from "../services/userContext";
+import { UserContext } from "../contexts/UserContext";
 import { Button, Input } from "@rneui/base";
 import { Formik } from 'formik';
 import * as yup from 'yup'

@@ -64,16 +64,15 @@ export const returnUpdatedDestinationList = (user, setDestinations) => {
       setDestinations(valuesArray);
     } else {
       setDestinations([]);
-    } 
+    }
   });
- 
 };
 
 export const addDestinationToUser = (user, address) => {
   const uid = user.uid;
-    return set(push(ref(database, `users/${uid}/destinations`)), {
-  ...address
-    });;
+  return set(push(ref(database, `users/${uid}/destinations`)), {
+    ...address,
+  });
 };
 
 export const getUserDestinations = (user) => {

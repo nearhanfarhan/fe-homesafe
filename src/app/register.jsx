@@ -5,7 +5,7 @@ import { auth } from "../firebase";
 import { router } from "expo-router";
 import { Formik } from "formik";
 import * as yup from "yup";
-import { UserContext } from "../services/userContext";
+import { UserContext } from "../contexts/UserContext";
 import { postUserOnRegistration } from "../services/api";
 
 const registerValidationSchema = yup.object().shape({

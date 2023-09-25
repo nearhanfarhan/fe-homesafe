@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
-import { addressToCoordinates } from '../../utils/AddToCoord';
+import { AddressToCoordinates } from '../../utils/AddToCoord';
 
 export default function SearchLocation({
-  query,
+  placeholder,
   setQuery,
   locations,
   setLocations,
@@ -12,26 +12,24 @@ export default function SearchLocation({
   setSelectedDestination,
 }) {
   const handleSelectedPlace = (place) => {
-    addressToCoordinates(place.description).then((coords) => {
-      // console.log("coords", coords);
+    AddressToCoordinates(place.description).then((coords) => {
       setSelectedDestination({ ...selectedDestination, ...coords })
     });
     setSelectedDestination(place);
     setQuery(place.description);
     setLocations([]);
-    // console.log("selectedDestination", selectedDestination)
   };
 
   useEffect(() => {
     // You can use the `locations` state to update the autocomplete predictions
     // based on the user's input. You can pass it as the `predefinedPlaces` prop.
   }, [locations]);
-
+  
   return (
     <View style={styles.searchContainer}>
         <View style={styles.autocompleteContainer}>
           <GooglePlacesAutocomplete
-            placeholder="Search for a location"
+            placeholder={placeholder}
             minLength={2} 
             autoFocus={false}
             returnKeyType={'search'}
@@ -43,8 +41,7 @@ export default function SearchLocation({
             }}
             onFail={(error) => console.error(error)}
             query={{
-
-              key: 'APIKEY',
+              key: 'AIzaSyDvVmqahHXDsFvalXZLkcfh5PL5F4Id8zo',
               language: 'en',
             }}
             enablePoweredByContainer={false}
@@ -69,10 +66,8 @@ export default function SearchLocation({
 
 const styles = StyleSheet.create({
   searchContainer: {
-    position: "relative",
-    flex: 1,
-    paddingTop: 50,
     paddingBottom: 20,
+    height: 60
   },
   autocompleteContainer: {
     flex: 1,
@@ -80,7 +75,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 0,
     top: 0,
-    zIndex: 1,
+    zIndex: 2,
+    elevation: (Platform.OS === 'android') ? 50 : 0,
     padding: 5,
   }
 });

@@ -4,7 +4,7 @@ import { auth } from "../../firebase";
 import DestinationList from "../../components/destinations/DestinationList";
 import AddDestination from "../../components/destinations/AddDestination";
 import styles from "../../styles/Destinations.styles";
-import { UserContext } from "../../services/userContext";
+import { UserContext } from "../../contexts/UserContext";
 import { getUserDestinations } from "../../services/api";
 import { Redirect } from "expo-router";
 
@@ -46,11 +46,11 @@ export default function destinations() {
 
   return (
     <SafeAreaView>
-      <DestinationList
+      <AddDestination
         destinations={destinations}
         setDestinations={setDestinations}
       />
-      <AddDestination
+      <DestinationList
         destinations={destinations}
         setDestinations={setDestinations}
       />

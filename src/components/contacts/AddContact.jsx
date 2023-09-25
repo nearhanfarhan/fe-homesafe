@@ -3,7 +3,7 @@ import { Input, Button } from "@rneui/base";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useContext } from "react";
-import { UserContext } from "../../services/userContext";
+import { UserContext } from "../../contexts/UserContext";
 import { addContactToUser, returnUpdatedContactList } from "../../services/api";
 
 const validationSchema = yup.object().shape({

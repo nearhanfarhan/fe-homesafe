@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
     height: "100%",
     flexDirection: "row",
   },
+  listContainer: {
+    zIndex: 1,
+    elevation: 0,
+  },
   avatar: {
     height: 64,
     width: 64,

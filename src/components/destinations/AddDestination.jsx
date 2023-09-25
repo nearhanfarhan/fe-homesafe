@@ -4,7 +4,7 @@ import { Button, Input, Text } from "@rneui/base";
 import SearchLocation from "../homepage/SearchLocation";
 import { Formik } from "formik";
 import * as yup from "yup";
-import { UserContext } from "../../services/userContext";
+import { UserContext } from "../../contexts/UserContext";
 import {
   addDestinationToUser,
   returnUpdatedDestinationList,
@@ -86,6 +86,7 @@ export default function AddDestination({ destinations, setDestinations }) {
         }) => (
           <View>
             <SearchLocation
+              placeholder="Search for a new destination"
               selectedDestination={selectedDestination}
               setSelectedDestination={setSelectedDestination}
               query={query}
