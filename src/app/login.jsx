@@ -50,12 +50,9 @@ const LoginScreen = () => {
     let user;
     auth
       .signInWithEmailAndPassword(values.email, values.password)
-      .then(async (userCredentials) => {
+      .then((userCredentials) => {
         user = userCredentials.user;
-        const jwtToken = await userCredentials.user?.getIdToken().then(() => {
-          setCurrentUser(user);
-        });
-
+        setCurrentUser(user);
       })
       .catch((err) => {
         alert(err.message);

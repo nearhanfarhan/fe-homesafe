@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { Alert, TouchableOpacity, Text } from 'react-native';
+import { Alert, Text } from 'react-native';
 import { GeofencingEventType } from 'expo-location';
 import * as Location from 'expo-location';
 import * as TaskManager from 'expo-task-manager';
@@ -9,7 +9,7 @@ import * as Notifications from 'expo-notifications';
 import { UserContext } from "../../contexts/UserContext";
 import styles from "../../styles/Homepage.styles";
 import { Button } from '@rneui/base';
-import * as Permissions from 'expo-permissions';
+import { SendSms } from '../../services/smsService';
 
 const GEOFENCING_TASK = 'GeofencingTask';
 
@@ -38,17 +38,13 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
   const { currentUser } = useContext(UserContext);
 
   const user = currentUser?.displayName || '';
-  const destination = selectedDestination.identifier;
+  const destination = selectedDestination.address;
   const smsBody = `${user} has reached their destination - ${destination}`;
 
   const sendSMS = () => {
-    SMS.sendSMSAsync(selectedContacts.map(contact => contact.telNo), smsBody)
-    .then(({ result }) => {
-      if (result === 'cancelled') {
-        Alert.alert('SMS not sent');
-      } else {
-        Alert.alert('SMS sent successfully');
-      }
+    currentUser?.getIdToken()
+    .then((token) => {
+      return SendSms(selectedContacts.map(contact => contact.telNo), smsBody, token)
     });
   };
 
