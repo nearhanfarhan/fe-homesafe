@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import { Redirect } from "expo-router";
-import { ScrollView, Text } from "react-native";
+import { ScrollView, Text, FlatList, View } from "react-native";
 import { auth } from "../../firebase";
 import AddContact from "../../components/contacts/AddContact";
 import ContactList from "../../components/contacts/ContactList";
@@ -43,11 +43,18 @@ export default function ContactsPage() {
 
   if (loading) return <Text>Loading...</Text>
 
+  const data = [null];
   return (
-    <ScrollView>
-    <Header />
-      <AddContact contacts={contacts} setContacts={setContacts} />
-      <ContactList contacts={contacts} setContacts={setContacts} />
-    </ScrollView>
+    <FlatList
+      data={data}
+      renderItem={({ item }) => (
+        <View>
+          <Header />
+          <AddContact contacts={contacts} setContacts={setContacts} />
+          <ContactList contacts={contacts} setContacts={setContacts} />
+        </View>
+      )}
+      keyExtractor={(item, index) => index.toString()}
+    />
   );
 }
