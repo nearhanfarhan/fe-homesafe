@@ -12,7 +12,7 @@ export default function HomePage() {
   if (!auth.currentUser) {
     return <Redirect href="/login" />;
   }
-  const [selectedDestination, setSelectedDestination] = useState({ identifier: 'home', latitude: 51.468100, longitude: -0.187800, radius: 5000, });
+  const [selectedDestination, setSelectedDestination] = useState({ identifier: 'home', latitude: 51.468100, longitude: -0.187800, radius: 100, });
   const [selectedContacts, setSelectedContacts] = useState([]);
   const [query, setQuery] = useState('');
   const [locations, setLocations] = useState([]);
