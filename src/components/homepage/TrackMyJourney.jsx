@@ -88,8 +88,7 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
     return true;
   };
 
-  const handleTracking = () => {
-    setIsTracking(true)
+  useEffect (() => {
     smsPermission()
     .then(() => {
      return requestNotificationPermission()
@@ -114,6 +113,14 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
         console.log('Background permission denied');
         return;
       }
+    })
+   }
+ })
+}, [])
+
+  const handleTracking = () => {
+    setIsTracking(true)
+    
       return Location.startGeofencingAsync(GEOFENCING_TASK, [
         selectedDestination
       ])
@@ -121,13 +128,10 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
         Alert.alert('Tracking started.')
         console.log('tracking started')
       })
-    })
     .catch((error) => {
       console.error('Error:', error);
-    });
-      }
     })
-  };
+  }
 
   const handleStopTracking = () => {
     if (isTracking){
