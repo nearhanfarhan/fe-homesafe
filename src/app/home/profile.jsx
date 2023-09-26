@@ -2,6 +2,7 @@ import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Text } from "@rneui/base";
 import { Redirect, router } from "expo-router";
 import { auth } from "../../firebase";
+import Header from "../../Headers/Header";
 
 export default function Profile() {
   if (!auth.currentUser) {

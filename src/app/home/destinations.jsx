@@ -7,6 +7,8 @@ import styles from "../../styles/Destinations.styles";
 import { UserContext } from "../../contexts/UserContext";
 import { getUserDestinations } from "../../services/api";
 import { Redirect } from "expo-router";
+import { ScrollView } from "react-native-gesture-handler";
+import Header from "../../Headers/Header";
 
 export default function destinations() {
   const [destinations, setDestinations] = useState([]);
@@ -45,7 +47,8 @@ export default function destinations() {
   if (loading) return <Text>Loading...</Text>;
 
   return (
-    <SafeAreaView>
+    <ScrollView>
+    <Header />
       <AddDestination
         destinations={destinations}
         setDestinations={setDestinations}
@@ -54,6 +57,6 @@ export default function destinations() {
         destinations={destinations}
         setDestinations={setDestinations}
       />
-    </SafeAreaView>
+    </ScrollView>
   );
 }

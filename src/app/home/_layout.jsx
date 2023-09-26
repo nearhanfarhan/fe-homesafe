@@ -24,6 +24,7 @@ export default function AppLayout() {
                 headerTitle: `Welcome ${currentUser? (currentUser.displayName): ("!")}`,
                 headerStyle: styles.header,
                 headerTitleStyle: styles.headerTitle,
+                headerShown: false,
                 tabBarIcon: ({ color }) => (
                   <FontAwesome
                     size={28}
@@ -42,6 +43,7 @@ export default function AppLayout() {
                 headerTitle: "Contacts",
                 headerStyle: styles.header,
                 headerTitleStyle: styles.headerTitle,
+                headerShown: false,
                 tabBarIcon: ({ color }) => (
                   <FontAwesome
                     size={28}
@@ -67,6 +69,7 @@ export default function AppLayout() {
                 headerTitle: 'Destinations',
                 headerStyle: styles.header,
                 headerTitleStyle: styles.headerTitle,
+                headerShown: false,
                 tabBarIcon: ({ color }) => (
                   <FontAwesome
                     size={28}

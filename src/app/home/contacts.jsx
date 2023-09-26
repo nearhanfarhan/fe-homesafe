@@ -7,6 +7,7 @@ import ContactList from "../../components/contacts/ContactList";
 import { UserContext } from "../../contexts/UserContext";
 import { ContactContext } from "../../contexts/ContactContext";
 import { getUserContacts } from "../../services/api";
+import Header from "../../Headers/Header";
 
 export default function ContactsPage() {
   if (!auth.currentUser) {
@@ -44,6 +45,7 @@ export default function ContactsPage() {
 
   return (
     <ScrollView>
+    <Header />
       <AddContact contacts={contacts} setContacts={setContacts} />
       <ContactList contacts={contacts} setContacts={setContacts} />
     </ScrollView>

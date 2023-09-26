@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SafeAreaView } from "react-native";
+import {View } from "react-native";
 import { Redirect } from "expo-router";
 import { auth } from "../../firebase";
 import styles from "../../styles/Homepage.styles";
@@ -7,6 +7,7 @@ import MapHP from "../../components/homepage/MapHP";
 import SearchLocation from "../../components/homepage/SearchLocation";
 import { TrackMyJourney } from "../../components/homepage/TrackMyJourney";
 import SearchContacts from "../../components/homepage/SearchContacts";
+import HomepageHeader from '../../Headers/HomePageHeader'
 
 export default function HomePage() {
   if (!auth.currentUser) {
@@ -18,7 +19,8 @@ export default function HomePage() {
   const [locations, setLocations] = useState([]);
   
   return (
-    <SafeAreaView style={styles.container}>
+    <View>
+    <HomepageHeader />
       <SearchLocation 
         placeholder="Where are you going?"
         selectedDestination={selectedDestination} 
@@ -30,7 +32,7 @@ export default function HomePage() {
       <SearchContacts setSelectedContacts={setSelectedContacts} />
       <MapHP selectedDestination={selectedDestination} setSelectedDestination={setSelectedDestination} />
       <TrackMyJourney selectedContacts={selectedContacts} selectedDestination={selectedDestination}/>
-    </SafeAreaView>
+    </View>
   )
 }
       
