@@ -70,7 +70,7 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
 
 
   const smsPermission = () => {
-    PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.SEND_SMS)
+    return PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.SEND_SMS)
       .then((response) => {
         if (response === PermissionsAndroid.RESULTS.GRANTED) {
           console.log('Notification perms')
@@ -91,7 +91,9 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
   const handleTracking = () => {
     setIsTracking(true)
     smsPermission()
-    requestNotificationPermission()
+    .then(() => {
+     return requestNotificationPermission()
+    })
     .then((data)=>{
       if (!data){
         console.log('notificaton permissions denied.')
