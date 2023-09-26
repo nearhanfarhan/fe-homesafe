@@ -13,8 +13,8 @@ export default function SearchContacts({ setSelectedContacts }) {
     const [selectedItems, setSelectedItems] = useState([]);
 
     useEffect(() => {
-        const fetchData = async () => {
-          setLoading(true);
+      const fetchData = async () => {
+        if (currentUser) {
           try {
             const snapshot = await getUserContacts(currentUser);
             if (snapshot.exists()) {
@@ -27,15 +27,17 @@ export default function SearchContacts({ setSelectedContacts }) {
             } else {
               setContacts([]);
             }
-            setLoading(false)
           } catch (error) {
-            setLoading(false)
             console.error("Error fetching contacts: ", error);
+          } finally {
+            setLoading(false);
           }
-        };
-        fetchData();
-      }, []);
-
+        }
+      };
+      fetchData();
+    }, [currentUser, setContacts]);
+  
+    if (loading) return <Text>Loading...</Text>;
       if (loading) return <Text>Loading...</Text>
 
       const handleChange = (items) => {
