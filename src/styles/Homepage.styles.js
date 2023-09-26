@@ -38,6 +38,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     alignSelf: "center",
   },
+  subButtonText: {
+    color: "white",
+    fontSize: 16,
+    alignSelf: "center",
+  },
+
   selectedDest: {
     alignSelf: "center",
     fontSize: 16,
@@ -51,6 +57,12 @@ const styles = StyleSheet.create({
     marginVertical: 16,
     zIndex: -1,
   },
+  checkboxContainer: {
+    flexDirection: 'row',
+    marginBottom: 20,
+    backgroundColor: "white",
+  },
+  
 });
 
 export default styles;
