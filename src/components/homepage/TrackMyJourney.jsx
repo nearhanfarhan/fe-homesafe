@@ -51,7 +51,7 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
   },[selectedContacts])
 
   useEffect (() => {
-    const smsBody = `${user} has reached their destination - ${selectedDestination.identifier}`
+    const smsBody = `${user} has reached their destination - ${selectedDestination.address}`
     AsyncStorage.setItem('smsBody', smsBody)
   }, [selectedDestination])
 
@@ -108,6 +108,7 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
     .then(({ status }) => {
       console.log('background perms')
       if (status !== 'granted') {
+        
         console.log('Background permission denied');
         return;
       }
