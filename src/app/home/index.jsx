@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {View } from "react-native";
+import {View, FlatList } from "react-native";
 import { Redirect } from "expo-router";
 import { auth } from "../../firebase";
 import styles from "../../styles/Homepage.styles";
@@ -18,21 +18,35 @@ export default function HomePage() {
   const [query, setQuery] = useState('');
   const [locations, setLocations] = useState([]);
   
-  return (
-    <View>
-    <HomepageHeader />
-      <SearchLocation 
-        placeholder="Where are you going?"
-        selectedDestination={selectedDestination} 
-        setSelectedDestination={setSelectedDestination}
-        query={query}
-        setQuery={setQuery}
-        locations={locations}
-        setLocations={setLocations} />
-      <SearchContacts setSelectedContacts={setSelectedContacts} />
-      <MapHP selectedDestination={selectedDestination} setSelectedDestination={setSelectedDestination} />
-      <TrackMyJourney selectedContacts={selectedContacts} selectedDestination={selectedDestination}/>
-    </View>
-  )
+  const data = [null];
+return(
+      <FlatList
+      data={data}
+      renderItem={({ item }) => (
+        <View>
+          <HomepageHeader />
+          <SearchLocation
+            placeholder="Where are you going?"
+            selectedDestination={selectedDestination}
+            setSelectedDestination={setSelectedDestination}
+            query={query}
+            setQuery={setQuery}
+            locations={locations}
+            setLocations={setLocations}
+          />
+          <SearchContacts setSelectedContacts={setSelectedContacts} />
+          <MapHP selectedDestination={selectedDestination} setSelectedDestination={setSelectedDestination} />
+          <TrackMyJourney selectedContacts={selectedContacts} selectedDestination={selectedDestination} />
+        </View>
+      )}
+      keyExtractor={(item, index) => index.toString()}
+    />
+  );
 }
+
+
+
+
+
+
       

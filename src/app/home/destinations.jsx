@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Text, FlatList, View } from "react-native";
 import { auth } from "../../firebase";
 import DestinationList from "../../components/destinations/DestinationList";
 import AddDestination from "../../components/destinations/AddDestination";
@@ -46,17 +46,28 @@ export default function destinations() {
 
   if (loading) return <Text>Loading...</Text>;
 
+  const data = [null];
   return (
-    <ScrollView>
-    <Header />
-      <AddDestination
-        destinations={destinations}
-        setDestinations={setDestinations}
-      />
-      <DestinationList
-        destinations={destinations}
-        setDestinations={setDestinations}
-      />
-    </ScrollView>
+    <FlatList
+      data={data}
+      renderItem={({ item }) => (
+        <>
+          <Header />
+          <AddDestination
+            destinations={destinations}
+            setDestinations={setDestinations}
+          />
+          <DestinationList
+            destinations={destinations}
+            setDestinations={setDestinations}
+          />
+        </>
+      )}
+      keyExtractor={(item, index) => index.toString()}
+      ListFooterComponent={<View style={{ marginBottom: 20 }} />} 
+    />
   );
 }
+
+
+
