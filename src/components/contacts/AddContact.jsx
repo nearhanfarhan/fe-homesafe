@@ -21,12 +21,12 @@ const AddContact = ({ contacts, setContacts }) => {
   };
   const handleAddContact = (values, { resetForm }) => {
     const newContact = {
-      name: values.name,
+      name: values.name.toLowerCase(),
       telNo: values.contactNumber,
     };
     const isDuplicate = contacts.some(
       (contact) =>
-        contact.name === newContact.name ||
+        contact.name.toLowerCase() === newContact.name ||
         contact.telNo === newContact.telNo
     );
   
