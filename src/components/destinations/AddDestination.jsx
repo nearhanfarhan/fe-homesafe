@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Keyboard, View, StyleSheet } from "react-native";
 import { Button, Input, Text } from "@rneui/base";
-import SearchLocation from "../homepage/SearchLocation";
+import SearchLocation from "../destinations/SearchLocation";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { UserContext } from "../../contexts/UserContext";
