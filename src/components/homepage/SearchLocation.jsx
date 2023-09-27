@@ -1,4 +1,3 @@
-
 import React, { useEffect, useContext, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
@@ -87,13 +86,6 @@ export default function SearchLocation({
           // Pass your predefinedPlaces (locations) here to update autocomplete predictions
           predefinedPlaces={locations}
           predefinedPlacesAlwaysVisible={true}
-
-            listView: {},
-            container: {
-              zIndex: 3,
-            },
-          }}
-          
 
         />
       </View>

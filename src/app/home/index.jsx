@@ -1,7 +1,5 @@
 
 import { useContext, useEffect, useState } from "react";
-import { SafeAreaView } from "react-native";
-
 import { Redirect } from "expo-router";
 import { auth } from "../../firebase";
 import styles from "../../styles/Homepage.styles";
