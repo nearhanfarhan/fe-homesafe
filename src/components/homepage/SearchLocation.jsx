@@ -1,6 +1,11 @@
+
+import React, { useEffect, useContext, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { AddressToCoordinates } from "../../utils/AddToCoord";
+import { UserContext } from "../../contexts/UserContext";
+import { returnUpdatedDestinationList } from "../../services/api";
+
 
 export default function SearchLocation({
   placeholder,
@@ -10,13 +15,39 @@ export default function SearchLocation({
   selectedDestination,
   setSelectedDestination,
 }) {
+  const [destinations, setDestinations] = useState([]);
+  const [reloadList, setReloadList] = useState(false);
+  const { currentUser } = useContext(UserContext);
+
   const handlePlaceSelected = (place) => {
+    console.log("place description", place);
     AddressToCoordinates(place.description).then((coords) => {
       setSelectedDestination({ ...selectedDestination, ...coords });
     });
     setQuery(place.description);
-    setLocations([]);
   };
+
+
+  useEffect(() => {
+    returnUpdatedDestinationList(currentUser, setDestinations);
+  }, []);
+
+  useEffect(() => {
+
+    const formattedDestinations = destinations.map((destination) => ({
+      isPredefinedPlace: true,
+      label: destination.label,
+      description: destination.address,
+      geometry: {
+        location: {
+          lat: destination.latitude,
+          lng: destination.longitude,
+        },
+      },
+    }));
+    setLocations(formattedDestinations);
+  }, [destinations]);
+
 
   return (
     <View style={styles.searchContainer}>
@@ -28,7 +59,10 @@ export default function SearchLocation({
           returnKeyType={"search"}
           listViewDisplayed="auto"
           fetchDetails={true}
-          renderDescription={(row) => row.description}
+
+          renderDescription={(row) =>
+            row.isPredefinedPlace ? row.label : row.description
+          }
           onPress={(data, details = null) => {
             handlePlaceSelected(data);
           }}
@@ -48,12 +82,19 @@ export default function SearchLocation({
             predefinedPlacesDescription: {
               color: "#1faadb",
             },
+
+          }}
+          // Pass your predefinedPlaces (locations) here to update autocomplete predictions
+          predefinedPlaces={locations}
+          predefinedPlacesAlwaysVisible={true}
+
             listView: {},
             container: {
               zIndex: 3,
             },
           }}
-          predefinedPlaces={locations}
+          
+
         />
       </View>
     </View>

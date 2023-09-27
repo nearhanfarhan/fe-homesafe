@@ -1,4 +1,7 @@
-import { useState } from "react";
+
+import { useContext, useEffect, useState } from "react";
+import { SafeAreaView } from "react-native";
+
 import { Redirect } from "expo-router";
 import { auth } from "../../firebase";
 import styles from "../../styles/Homepage.styles";
@@ -10,6 +13,7 @@ import { View, FlatList, SafeAreaView } from "react-native";
 import RadiusSelector from "../../components/homepage/RadiusSelector";
 import HomepageHeader from "../../Headers/HomePageHeader";
 
+
 export default function HomePage() {
   if (!auth.currentUser) {
     return <Redirect href="/login" />;
@@ -19,9 +23,9 @@ export default function HomePage() {
   const [selectedContacts, setSelectedContacts] = useState([]);
   const [query, setQuery] = useState('');
   const [locations, setLocations] = useState([]);
-
-
+  
   const data = [null];
+
   return (
     <SafeAreaView>
       <HomepageHeader />
