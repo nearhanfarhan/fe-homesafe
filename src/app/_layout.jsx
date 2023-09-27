@@ -4,7 +4,7 @@
 
 import { Slot } from 'expo-router';
 import { ThemeProvider, createTheme } from '@rneui/themed';
-import Header from '../components/Header';
+import Header from '../Headers/Header';
 import { UserProvider } from '../contexts/UserContext';
 import { ContactProvider } from '../contexts/ContactContext';
 
@@ -23,7 +23,6 @@ export default function RootLayout() {
     <UserProvider>
       <ContactProvider>
         <ThemeProvider theme={theme}>
-          <Header />
           <Slot />
         </ThemeProvider>
       </ContactProvider>

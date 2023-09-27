@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from "react";
-import { SafeAreaView, Text } from "react-native";
+import { SafeAreaView, Text, FlatList, View } from "react-native";
 import { auth } from "../../firebase";
 import DestinationList from "../../components/destinations/DestinationList";
 import AddDestination from "../../components/destinations/AddDestination";
@@ -7,6 +7,8 @@ import styles from "../../styles/Destinations.styles";
 import { UserContext } from "../../contexts/UserContext";
 import { getUserDestinations } from "../../services/api";
 import { Redirect } from "expo-router";
+import { ScrollView } from "react-native-gesture-handler";
+import Header from "../../Headers/Header";
 
 export default function destinations() {
   const [destinations, setDestinations] = useState([]);
@@ -44,16 +46,28 @@ export default function destinations() {
 
   if (loading) return <Text>Loading...</Text>;
 
+  const data = [null];
   return (
-    <SafeAreaView>
-      <AddDestination
-        destinations={destinations}
-        setDestinations={setDestinations}
-      />
-      <DestinationList
-        destinations={destinations}
-        setDestinations={setDestinations}
-      />
-    </SafeAreaView>
+    <FlatList
+      data={data}
+      renderItem={({ item }) => (
+        <>
+          <Header />
+          <AddDestination
+            destinations={destinations}
+            setDestinations={setDestinations}
+          />
+          <DestinationList
+            destinations={destinations}
+            setDestinations={setDestinations}
+          />
+        </>
+      )}
+      keyExtractor={(item, index) => index.toString()}
+      ListFooterComponent={<View style={{ marginBottom: 20 }} />} 
+    />
   );
 }
+
+
+

@@ -13,6 +13,7 @@ import { UserContext } from "../contexts/UserContext";
 import { Button, Input } from "@rneui/base";
 import { Formik } from 'formik';
 import * as yup from 'yup'
+import LoginHeader from "../Headers/loginHeader";
 
 const LoginScreen = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -63,6 +64,8 @@ const LoginScreen = () => {
   };
 
   return (
+    <View>
+    <LoginHeader />
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <View style={styles.inputContainer}>
       <Formik
@@ -118,6 +121,7 @@ const LoginScreen = () => {
           
       </View>
     </KeyboardAvoidingView>
+    </View>
   );
 };
 
