@@ -19,30 +19,7 @@ export default function HomePage() {
   const [selectedContacts, setSelectedContacts] = useState([]);
   const [query, setQuery] = useState('');
   const [locations, setLocations] = useState([]);
-  const [destinations, setDestinations] = useState([])
-  const {currentUser} = useContext(UserContext)
 
-  useEffect(() => {
-    returnUpdatedDestinationList(currentUser, setDestinations).then (()=> formatDestinations())
-  }, [])
-
-//   useEffect(() => {
-// formatDestinations()  }, [destinations])
-
-const formatDestinations = () => {
-  const formattedDestinations = destinations.map((destination) => ({
-    label: destination.label,
-    description: destination.address,
-    geometry: {
-      location: {
-        lat: destination.latitude,
-        lng: destination.longitude,
-      },
-    },
-  }));
-
-  setLocations(formattedDestinations)
-};
   
   return (
     <SafeAreaView style={styles.container}>

@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 import { AddressToCoordinates } from '../../utils/AddToCoord';
+import { UserContext } from "../../contexts/UserContext";
+import { returnUpdatedDestinationList } from '../../services/api';
 
 export default function SearchLocation({
   query,
@@ -11,6 +13,10 @@ export default function SearchLocation({
   selectedDestination,
   setSelectedDestination,
 }) {
+
+  const [destinations, setDestinations] = useState([])
+  const {currentUser} = useContext(UserContext)
+
   const handlePlaceSelected = (place) => {
     
     console.log("place description", place)
@@ -21,13 +27,50 @@ export default function SearchLocation({
     setQuery(place.description);
     setLocations([]);
   };
-
-  // useEffect(() => {
-  //   // You can use the `locations` state to update the autocomplete predictions
-  //   // based on the user's input. You can pass it as the `predefinedPlaces` prop.
-  // console.log(selectedDestination)
+ 
+ 
+  useEffect(() => {
+    returnUpdatedDestinationList(currentUser, setDestinations)
+  }, [])
   
-  // }, [selectedDestination]);
+  useEffect(() => {
+    const formatDestinations = (destinations) => {
+      const formattedDestinations = destinations.map((destination) => ({
+        isPredefinedPlace: true,
+        label: destination.label,
+        description: destination.address,
+        geometry: {
+          location: {
+            lat: destination.latitude,
+            lng: destination.longitude,
+          },
+        },
+      }));
+  
+      setLocations(formattedDestinations);
+    };
+    if (destinations.length > 0) {
+      formatDestinations();
+    }
+  }, [destinations]);
+  
+
+
+  // const formatDestinations = () => {
+  //   const formattedDestinations = destinations.map((destination) => ({
+  //     isPredefinedPlace: true,
+  //     label: destination.label,
+  //     description: destination.address,
+  //     geometry: {
+  //       location: {
+  //         lat: destination.latitude,
+  //         lng: destination.longitude,
+  //       },
+  //     },
+  //   }));
+  
+  //   setLocations(formattedDestinations)
+  // };
 
   return (
     <View style={styles.searchContainer}>
@@ -39,10 +82,11 @@ export default function SearchLocation({
             returnKeyType={'search'}
             listViewDisplayed="auto"
             fetchDetails={true}
-            renderDescription={(row) => row.label}
+            renderDescription={(row) => (row.isPredefinedPlace ? row.label : row.description)}
             onPress={(data, details = null) => {
               handlePlaceSelected(data);
             }}
+            // onFocus={() => {handleSavedDest}
             onFail={(error) => console.error(error)}
             query={{
               key: 'AIzaSyDvVmqahHXDsFvalXZLkcfh5PL5F4Id8zo',
