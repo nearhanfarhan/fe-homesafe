@@ -48,6 +48,10 @@ export default function SearchLocation({
             predefinedPlacesDescription: {
               color: "#1faadb",
             },
+            listView: {},
+            container: {
+              zIndex: 3,
+            },
           }}
           // Pass your predefinedPlaces (locations) here to update autocomplete predictions
           predefinedPlaces={locations}
