@@ -100,6 +100,7 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
     getCurrentLocation().then((currentAddress) => {
       const smsTravelling = `${user} is currently near ${currentAddress}`;
       DirectSms.sendDirectSms(selectedContacts[0].telNo, smsTravelling)
+      Alert.alert('Location shared via SMS')
     });
   };
 
