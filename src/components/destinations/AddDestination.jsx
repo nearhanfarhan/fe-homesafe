@@ -39,12 +39,9 @@ export default function AddDestination({ destinations, setDestinations }) {
     }
 
     if (
-      destinations.some(
-        (destination) =>
-       {
-          destination.label === selectedDestination.label
-        }
-      )
+      destinations.some((destination) => {
+        destination.label === selectedDestination.label;
+      })
     ) {
       console.log("conflict");
       setValidationMessage("This destination has already been added");
@@ -59,7 +56,7 @@ export default function AddDestination({ destinations, setDestinations }) {
         return returnUpdatedDestinationList(currentUser, setDestinations);
       })
       .then(() => {
-        console.log("destination added to database")
+        console.log("destination added to database");
 
         setSelectedDestination(null);
         setQuery("");
@@ -74,6 +71,7 @@ export default function AddDestination({ destinations, setDestinations }) {
         validationSchema={validationSchema}
         initialValues={initialValues}
         onSubmit={handleAddDestination}
+        style={styles.form}
       >
         {({
           handleChange,
@@ -84,7 +82,7 @@ export default function AddDestination({ destinations, setDestinations }) {
           touched,
           isValid,
         }) => (
-          <View>
+          <View style={styles.formContainer}>
             <SearchLocation
               placeholder="Search for a new destination"
               selectedDestination={selectedDestination}
@@ -124,5 +122,8 @@ const styles = StyleSheet.create({
     padding: 20,
     borderWidth: 1,
     borderRadius: 10,
+    backgroundColor: "#efefef",
+    zIndex: 3,
+    elevation: 3,
   },
 });
