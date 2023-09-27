@@ -154,6 +154,11 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
 }, [])
 
   const handleTracking = () => {
+    if (selectedContacts.length === 0){
+      Alert.alert('Please select contacts to message.');
+      console.log('no contacts selected');
+      return;
+    }
     setIsTracking(true)
     
       return Location.startGeofencingAsync(GEOFENCING_TASK, [

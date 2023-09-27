@@ -18,7 +18,7 @@ export default function HomePage() {
   }
 
   const [selectedDestination, setSelectedDestination] = useState({ identifier: 'home', latitude: 51.468100, longitude: -0.187800, radius: 150, });
-
+  const [selectedRadius, setSelectedRadius] = useState({size: 'medium', radius: 150});
   const [selectedContacts, setSelectedContacts] = useState([]);
   const [query, setQuery] = useState("");
   const [locations, setLocations] = useState([]);

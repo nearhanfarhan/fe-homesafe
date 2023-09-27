@@ -42,7 +42,7 @@ export default function RadiusSelector({ selectedRadius, setSelectedRadius, sele
             return;
           }
           setSelectedDestination({...selectedDestination, radius: radiusSize})
-          Alert.alert(`new radius ${radiusCat}: ${radiusSize} selected`)
+          Alert.alert(`new radius ${radiusCat}: ${radiusSize}m selected`)
           console.log("Selected Radius:", radiusSize);
         }}
       />
