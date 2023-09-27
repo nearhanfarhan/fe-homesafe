@@ -12,6 +12,8 @@ export default function SearchLocation({
   setSelectedDestination,
 }) {
   const handlePlaceSelected = (place) => {
+    
+    console.log("place description", place)
     AddressToCoordinates(place.description).then((coords) => {
       setSelectedDestination({ ...selectedDestination, ...coords })
     });
@@ -37,7 +39,7 @@ export default function SearchLocation({
             returnKeyType={'search'}
             listViewDisplayed="auto"
             fetchDetails={true}
-            renderDescription={(row) => row.description}
+            renderDescription={(row) => row.label}
             onPress={(data, details = null) => {
               handlePlaceSelected(data);
             }}
@@ -60,6 +62,7 @@ export default function SearchLocation({
             }}
             // Pass your predefinedPlaces (locations) here to update autocomplete predictions
             predefinedPlaces={locations}
+            predefinedPlacesAlwaysVisible ={true}
           />
         </View>
       </View>
