@@ -1,0 +1,936 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.anonymous.fesafetrakr"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="33" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:8:3-75
+11-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:8:20-73
+12    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+12-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:2:3-82
+12-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:2:20-80
+13    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+13-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:3:3-78
+13-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:3:20-76
+14    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+14-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:4:3-76
+14-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:4:20-74
+15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+15-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:5:3-74
+15-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:5:20-72
+16    <uses-permission android:name="android.permission.INTERNET" />
+16-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:6:3-64
+16-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:6:20-62
+17    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+17-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:7:3-77
+17-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:7:20-75
+18    <uses-permission android:name="android.permission.VIBRATE" />
+18-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:9:3-63
+18-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:9:20-61
+19    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+19-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:10:3-78
+19-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:10:20-76
+20    <uses-permission android:name="android.permission.SEND_SMS" />
+20-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:11:3-64
+20-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:11:20-62
+21
+22    <queries>
+22-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:12:3-18:13
+23        <intent>
+23-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:13:5-17:14
+24            <action android:name="android.intent.action.VIEW" />
+24-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:14:7-58
+24-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:14:15-56
+25
+26            <category android:name="android.intent.category.BROWSABLE" />
+26-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:7-67
+26-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:17-65
+27
+28            <data android:scheme="https" />
+28-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:7-37
+28-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:13-35
+29        </intent>
+30
+31        <package android:name="host.exp.exponent" /> <!-- Query open documents -->
+31-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-53
+31-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:18-50
+32        <intent>
+32-->[:expo-file-system] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:9-17:18
+33            <action android:name="android.intent.action.OPEN_DOCUMENT_TREE" />
+33-->[:expo-file-system] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-79
+33-->[:expo-file-system] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:21-76
+34        </intent>
+35        <intent>
+35-->[:expo-sms] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-sms/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-14:18
+36
+37            <!-- Required for file sharing if targeting API 30 -->
+38            <action android:name="android.intent.action.SEND" />
+38-->[:expo-sms] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-sms/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-65
+38-->[:expo-sms] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-sms/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:21-62
+39
+40            <data android:mimeType="*/*" />
+40-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:7-37
+41        </intent> <!-- Fallback SENDTO -->
+42        <intent>
+42-->[:expo-sms] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-sms/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-23:18
+43            <action android:name="android.intent.action.SENDTO" />
+43-->[:expo-sms] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-sms/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-67
+43-->[:expo-sms] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-sms/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:21-64
+44
+45            <category android:name="android.intent.category.DEFAULT" />
+45-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:32:9-67
+45-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:32:19-65
+46            <category android:name="android.intent.category.BROWSABLE" />
+46-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:7-67
+46-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:17-65
+47
+48            <data android:scheme="sms" />
+48-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:7-37
+48-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:13-35
+49        </intent>
+50        <intent>
+50-->[:expo-sms] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-sms/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:9-31:18
+51            <action android:name="android.intent.action.SENDTO" />
+51-->[:expo-sms] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-sms/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-67
+51-->[:expo-sms] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-sms/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:21-64
+52
+53            <category android:name="android.intent.category.DEFAULT" />
+53-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:32:9-67
+53-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:32:19-65
+54            <category android:name="android.intent.category.BROWSABLE" />
+54-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:7-67
+54-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:17-65
+55
+56            <data android:scheme="smsto" />
+56-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:7-37
+56-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:13-35
+57        </intent> <!-- Needs to be explicitly declared on Android R+ -->
+58        <package android:name="com.google.android.apps.maps" />
+58-->[com.google.android.gms:play-services-maps:18.0.2] /home/adonis/.gradle/caches/transforms-3/b25f847589e7002fd8e78ea589f1a345/transformed/jetified-play-services-maps-18.0.2/AndroidManifest.xml:33:9-64
+58-->[com.google.android.gms:play-services-maps:18.0.2] /home/adonis/.gradle/caches/transforms-3/b25f847589e7002fd8e78ea589f1a345/transformed/jetified-play-services-maps-18.0.2/AndroidManifest.xml:33:18-61
+59    </queries>
+60
+61    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+61-->[com.facebook.flipper:flipper:0.182.0] /home/adonis/.gradle/caches/transforms-3/96aa0437b2be82ab10ada7819631979e/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:16:5-76
+61-->[com.facebook.flipper:flipper:0.182.0] /home/adonis/.gradle/caches/transforms-3/96aa0437b2be82ab10ada7819631979e/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:16:22-73
+62    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+62-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-81
+62-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:22-78
+63    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Include required permissions for Google Maps API to run. -->
+63-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-77
+63-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:22-74
+64    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+64-->[com.google.android.gms:play-services-maps:18.0.2] /home/adonis/.gradle/caches/transforms-3/b25f847589e7002fd8e78ea589f1a345/transformed/jetified-play-services-maps-18.0.2/AndroidManifest.xml:23:5-79
+64-->[com.google.android.gms:play-services-maps:18.0.2] /home/adonis/.gradle/caches/transforms-3/b25f847589e7002fd8e78ea589f1a345/transformed/jetified-play-services-maps-18.0.2/AndroidManifest.xml:23:22-76
+65
+66    <uses-feature
+66-->[com.google.android.gms:play-services-maps:18.0.2] /home/adonis/.gradle/caches/transforms-3/b25f847589e7002fd8e78ea589f1a345/transformed/jetified-play-services-maps-18.0.2/AndroidManifest.xml:26:5-28:35
+67        android:glEsVersion="0x00020000"
+67-->[com.google.android.gms:play-services-maps:18.0.2] /home/adonis/.gradle/caches/transforms-3/b25f847589e7002fd8e78ea589f1a345/transformed/jetified-play-services-maps-18.0.2/AndroidManifest.xml:27:9-41
+68        android:required="true" />
+68-->[com.google.android.gms:play-services-maps:18.0.2] /home/adonis/.gradle/caches/transforms-3/b25f847589e7002fd8e78ea589f1a345/transformed/jetified-play-services-maps-18.0.2/AndroidManifest.xml:28:9-32
+69
+70    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+70-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:23:5-68
+70-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:23:22-65
+71    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+71-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:25:5-82
+71-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:25:22-79
+72    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+72-->[com.android.installreferrer:installreferrer:1.0] /home/adonis/.gradle/caches/transforms-3/79cecdc9f72d345b0cfed4a59f542eaa/transformed/jetified-installreferrer-1.0/AndroidManifest.xml:9:5-110
+72-->[com.android.installreferrer:installreferrer:1.0] /home/adonis/.gradle/caches/transforms-3/79cecdc9f72d345b0cfed4a59f542eaa/transformed/jetified-installreferrer-1.0/AndroidManifest.xml:9:22-107
+73    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+73-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:15:5-98
+73-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:15:22-95
+74    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" /> <!-- for android -->
+74-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:16:5-94
+74-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:16:22-91
+75    <!-- <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS"/> -->
+76    <!-- <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS"/> -->
+77    <!-- <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" /> -->
+78    <!-- <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" /> -->
+79    <!-- for Samsung -->
+80    <uses-permission android:name="com.sec.android.provider.badge.permission.READ" />
+80-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:19:5-86
+80-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:19:22-83
+81    <uses-permission android:name="com.sec.android.provider.badge.permission.WRITE" /> <!-- for htc -->
+81-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:20:5-87
+81-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:20:22-84
+82    <uses-permission android:name="com.htc.launcher.permission.READ_SETTINGS" />
+82-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:23:5-81
+82-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:23:22-78
+83    <uses-permission android:name="com.htc.launcher.permission.UPDATE_SHORTCUT" /> <!-- for sony -->
+83-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:24:5-83
+83-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:24:22-80
+84    <uses-permission android:name="com.sonyericsson.home.permission.BROADCAST_BADGE" />
+84-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:27:5-88
+84-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:27:22-85
+85    <uses-permission android:name="com.sonymobile.home.permission.PROVIDER_INSERT_BADGE" /> <!-- for apex -->
+85-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:28:5-92
+85-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:28:22-89
+86    <uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" /> <!-- for solid -->
+86-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:31:5-84
+86-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:31:22-81
+87    <uses-permission android:name="com.majeur.launcher.permission.UPDATE_BADGE" /> <!-- for huawei -->
+87-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:34:5-83
+87-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:34:22-80
+88    <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+88-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:37:5-91
+88-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:37:22-88
+89    <uses-permission android:name="com.huawei.android.launcher.permission.READ_SETTINGS" />
+89-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:38:5-92
+89-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:38:22-89
+90    <uses-permission android:name="com.huawei.android.launcher.permission.WRITE_SETTINGS" /> <!-- for ZUK -->
+90-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:39:5-93
+90-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:39:22-90
+91    <uses-permission android:name="android.permission.READ_APP_BADGE" /> <!-- for OPPO -->
+91-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:42:5-73
+91-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:42:22-70
+92    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS" />
+92-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:45:5-82
+92-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:45:22-79
+93    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS" /> <!-- for EvMe -->
+93-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:46:5-83
+93-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:46:22-80
+94    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_READ" />
+94-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:49:5-88
+94-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:49:22-85
+95    <uses-permission android:name="me.everything.badger.permission.BADGE_COUNT_WRITE" />
+95-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:50:5-89
+95-->[me.leolin:ShortcutBadger:1.1.22] /home/adonis/.gradle/caches/transforms-3/98f3056ce00cadcd6c105e363e81399a/transformed/jetified-ShortcutBadger-1.1.22/AndroidManifest.xml:50:22-86
+96
+97    <application
+97-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:19:3-41:17
+98        android:name="com.anonymous.fesafetrakr.MainApplication"
+98-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:19:16-47
+99        android:allowBackup="true"
+99-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:19:162-188
+100        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+100-->[androidx.core:core:1.8.0] /home/adonis/.gradle/caches/transforms-3/556fca5d2dde0d1dc2f6fa1e439c5f2d/transformed/core-1.8.0/AndroidManifest.xml:24:18-86
+101        android:debuggable="true"
+102        android:icon="@mipmap/ic_launcher"
+102-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:19:81-115
+103        android:label="@string/app_name"
+103-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:19:48-80
+104        android:roundIcon="@mipmap/ic_launcher_round"
+104-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:19:116-161
+105        android:theme="@style/AppTheme"
+105-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:19:189-220
+106        android:usesCleartextTraffic="true" >
+106-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/debug/AndroidManifest.xml:6:18-53
+107        <meta-data
+107-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:20:5-119
+108            android:name="com.google.android.geo.API_KEY"
+108-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:20:16-61
+109            android:value="AIzaSyDvVmqahHXDsFvalXZLkcfh5PL5F4Id8zo" />
+109-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:20:62-117
+110        <meta-data
+110-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:21:5-83
+111            android:name="expo.modules.updates.ENABLED"
+111-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:21:16-59
+112            android:value="false" />
+112-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:21:60-81
+113        <meta-data
+113-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:22:5-93
+114            android:name="expo.modules.updates.EXPO_SDK_VERSION"
+114-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:22:16-68
+115            android:value="49.0.0" />
+115-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:22:69-91
+116        <meta-data
+116-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:23:5-105
+117            android:name="expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH"
+117-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:23:16-80
+118            android:value="ALWAYS" />
+118-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:23:81-103
+119        <meta-data
+119-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:24:5-99
+120            android:name="expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS"
+120-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:24:16-79
+121            android:value="0" />
+121-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:24:80-97
+122
+123        <activity
+123-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:25:5-38:16
+124            android:name="com.anonymous.fesafetrakr.MainActivity"
+124-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:25:15-43
+125            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+125-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:25:77-154
+126            android:exported="true"
+126-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:25:276-299
+127            android:label="@string/app_name"
+127-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:25:44-76
+128            android:launchMode="singleTask"
+128-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:25:155-186
+129            android:theme="@style/Theme.App.SplashScreen"
+129-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:25:230-275
+130            android:windowSoftInputMode="adjustResize" >
+130-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:25:187-229
+131            <intent-filter>
+131-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:26:7-29:23
+132                <action android:name="android.intent.action.MAIN" />
+132-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:27:9-60
+132-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:27:17-58
+133
+134                <category android:name="android.intent.category.LAUNCHER" />
+134-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:28:9-68
+134-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:28:19-66
+135            </intent-filter>
+136            <intent-filter>
+136-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:30:7-37:23
+137                <action android:name="android.intent.action.VIEW" />
+137-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:14:7-58
+137-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:14:15-56
+138
+139                <category android:name="android.intent.category.DEFAULT" />
+139-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:32:9-67
+139-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:32:19-65
+140                <category android:name="android.intent.category.BROWSABLE" />
+140-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:7-67
+140-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:17-65
+141
+142                <data android:scheme="fe-safetrakr" />
+142-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:7-37
+142-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:13-35
+143                <data android:scheme="com.anonymous.fesafetrakr" />
+143-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:7-37
+143-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:13-35
+144                <data android:scheme="exp+fe-safetrakr" />
+144-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:7-37
+144-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:13-35
+145            </intent-filter>
+146        </activity>
+147        <activity
+147-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:39:5-106
+148            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+148-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:39:15-79
+149            android:exported="false" />
+149-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:39:80-104
+150
+151        <uses-library
+151-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:40:5-83
+152            android:name="org.apache.http.legacy"
+152-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:40:19-56
+153            android:required="false" />
+153-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:40:57-81
+154
+155        <meta-data
+155-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-14:37
+156            android:name="expo.modules.updates.AUTO_SETUP"
+156-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-59
+157            android:value="false" />
+157-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-34
+158
+159        <activity
+159-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:9-29:20
+160            android:name="expo.modules.devlauncher.launcher.DevLauncherActivity"
+160-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-81
+161            android:exported="true"
+161-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-36
+162            android:launchMode="singleTask"
+162-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-44
+163            android:theme="@style/Theme.DevLauncher.LauncherActivity" >
+163-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-70
+164            <intent-filter>
+164-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-28:29
+165                <action android:name="android.intent.action.VIEW" />
+165-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:14:7-58
+165-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:14:15-56
+166
+167                <category android:name="android.intent.category.DEFAULT" />
+167-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:32:9-67
+167-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:32:19-65
+168                <category android:name="android.intent.category.BROWSABLE" />
+168-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:7-67
+168-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:17-65
+169
+170                <data android:scheme="expo-dev-launcher" />
+170-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:7-37
+170-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:13-35
+171            </intent-filter>
+172        </activity>
+173        <activity
+173-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:30:9-33:70
+174            android:name="expo.modules.devlauncher.launcher.errors.DevLauncherErrorActivity"
+174-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:31:13-93
+175            android:screenOrientation="portrait"
+175-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:32:13-49
+176            android:theme="@style/Theme.DevLauncher.ErrorActivity" />
+176-->[:expo-dev-launcher] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:33:13-67
+177        <activity
+177-->[:expo-dev-menu] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-21:20
+178            android:name="expo.modules.devmenu.DevMenuActivity"
+178-->[:expo-dev-menu] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-64
+179            android:exported="true"
+179-->[:expo-dev-menu] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-36
+180            android:launchMode="singleTask"
+180-->[:expo-dev-menu] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-44
+181            android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" >
+181-->[:expo-dev-menu] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-75
+182            <intent-filter>
+182-->[:expo-dev-menu] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-20:29
+183                <action android:name="android.intent.action.VIEW" />
+183-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:14:7-58
+183-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:14:15-56
+184
+185                <category android:name="android.intent.category.DEFAULT" />
+185-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:32:9-67
+185-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:32:19-65
+186                <category android:name="android.intent.category.BROWSABLE" />
+186-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:7-67
+186-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:15:17-65
+187
+188                <data android:scheme="expo-dev-menu" />
+188-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:7-37
+188-->/home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/android/app/src/main/AndroidManifest.xml:16:13-35
+189            </intent-filter>
+190        </activity>
+191
+192        <provider
+192-->[:expo-file-system] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:21:9-30:20
+193            android:name="expo.modules.filesystem.FileSystemFileProvider"
+193-->[:expo-file-system] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-74
+194            android:authorities="com.anonymous.fesafetrakr.FileSystemFileProvider"
+194-->[:expo-file-system] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-74
+195            android:exported="false"
+195-->[:expo-file-system] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-37
+196            android:grantUriPermissions="true" >
+196-->[:expo-file-system] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-47
+197            <meta-data
+197-->[:expo-file-system] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-29:70
+198                android:name="android.support.FILE_PROVIDER_PATHS"
+198-->[:expo-file-system] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:28:17-67
+199                android:resource="@xml/file_system_provider_paths" />
+199-->[:expo-file-system] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:29:17-67
+200        </provider>
+201
+202        <service
+202-->[:expo-location] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-location/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-15:56
+203            android:name="expo.modules.location.services.LocationTaskService"
+203-->[:expo-location] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-location/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-78
+204            android:exported="false"
+204-->[:expo-location] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-location/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-37
+205            android:foregroundServiceType="location" />
+205-->[:expo-location] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-location/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-53
+206        <service
+206-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:9-17:19
+207            android:name="expo.modules.notifications.service.ExpoFirebaseMessagingService"
+207-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-91
+208            android:exported="false" >
+208-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-37
+209            <intent-filter android:priority="-1" >
+209-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-16:29
+209-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:28-49
+210                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+210-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:17-78
+210-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:25-75
+211            </intent-filter>
+212        </service>
+213
+214        <receiver
+214-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:19:9-31:20
+215            android:name="expo.modules.notifications.service.NotificationsService"
+215-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-83
+216            android:enabled="true"
+216-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-35
+217            android:exported="false" >
+217-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-37
+218            <intent-filter android:priority="-1" >
+218-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-30:29
+218-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:28-49
+219                <action android:name="expo.modules.notifications.NOTIFICATION_EVENT" />
+219-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:17-88
+219-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:25-85
+220                <action android:name="android.intent.action.BOOT_COMPLETED" />
+220-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:17-79
+220-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:25-76
+221                <action android:name="android.intent.action.REBOOT" />
+221-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:17-71
+221-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:25-68
+222                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+222-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:17-82
+222-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:25-79
+223                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
+223-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:28:17-82
+223-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:28:25-79
+224                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+224-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:29:17-84
+224-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:29:25-81
+225            </intent-filter>
+226        </receiver>
+227
+228        <activity
+228-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:33:9-40:75
+229            android:name="expo.modules.notifications.service.NotificationForwarderActivity"
+229-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:34:13-92
+230            android:excludeFromRecents="true"
+230-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:35:13-46
+231            android:exported="false"
+231-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:36:13-37
+232            android:launchMode="standard"
+232-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:37:13-42
+233            android:noHistory="true"
+233-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:38:13-37
+234            android:taskAffinity=""
+234-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:39:13-36
+235            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+235-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:40:13-72
+236
+237        <receiver
+237-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-16:20
+238            android:name="expo.modules.taskManager.TaskBroadcastReceiver"
+238-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-74
+239            android:exported="false" >
+239-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-37
+240            <intent-filter>
+240-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-15:29
+241                <action android:name="expo.modules.taskManager.TaskBroadcastReceiver.INTENT_ACTION" />
+241-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:17-103
+241-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:25-100
+242                <action android:name="android.intent.action.BOOT_COMPLETED" />
+242-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:17-79
+242-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:25-76
+243                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+243-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:29:17-84
+243-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:29:25-81
+244            </intent-filter>
+245        </receiver>
+246
+247        <service
+247-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:9-22:72
+248            android:name="expo.modules.taskManager.TaskJobService"
+248-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:19:13-67
+249            android:enabled="true"
+249-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:13-35
+250            android:exported="false"
+250-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:21:13-37
+251            android:permission="android.permission.BIND_JOB_SERVICE" />
+251-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-69
+252
+253        <meta-data
+253-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:9-26:36
+254            android:name="expo.modules.taskManager.oneAppId"
+254-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-61
+255            android:value="true" />
+255-->[:expo-task-manager] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-task-manager/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-33
+256        <meta-data
+256-->[:expo-modules-core] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-11:89
+257            android:name="org.unimodules.core.AppLoader#react-native-headless"
+257-->[:expo-modules-core] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-79
+258            android:value="expo.modules.adapters.react.apploader.RNHeadlessAppLoader" />
+258-->[:expo-modules-core] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-86
+259        <meta-data
+259-->[:expo-modules-core] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-15:45
+260            android:name="com.facebook.soloader.enabled"
+260-->[:expo-modules-core] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-57
+261            android:value="true" />
+261-->[:expo-modules-core] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-33
+262
+263        <activity
+263-->[com.google.android.gms:play-services-base:18.1.0] /home/adonis/.gradle/caches/transforms-3/0bf2ba491b3006fd0d30404ebd488709/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:9-22:45
+264            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+264-->[com.google.android.gms:play-services-base:18.1.0] /home/adonis/.gradle/caches/transforms-3/0bf2ba491b3006fd0d30404ebd488709/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:20:19-85
+265            android:exported="false"
+265-->[com.google.android.gms:play-services-base:18.1.0] /home/adonis/.gradle/caches/transforms-3/0bf2ba491b3006fd0d30404ebd488709/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:22:19-43
+266            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+266-->[com.google.android.gms:play-services-base:18.1.0] /home/adonis/.gradle/caches/transforms-3/0bf2ba491b3006fd0d30404ebd488709/transformed/jetified-play-services-base-18.1.0/AndroidManifest.xml:21:19-78
+267
+268        <receiver
+268-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:28:9-35:20
+269            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+269-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:29:13-78
+270            android:exported="true"
+270-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:30:13-36
+271            android:permission="com.google.android.c2dm.permission.SEND" >
+271-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:31:13-73
+272            <intent-filter>
+272-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:32:13-34:29
+273                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+273-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:33:17-81
+273-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:33:25-78
+274            </intent-filter>
+275        </receiver>
+276        <!--
+277             FirebaseMessagingService performs security checks at runtime,
+278             but set to not exported to explicitly avoid allowing another app to call it.
+279        -->
+280        <service
+280-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:41:9-48:19
+281            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+281-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:42:13-82
+282            android:directBootAware="true"
+282-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:43:13-43
+283            android:exported="false" >
+283-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:44:13-37
+284            <intent-filter android:priority="-500" >
+284-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-16:29
+284-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:28-49
+285                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+285-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:17-78
+285-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:25-75
+286            </intent-filter>
+287        </service>
+288        <service
+288-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:49:9-55:19
+289            android:name="com.google.firebase.components.ComponentDiscoveryService"
+289-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:50:13-84
+290            android:directBootAware="true"
+290-->[com.google.firebase:firebase-common:20.0.0] /home/adonis/.gradle/caches/transforms-3/01ad62270dd37d214da05f308d670981/transformed/jetified-firebase-common-20.0.0/AndroidManifest.xml:35:13-43
+291            android:exported="false" >
+291-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:51:13-37
+292            <meta-data
+292-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:52:13-54:85
+293                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+293-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:53:17-119
+294                android:value="com.google.firebase.components.ComponentRegistrar" />
+294-->[com.google.firebase:firebase-messaging:22.0.0] /home/adonis/.gradle/caches/transforms-3/9c0a3540f8875f6a361125c6ea35311b/transformed/jetified-firebase-messaging-22.0.0/AndroidManifest.xml:54:17-82
+295            <meta-data
+295-->[com.google.firebase:firebase-datatransport:18.0.0] /home/adonis/.gradle/caches/transforms-3/9c059082cd8815bdfaa3a421c4d658d3/transformed/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:28:13-30:85
+296                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+296-->[com.google.firebase:firebase-datatransport:18.0.0] /home/adonis/.gradle/caches/transforms-3/9c059082cd8815bdfaa3a421c4d658d3/transformed/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:29:17-115
+297                android:value="com.google.firebase.components.ComponentRegistrar" />
+297-->[com.google.firebase:firebase-datatransport:18.0.0] /home/adonis/.gradle/caches/transforms-3/9c059082cd8815bdfaa3a421c4d658d3/transformed/jetified-firebase-datatransport-18.0.0/AndroidManifest.xml:30:17-82
+298            <meta-data
+298-->[com.google.firebase:firebase-installations:17.0.0] /home/adonis/.gradle/caches/transforms-3/d5df34ed21521766766d7fe1a9f97e81/transformed/jetified-firebase-installations-17.0.0/AndroidManifest.xml:18:13-20:85
+299                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+299-->[com.google.firebase:firebase-installations:17.0.0] /home/adonis/.gradle/caches/transforms-3/d5df34ed21521766766d7fe1a9f97e81/transformed/jetified-firebase-installations-17.0.0/AndroidManifest.xml:19:17-127
+300                android:value="com.google.firebase.components.ComponentRegistrar" />
+300-->[com.google.firebase:firebase-installations:17.0.0] /home/adonis/.gradle/caches/transforms-3/d5df34ed21521766766d7fe1a9f97e81/transformed/jetified-firebase-installations-17.0.0/AndroidManifest.xml:20:17-82
+301        </service>
+302
+303        <provider
+303-->[com.google.firebase:firebase-common:20.0.0] /home/adonis/.gradle/caches/transforms-3/01ad62270dd37d214da05f308d670981/transformed/jetified-firebase-common-20.0.0/AndroidManifest.xml:26:9-31:39
+304            android:name="com.google.firebase.provider.FirebaseInitProvider"
+304-->[com.google.firebase:firebase-common:20.0.0] /home/adonis/.gradle/caches/transforms-3/01ad62270dd37d214da05f308d670981/transformed/jetified-firebase-common-20.0.0/AndroidManifest.xml:27:13-77
+305            android:authorities="com.anonymous.fesafetrakr.firebaseinitprovider"
+305-->[com.google.firebase:firebase-common:20.0.0] /home/adonis/.gradle/caches/transforms-3/01ad62270dd37d214da05f308d670981/transformed/jetified-firebase-common-20.0.0/AndroidManifest.xml:28:13-72
+306            android:directBootAware="true"
+306-->[com.google.firebase:firebase-common:20.0.0] /home/adonis/.gradle/caches/transforms-3/01ad62270dd37d214da05f308d670981/transformed/jetified-firebase-common-20.0.0/AndroidManifest.xml:29:13-43
+307            android:exported="false"
+307-->[com.google.firebase:firebase-common:20.0.0] /home/adonis/.gradle/caches/transforms-3/01ad62270dd37d214da05f308d670981/transformed/jetified-firebase-common-20.0.0/AndroidManifest.xml:30:13-37
+308            android:initOrder="100" />
+308-->[com.google.firebase:firebase-common:20.0.0] /home/adonis/.gradle/caches/transforms-3/01ad62270dd37d214da05f308d670981/transformed/jetified-firebase-common-20.0.0/AndroidManifest.xml:31:13-36
+309
+310        <meta-data
+310-->[com.google.android.gms:play-services-basement:18.1.0] /home/adonis/.gradle/caches/transforms-3/9e25a778aa851eaa5cf931131404a5e7/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:21:9-23:69
+311            android:name="com.google.android.gms.version"
+311-->[com.google.android.gms:play-services-basement:18.1.0] /home/adonis/.gradle/caches/transforms-3/9e25a778aa851eaa5cf931131404a5e7/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:22:13-58
+312            android:value="@integer/google_play_services_version" />
+312-->[com.google.android.gms:play-services-basement:18.1.0] /home/adonis/.gradle/caches/transforms-3/9e25a778aa851eaa5cf931131404a5e7/transformed/jetified-play-services-basement-18.1.0/AndroidManifest.xml:23:13-66
+313
+314        <provider
+314-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:31:9-39:20
+315            android:name="androidx.startup.InitializationProvider"
+315-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:32:13-67
+316            android:authorities="com.anonymous.fesafetrakr.androidx-startup"
+316-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:33:13-68
+317            android:exported="false" >
+317-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:34:13-37
+318            <meta-data
+318-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:36:13-38:52
+319                android:name="androidx.work.WorkManagerInitializer"
+319-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:37:17-68
+320                android:value="androidx.startup" />
+320-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:38:17-49
+321            <meta-data
+321-->[androidx.emoji2:emoji2:1.0.0] /home/adonis/.gradle/caches/transforms-3/ec87351dfec97ae77a404b3887985765/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+322                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+322-->[androidx.emoji2:emoji2:1.0.0] /home/adonis/.gradle/caches/transforms-3/ec87351dfec97ae77a404b3887985765/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+323                android:value="androidx.startup" />
+323-->[androidx.emoji2:emoji2:1.0.0] /home/adonis/.gradle/caches/transforms-3/ec87351dfec97ae77a404b3887985765/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+324            <meta-data
+324-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/adonis/.gradle/caches/transforms-3/b3cb99c8228f7b004acc305315f9f395/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+325                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+325-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/adonis/.gradle/caches/transforms-3/b3cb99c8228f7b004acc305315f9f395/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+326                android:value="androidx.startup" />
+326-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/adonis/.gradle/caches/transforms-3/b3cb99c8228f7b004acc305315f9f395/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+327            <meta-data
+327-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+328                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+328-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+329                android:value="androidx.startup" />
+329-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+330        </provider>
+331
+332        <service
+332-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:41:9-46:35
+333            android:name="androidx.work.impl.background.systemalarm.SystemAlarmService"
+333-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:42:13-88
+334            android:directBootAware="false"
+334-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:43:13-44
+335            android:enabled="@bool/enable_system_alarm_service_default"
+335-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:44:13-72
+336            android:exported="false" />
+336-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:45:13-37
+337        <service
+337-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:47:9-53:35
+338            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+338-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:48:13-84
+339            android:directBootAware="false"
+339-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:49:13-44
+340            android:enabled="@bool/enable_system_job_service_default"
+340-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:50:13-70
+341            android:exported="true"
+341-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:51:13-36
+342            android:permission="android.permission.BIND_JOB_SERVICE" />
+342-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:52:13-69
+343        <service
+343-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:54:9-59:35
+344            android:name="androidx.work.impl.foreground.SystemForegroundService"
+344-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:55:13-81
+345            android:directBootAware="false"
+345-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:56:13-44
+346            android:enabled="@bool/enable_system_foreground_service_default"
+346-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:57:13-77
+347            android:exported="false" />
+347-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:58:13-37
+348
+349        <receiver
+349-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:61:9-66:35
+350            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+350-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:62:13-88
+351            android:directBootAware="false"
+351-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:63:13-44
+352            android:enabled="true"
+352-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:64:13-35
+353            android:exported="false" />
+353-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:65:13-37
+354        <receiver
+354-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:67:9-77:20
+355            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryChargingProxy"
+355-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:68:13-106
+356            android:directBootAware="false"
+356-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:69:13-44
+357            android:enabled="false"
+357-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:70:13-36
+358            android:exported="false" >
+358-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:71:13-37
+359            <intent-filter>
+359-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:73:13-76:29
+360                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+360-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:74:17-87
+360-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:74:25-84
+361                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+361-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:75:17-90
+361-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:75:25-87
+362            </intent-filter>
+363        </receiver>
+364        <receiver
+364-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:78:9-88:20
+365            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$BatteryNotLowProxy"
+365-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:79:13-104
+366            android:directBootAware="false"
+366-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:80:13-44
+367            android:enabled="false"
+367-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:81:13-36
+368            android:exported="false" >
+368-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:82:13-37
+369            <intent-filter>
+369-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:84:13-87:29
+370                <action android:name="android.intent.action.BATTERY_OKAY" />
+370-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:85:17-77
+370-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:85:25-74
+371                <action android:name="android.intent.action.BATTERY_LOW" />
+371-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:86:17-76
+371-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:86:25-73
+372            </intent-filter>
+373        </receiver>
+374        <receiver
+374-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:89:9-99:20
+375            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$StorageNotLowProxy"
+375-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:90:13-104
+376            android:directBootAware="false"
+376-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:91:13-44
+377            android:enabled="false"
+377-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:92:13-36
+378            android:exported="false" >
+378-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:93:13-37
+379            <intent-filter>
+379-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:95:13-98:29
+380                <action android:name="android.intent.action.DEVICE_STORAGE_LOW" />
+380-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:96:17-83
+380-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:96:25-80
+381                <action android:name="android.intent.action.DEVICE_STORAGE_OK" />
+381-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:97:17-82
+381-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:97:25-79
+382            </intent-filter>
+383        </receiver>
+384        <receiver
+384-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:100:9-109:20
+385            android:name="androidx.work.impl.background.systemalarm.ConstraintProxy$NetworkStateProxy"
+385-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:101:13-103
+386            android:directBootAware="false"
+386-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:102:13-44
+387            android:enabled="false"
+387-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:103:13-36
+388            android:exported="false" >
+388-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:104:13-37
+389            <intent-filter>
+389-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:106:13-108:29
+390                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+390-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:107:17-79
+390-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:107:25-76
+391            </intent-filter>
+392        </receiver>
+393        <receiver
+393-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:110:9-121:20
+394            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+394-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:111:13-88
+395            android:directBootAware="false"
+395-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:112:13-44
+396            android:enabled="false"
+396-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:113:13-36
+397            android:exported="false" >
+397-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:114:13-37
+398            <intent-filter>
+398-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:116:13-120:29
+399                <action android:name="android.intent.action.BOOT_COMPLETED" />
+399-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:17-79
+399-->[:expo-notifications] /home/adonis/Dev_environment/northcoders/projects/wk2/project-safetrackr/fe-safetrakr/src/node_modules/expo-notifications/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:25-76
+400                <action android:name="android.intent.action.TIME_SET" />
+400-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:118:17-73
+400-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:118:25-70
+401                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+401-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:119:17-81
+401-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:119:25-78
+402            </intent-filter>
+403        </receiver>
+404        <receiver
+404-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:122:9-131:20
+405            android:name="androidx.work.impl.background.systemalarm.ConstraintProxyUpdateReceiver"
+405-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:123:13-99
+406            android:directBootAware="false"
+406-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:124:13-44
+407            android:enabled="@bool/enable_system_alarm_service_default"
+407-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:125:13-72
+408            android:exported="false" >
+408-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:126:13-37
+409            <intent-filter>
+409-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:128:13-130:29
+410                <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies" />
+410-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:129:17-98
+410-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:129:25-95
+411            </intent-filter>
+412        </receiver>
+413        <receiver
+413-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:132:9-142:20
+414            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+414-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:133:13-78
+415            android:directBootAware="false"
+415-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:134:13-44
+416            android:enabled="true"
+416-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:135:13-35
+417            android:exported="true"
+417-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:136:13-36
+418            android:permission="android.permission.DUMP" >
+418-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:137:13-57
+419            <intent-filter>
+419-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:139:13-141:29
+420                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+420-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:140:17-88
+420-->[androidx.work:work-runtime:2.7.1] /home/adonis/.gradle/caches/transforms-3/6864d1387cab7255a87314fc90ee1430/transformed/work-runtime-2.7.1/AndroidManifest.xml:140:25-85
+421            </intent-filter>
+422        </receiver>
+423
+424        <service
+424-->[androidx.room:room-runtime:2.2.5] /home/adonis/.gradle/caches/transforms-3/4c4f80ba2efae389ae1987ed6c07db69/transformed/room-runtime-2.2.5/AndroidManifest.xml:25:9-28:40
+425            android:name="androidx.room.MultiInstanceInvalidationService"
+425-->[androidx.room:room-runtime:2.2.5] /home/adonis/.gradle/caches/transforms-3/4c4f80ba2efae389ae1987ed6c07db69/transformed/room-runtime-2.2.5/AndroidManifest.xml:26:13-74
+426            android:directBootAware="true"
+426-->[androidx.room:room-runtime:2.2.5] /home/adonis/.gradle/caches/transforms-3/4c4f80ba2efae389ae1987ed6c07db69/transformed/room-runtime-2.2.5/AndroidManifest.xml:27:13-43
+427            android:exported="false" />
+427-->[androidx.room:room-runtime:2.2.5] /home/adonis/.gradle/caches/transforms-3/4c4f80ba2efae389ae1987ed6c07db69/transformed/room-runtime-2.2.5/AndroidManifest.xml:28:13-37
+428
+429        <receiver
+429-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+430            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+430-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+431            android:directBootAware="false"
+431-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+432            android:enabled="true"
+432-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+433            android:exported="true"
+433-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+434            android:permission="android.permission.DUMP" >
+434-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+435            <intent-filter>
+435-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+436                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+436-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+436-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+437            </intent-filter>
+438            <intent-filter>
+438-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+439                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+439-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+439-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+440            </intent-filter>
+441            <intent-filter>
+441-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+442                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+442-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+442-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+443            </intent-filter>
+444            <intent-filter>
+444-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+445                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+445-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+445-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/adonis/.gradle/caches/transforms-3/cd0619271537d84f07f6b6e89c9c818c/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+446            </intent-filter>
+447        </receiver>
+448
+449        <service
+449-->[com.google.android.datatransport:transport-backend-cct:3.0.0] /home/adonis/.gradle/caches/transforms-3/d3cf67948c141ab09341ac64037169a3/transformed/jetified-transport-backend-cct-3.0.0/AndroidManifest.xml:29:9-35:19
+450            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+450-->[com.google.android.datatransport:transport-backend-cct:3.0.0] /home/adonis/.gradle/caches/transforms-3/d3cf67948c141ab09341ac64037169a3/transformed/jetified-transport-backend-cct-3.0.0/AndroidManifest.xml:30:13-103
+451            android:exported="false" >
+451-->[com.google.android.datatransport:transport-backend-cct:3.0.0] /home/adonis/.gradle/caches/transforms-3/d3cf67948c141ab09341ac64037169a3/transformed/jetified-transport-backend-cct-3.0.0/AndroidManifest.xml:31:13-37
+452            <meta-data
+452-->[com.google.android.datatransport:transport-backend-cct:3.0.0] /home/adonis/.gradle/caches/transforms-3/d3cf67948c141ab09341ac64037169a3/transformed/jetified-transport-backend-cct-3.0.0/AndroidManifest.xml:32:13-34:39
+453                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+453-->[com.google.android.datatransport:transport-backend-cct:3.0.0] /home/adonis/.gradle/caches/transforms-3/d3cf67948c141ab09341ac64037169a3/transformed/jetified-transport-backend-cct-3.0.0/AndroidManifest.xml:33:17-94
+454                android:value="cct" />
+454-->[com.google.android.datatransport:transport-backend-cct:3.0.0] /home/adonis/.gradle/caches/transforms-3/d3cf67948c141ab09341ac64037169a3/transformed/jetified-transport-backend-cct-3.0.0/AndroidManifest.xml:34:17-36
+455        </service>
+456        <service
+456-->[com.google.android.datatransport:transport-runtime:3.0.0] /home/adonis/.gradle/caches/transforms-3/32fc916d3f1582330220f5c27a04f1de/transformed/jetified-transport-runtime-3.0.0/AndroidManifest.xml:26:9-30:19
+457            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+457-->[com.google.android.datatransport:transport-runtime:3.0.0] /home/adonis/.gradle/caches/transforms-3/32fc916d3f1582330220f5c27a04f1de/transformed/jetified-transport-runtime-3.0.0/AndroidManifest.xml:27:13-117
+458            android:exported="false"
+458-->[com.google.android.datatransport:transport-runtime:3.0.0] /home/adonis/.gradle/caches/transforms-3/32fc916d3f1582330220f5c27a04f1de/transformed/jetified-transport-runtime-3.0.0/AndroidManifest.xml:28:13-37
+459            android:permission="android.permission.BIND_JOB_SERVICE" >
+459-->[com.google.android.datatransport:transport-runtime:3.0.0] /home/adonis/.gradle/caches/transforms-3/32fc916d3f1582330220f5c27a04f1de/transformed/jetified-transport-runtime-3.0.0/AndroidManifest.xml:29:13-69
+460        </service>
+461
+462        <receiver
+462-->[com.google.android.datatransport:transport-runtime:3.0.0] /home/adonis/.gradle/caches/transforms-3/32fc916d3f1582330220f5c27a04f1de/transformed/jetified-transport-runtime-3.0.0/AndroidManifest.xml:32:9-34:40
+463            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+463-->[com.google.android.datatransport:transport-runtime:3.0.0] /home/adonis/.gradle/caches/transforms-3/32fc916d3f1582330220f5c27a04f1de/transformed/jetified-transport-runtime-3.0.0/AndroidManifest.xml:33:13-132
+464            android:exported="false" />
+464-->[com.google.android.datatransport:transport-runtime:3.0.0] /home/adonis/.gradle/caches/transforms-3/32fc916d3f1582330220f5c27a04f1de/transformed/jetified-transport-runtime-3.0.0/AndroidManifest.xml:34:13-37
+465
+466        <service
+466-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:19:9-21:40
+467            android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
+467-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:20:13-132
+468            android:exported="false" />
+468-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:21:13-37
+469        <service
+469-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:22:9-24:40
+470            android:name="io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
+470-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:23:13-127
+471            android:exported="false" />
+471-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:24:13-37
+472        <service
+472-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:25:9-27:40
+473            android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
+473-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:26:13-120
+474            android:exported="false" />
+474-->[io.nlopez.smartlocation:library:3.3.3] /home/adonis/.gradle/caches/transforms-3/36db0c2890faf1f350c4c4b3ea49f6a1/transformed/jetified-library-3.3.3/AndroidManifest.xml:27:13-37
+475    </application>
+476
+477</manifest>

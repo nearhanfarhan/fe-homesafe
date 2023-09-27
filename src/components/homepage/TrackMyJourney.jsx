@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { Alert, TouchableOpacity, Text } from 'react-native';
+import { Alert, TouchableOpacity, Text, View } from 'react-native';
 import { GeofencingEventType } from 'expo-location';
 import * as Location from 'expo-location';
 import * as TaskManager from 'expo-task-manager';
@@ -7,9 +7,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import * as Notifications from 'expo-notifications';
 import { UserContext } from "../../contexts/UserContext";
 import styles from "../../styles/Homepage.styles";
-import { Button } from '@rneui/base';
+import { Button, CheckBox } from '@rneui/base';
 import { NativeModules, PermissionsAndroid } from 'react-native';
 import { EventEmitter } from 'events';
+import { coordinatesToAddress } from '../../utils/CoordToAdd';
 
 const GEOFENCING_TASK = 'GeofencingTask';
 const DirectSms = NativeModules.DirectSms;
@@ -42,6 +43,7 @@ TaskManager.defineTask(GEOFENCING_TASK, ({ data: { eventType }, error }) => {
 
 export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
   const [isTracking, setIsTracking] = useState(false)
+  const [messageWhenLeaving, setMessageWhenLeaving] = useState(false);
   const { currentUser } = useContext(UserContext);
   const user = currentUser?.displayName || '';
 
@@ -68,6 +70,39 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
     };
   }, [isTracking])
 
+  useEffect(() => {
+    if (isTracking && messageWhenLeaving) {
+      console.log('useeffect 1')
+      getCurrentLocation()
+        .then((currentAddress) => {
+          console.log(currentAddress)
+          console.log(selectedContacts[0].telNo)
+          const smsDeparted = `${user} has left from near ${currentAddress}`;
+          DirectSms.sendDirectSms(selectedContacts[0].telNo, smsDeparted)
+        })
+        .catch((error) => {
+          console.error(`Error: ${error.message}`);
+        });
+    }
+  }, [isTracking]);
+
+  const getCurrentLocation = () => {
+    return Location.getCurrentPositionAsync()
+      .then(({ coords }) => {
+        return coordinatesToAddress(coords.latitude, coords.longitude);
+      })
+      .catch((error) => {
+        console.error(`Error getting current position: ${error.message}`);
+      });
+  };
+
+  const shareCurrentLocation = () => {
+    getCurrentLocation().then((currentAddress) => {
+      const smsTravelling = `${user} is currently near ${currentAddress}`;
+      DirectSms.sendDirectSms(selectedContacts[0].telNo, smsTravelling)
+      Alert.alert('Location shared via SMS')
+    });
+  };
 
   const smsPermission = () => {
     return PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.SEND_SMS)
@@ -88,8 +123,7 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
     return true;
   };
 
-  const handleTracking = () => {
-    setIsTracking(true)
+  useEffect (() => {
     smsPermission()
     .then(() => {
      return requestNotificationPermission()
@@ -114,6 +148,19 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
         console.log('Background permission denied');
         return;
       }
+    })
+   }
+ })
+}, [])
+
+  const handleTracking = () => {
+    if (selectedContacts.length === 0){
+      Alert.alert('Please select contacts to message.');
+      console.log('no contacts selected');
+      return;
+    }
+    setIsTracking(true)
+    
       return Location.startGeofencingAsync(GEOFENCING_TASK, [
         selectedDestination
       ])
@@ -121,13 +168,10 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
         Alert.alert('Tracking started.')
         console.log('tracking started')
       })
-    })
     .catch((error) => {
       console.error('Error:', error);
-    });
-      }
     })
-  };
+  }
 
   const handleStopTracking = () => {
     if (isTracking){
@@ -145,9 +189,30 @@ export const TrackMyJourney = ({selectedContacts, selectedDestination}) => {
 
   return (
     <>
-      <Button style={styles.button} onPress={!isTracking ? handleTracking : handleStopTracking}>
-        <Text style={styles.buttonText} >{!isTracking ? `Start Tracking` : `Stop Tracking`} </Text>
+      <Button
+        style={styles.button}
+        onPress={!isTracking ? handleTracking : handleStopTracking}
+      >
+        <Text style={styles.buttonText}>
+          {!isTracking ? `Start Tracking` : `Stop Tracking`}
+        </Text>
       </Button>
+      {isTracking ? (
+        <Button style={styles.button} onPress={shareCurrentLocation}>
+          <Text style={styles.subButtonText}>{`Share Current Location`}</Text>
+        </Button>
+      ) : (
+        <View style={styles.checkboxContainer}>
+          <CheckBox
+            center
+            title="Message contacts when departing"
+            checkedIcon="dot-circle-o"
+            uncheckedIcon="circle-o"
+            checked={messageWhenLeaving}
+            onPress={() => setMessageWhenLeaving(!messageWhenLeaving)}
+          />
+        </View>
+      )}
     </>
-  )
+  );
 };

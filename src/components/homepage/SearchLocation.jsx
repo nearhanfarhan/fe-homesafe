@@ -1,3 +1,4 @@
+
 import React, { useEffect, useContext, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
@@ -5,8 +6,9 @@ import { AddressToCoordinates } from "../../utils/AddToCoord";
 import { UserContext } from "../../contexts/UserContext";
 import { returnUpdatedDestinationList } from "../../services/api";
 
+
 export default function SearchLocation({
-  query,
+  placeholder,
   setQuery,
   locations,
   setLocations,
@@ -25,12 +27,12 @@ export default function SearchLocation({
     setQuery(place.description);
   };
 
+
   useEffect(() => {
     returnUpdatedDestinationList(currentUser, setDestinations);
   }, []);
 
   useEffect(() => {
-    console.log("destinations", destinations);
 
     const formattedDestinations = destinations.map((destination) => ({
       isPredefinedPlace: true,
@@ -46,16 +48,18 @@ export default function SearchLocation({
     setLocations(formattedDestinations);
   }, [destinations]);
 
+
   return (
     <View style={styles.searchContainer}>
       <View style={styles.autocompleteContainer}>
         <GooglePlacesAutocomplete
-          placeholder="Search for a location"
+          placeholder={placeholder}
           minLength={2}
           autoFocus={false}
           returnKeyType={"search"}
           listViewDisplayed="auto"
           fetchDetails={true}
+
           renderDescription={(row) =>
             row.isPredefinedPlace ? row.label : row.description
           }
@@ -78,10 +82,19 @@ export default function SearchLocation({
             predefinedPlacesDescription: {
               color: "#1faadb",
             },
+
           }}
           // Pass your predefinedPlaces (locations) here to update autocomplete predictions
           predefinedPlaces={locations}
           predefinedPlacesAlwaysVisible={true}
+
+            listView: {},
+            container: {
+              zIndex: 3,
+            },
+          }}
+          
+
         />
       </View>
     </View>
@@ -90,10 +103,8 @@ export default function SearchLocation({
 
 const styles = StyleSheet.create({
   searchContainer: {
-    position: "relative",
-    flex: 1,
-    paddingTop: 50,
     paddingBottom: 20,
+    height: 60,
   },
   autocompleteContainer: {
     flex: 1,
@@ -101,7 +112,8 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 0,
     top: 0,
-    zIndex: 1,
+    zIndex: 2,
+    elevation: Platform.OS === "android" ? 50 : 0,
     padding: 5,
   },
 });
