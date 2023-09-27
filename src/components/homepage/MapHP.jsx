@@ -1,7 +1,7 @@
 import { Text, StyleSheet } from "react-native"
 import MapView, { Marker, Callout, Circle } from 'react-native-maps';
 
-export default function MapHP({selectedDestination, setSelectedDestination}) {
+export default function MapHP({selectedDestination, setSelectedDestination, selectedRadius}) {
     // this needs setting to the actual location
     const initialRegion = {
         latitude: 53.78825,
@@ -10,7 +10,7 @@ export default function MapHP({selectedDestination, setSelectedDestination}) {
         longitudeDelta: 0.0421,
     };
 
-    const defaultRadius = 100;
+    // const defaultRadius = 100;
 
     return (
         <MapView style={styles.map}
@@ -42,7 +42,7 @@ export default function MapHP({selectedDestination, setSelectedDestination}) {
                             latitude: selectedDestination.latitude,
                             longitude: selectedDestination.longitude,
                         }}
-                        radius={defaultRadius} // Set the radius (in meters)
+                        radius={selectedRadius.radius} // Set the radius (in meters)
                         fillColor="rgba(0, 128, 255, 0.2)" // Fill color of the circle
                         strokeColor="rgba(0, 0, 255, 0.5)" // Stroke color of the circle
                         />
@@ -55,6 +55,6 @@ export default function MapHP({selectedDestination, setSelectedDestination}) {
 const styles = StyleSheet.create({
     map: {
         width: "100%",
-        height: "65%"
+        height: "50%"
     }
 });
