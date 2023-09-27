@@ -3,8 +3,8 @@ import { Button, Text, View, StyleSheet, Alert } from "react-native";
 import {Picker} from '@react-native-picker/picker';
 
 export default function RadiusSelector({ selectedRadius, setSelectedRadius, selectedDestination, setSelectedDestination }) {
-  const [radiusSize, setRadiusSize] = useState(selectedRadius.radius);
-  const [radiusCat, setRadiusCat] = useState(selectedRadius.size)
+  const [radiusSize, setRadiusSize] = useState(150);
+  const [radiusCat, setRadiusCat] = useState('medium')
 
   const handleRadiusChange = (value) => {
     if (value === 50){
