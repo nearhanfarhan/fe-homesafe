@@ -1,7 +1,11 @@
 import { useState, useEffect, useContext } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ContactCard from "./ContactCard";
-import { getUserContacts, removeContactFromUser, returnUpdatedContactList } from "../../services/api";
+import {
+  getUserContacts,
+  removeContactFromUser,
+  returnUpdatedContactList,
+} from "../../services/api";
 import { UserContext } from "../../contexts/UserContext";
 
 const ContactList = ({ contacts, setContacts }) => {
@@ -12,14 +16,20 @@ const ContactList = ({ contacts, setContacts }) => {
       // need to update firebase here
       return removeContactFromUser(currentUser, id)
         .then(() => {
-          return returnUpdatedContactList(currentUser, setContacts)})
+          return returnUpdatedContactList(currentUser, setContacts);
+        })
         .catch((error) => {
           console.error(error);
         });
     }
   };
 
-  if (contacts.length===0) return (<Text>No contacts to show. Add contacts above</Text>)
+  if (contacts.length === 0)
+    return (
+      <Text style={styles.noContacts}>
+        No contacts to show. Add contacts above
+      </Text>
+    );
   return (
     <View style={styles.contactList}>
       {contacts.map((contact) => {
@@ -38,6 +48,10 @@ const ContactList = ({ contacts, setContacts }) => {
 const styles = StyleSheet.create({
   contactList: {
     width: "100%",
+    margin: 20,
+  },
+  noContacts: {
+    fontSize: 17,
     margin: 20,
   },
 });

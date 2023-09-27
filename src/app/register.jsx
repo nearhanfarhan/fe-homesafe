@@ -7,6 +7,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { UserContext } from "../contexts/UserContext";
 import { postUserOnRegistration } from "../services/api";
+import RegisterHeader from "../Headers/registerHeader";
 
 const registerValidationSchema = yup.object().shape({
   firstName: yup.string().required("First Name is Required"),
@@ -67,7 +68,8 @@ const RegisterScreen = () => {
   };
 
   return (
-    <>
+    <View>
+    <RegisterHeader />
       <SafeAreaView style={styles.container}>
         <View>
           <Formik
@@ -171,7 +173,7 @@ const RegisterScreen = () => {
           </Formik>
         </View>
       </SafeAreaView>
-    </>
+    </View>
   );
 };
 
