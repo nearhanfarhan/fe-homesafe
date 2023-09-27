@@ -1,10 +1,11 @@
-import { StyleSheet, View, SafeAreaView, Keyboard } from "react-native";
+import { StyleSheet, View, SafeAreaView, Keyboard, Text} from "react-native";
 import { Input, Button } from "@rneui/base";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { addContactToUser, returnUpdatedContactList } from "../../services/api";
+import { useState } from "react";
 
 const validationSchema = yup.object().shape({
   name: yup.string().required("Name is Required"),
@@ -12,6 +13,7 @@ const validationSchema = yup.object().shape({
 });
 
 const AddContact = ({ contacts, setContacts }) => {
+  const [dupeErrorMessage, setDupeErrorMessage] = useState("");
   const { currentUser } = useContext(UserContext);
   const initialValues = {
     name: "",
@@ -19,9 +21,19 @@ const AddContact = ({ contacts, setContacts }) => {
   };
   const handleAddContact = (values, { resetForm }) => {
     const newContact = {
-      name: values.name,
+      name: values.name.toLowerCase(),
       telNo: values.contactNumber,
     };
+    const isDuplicate = contacts.some(
+      (contact) =>
+        contact.name.toLowerCase() === newContact.name ||
+        contact.telNo === newContact.telNo
+    );
+  
+    if (isDuplicate) {
+      setDupeErrorMessage("Contact with the same name or number already exists.");
+    } else {
+      setDupeErrorMessage("");
     return addContactToUser(currentUser, newContact)
       .then(() => {
         return returnUpdatedContactList(currentUser, setContacts);
@@ -32,6 +44,8 @@ const AddContact = ({ contacts, setContacts }) => {
       })
       .catch((error) => console.log("error occurred: ", error));
   };
+}
+
 
   return (
     <>
@@ -80,7 +94,11 @@ const AddContact = ({ contacts, setContacts }) => {
                       : ""
                   }
                 />
-
+                {dupeErrorMessage ? (
+            <Text style={styles.dupe}>
+              {dupeErrorMessage}
+            </Text>
+          ) : null}
                 <Button
                   onPress={handleSubmit}
                   title="Add"
@@ -102,6 +120,12 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
   },
+  dupe: {
+    color: 'red',
+    marginBottom: 10,
+    textAlign: 'center'
+  }
 });
+
 
 export default AddContact;

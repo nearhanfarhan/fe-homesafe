@@ -62,7 +62,6 @@ export default function AddDestination({ destinations, setDestinations }) {
       })
       .then(() => {
         console.log("Destination added to the database");
-  
         setSelectedDestination(null);
         Keyboard.dismiss();
       });
@@ -74,6 +73,7 @@ export default function AddDestination({ destinations, setDestinations }) {
         validationSchema={validationSchema}
         initialValues={initialValues}
         onSubmit={handleAddDestination}
+        style={styles.form}
       >
         {({
           handleChange,
@@ -84,7 +84,7 @@ export default function AddDestination({ destinations, setDestinations }) {
           touched,
           isValid,
         }) => (
-          <View>
+          <View style={styles.formContainer}>
             <SearchLocation
               placeholder="Search for a new destination"
               selectedDestination={selectedDestination}
@@ -122,5 +122,8 @@ const styles = StyleSheet.create({
     padding: 20,
     borderWidth: 1,
     borderRadius: 10,
+    backgroundColor: "#efefef",
+    zIndex: 3,
+    elevation: 3,
   },
 });
