@@ -11,7 +11,7 @@ export default function MapHP({selectedDestination, setSelectedDestination, sele
         longitudeDelta: 0.0421,
     };
 
-    // const defaultRadius = 100;
+    
 
     return (
         <MapView style={styles.map}
