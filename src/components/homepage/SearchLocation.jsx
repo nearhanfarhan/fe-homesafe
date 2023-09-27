@@ -53,7 +53,6 @@ export default function SearchLocation({
               zIndex: 3,
             },
           }}
-          // Pass your predefinedPlaces (locations) here to update autocomplete predictions
           predefinedPlaces={locations}
         />
       </View>
