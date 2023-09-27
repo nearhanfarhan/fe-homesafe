@@ -45,8 +45,10 @@ export default function MapHP({ selectedDestination, setSelectedDestination }) {
 }
 
 const styles = StyleSheet.create({
+
   map: {
     width: "100%",
     height: "65%",
   },
 });
+
