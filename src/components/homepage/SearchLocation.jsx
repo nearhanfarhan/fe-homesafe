@@ -13,7 +13,7 @@ export default function SearchLocation({
 }) {
   const handleSelectedPlace = (place) => {
     AddressToCoordinates(place.description).then((coords) => {
-      setSelectedDestination({ ...selectedDestination, ...coords })
+      setSelectedDestination({ ...selectedDestination, ...coords });
     });
     setSelectedDestination(place);
     setQuery(place.description);
