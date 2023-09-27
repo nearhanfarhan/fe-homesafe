@@ -25,42 +25,44 @@ export default function AddDestination({ destinations, setDestinations }) {
   const [query, setQuery] = useState("");
 
   const handleAddDestination = (values, { resetForm }) => {
+    const isDuplicateLabel = destinations.some(
+      (destination) => destination.label === values.label
+    );
+  
+    if (isDuplicateLabel) {
+      setValidationMessage("Label is already in use");
+      return;
+    }
+  
     if (!selectedDestination && !query) {
       setValidationMessage("Please select a destination to add");
       return;
     }
+  
     if (!selectedDestination && query) {
-      if (!locations || locations?.length == 0) {
+      if (!locations || locations?.length === 0) {
         setValidationMessage("Cannot find the location entered");
       } else {
         setValidationMessage("Please choose a destination from the list");
       }
       return;
     }
-
-    if (
-      destinations.some((destination) => {
-        destination.label === selectedDestination.label;
-      })
-    ) {
-      console.log("conflict");
-      setValidationMessage("This destination has already been added");
-      return;
-    }
-    const label = { label: values.label };
+  
+    resetForm({ label: "" });
     setValidationMessage("");
+    setLocations([]);
+  
+    const label = { label: values.label };
     const newDestination = { ...selectedDestination, ...label };
     setDestinations([...destinations, newDestination]);
+  
     return addDestinationToUser(currentUser, newDestination, values.label)
       .then(() => {
         return returnUpdatedDestinationList(currentUser, setDestinations);
       })
       .then(() => {
-        console.log("destination added to database");
-
+        console.log("Destination added to the database");
         setSelectedDestination(null);
-        setQuery("");
-        resetForm();
         Keyboard.dismiss();
       });
   };
@@ -105,9 +107,7 @@ export default function AddDestination({ destinations, setDestinations }) {
             <Button
               onPress={handleSubmit}
               title="Add"
-              disabled={
-                !isValid || values.label === "" || selectedDestination === ""
-              }
+              disabled={!isValid || values.label === "" || selectedDestination === ""}
             />
           </View>
         )}
